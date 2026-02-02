@@ -2,44 +2,37 @@ import Link from 'next/link'
 
 export default function Navigation() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-emerald/95 backdrop-blur-sm border-b border-emerald-light/20">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-serif font-bold text-copper">
-              BETTER WEALTH
-            </span>
-          </Link>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/workshops" 
-              className="text-warmwhite hover:text-copper transition-colors duration-200 font-medium"
-            >
-              Workshops
-            </Link>
-            <Link 
-              href="/about" 
-              className="text-warmwhite hover:text-copper transition-colors duration-200 font-medium"
-            >
-              About
-            </Link>
-            <Link 
-              href="/contact" 
-              className="text-warmwhite hover:text-copper transition-colors duration-200 font-medium"
-            >
-              Contact
-            </Link>
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{ backgroundColor: '#033A22' }}
+    >
+      <div className="relative h-16 px-6 max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo - left */}
+        <Link href="/">
+          <div style={{ height: '40px', overflow: 'hidden' }} className="flex items-center">
+            <img
+              src="/logo-single-line.png"
+              alt="Better Wealth"
+              style={{ height: '160px', width: 'auto' }}
+            />
           </div>
+        </Link>
 
-          <Link 
-            href="/workshops"
-            className="hidden md:block px-6 py-2.5 bg-copper text-white rounded-full hover:bg-copper-dark transition-all duration-200 font-medium"
-          >
-            Explore Workshops
-          </Link>
+        {/* Nav links - absolutely centered, no transforms */}
+        <div className="absolute left-0 right-0 flex justify-center gap-8 pointer-events-none">
+          <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
+          <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
+          <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
         </div>
+
+        {/* CTA button - right */}
+        <Link
+          href="/workshops"
+          className="btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+        >
+          Explore Workshops
+        </Link>
       </div>
     </nav>
-  )
+  );
 }
