@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MobileNav from './MobileNav'
 
 export default function Navigation() {
   return (
@@ -18,20 +19,27 @@ export default function Navigation() {
           </div>
         </Link>
 
-        {/* Nav links - absolutely centered, no transforms */}
-        <div className="absolute left-0 right-0 flex justify-center gap-8 pointer-events-none">
+        {/* Nav links - absolutely centered, hidden on mobile */}
+        <div className="absolute left-0 right-0 hidden md:flex justify-center gap-8 pointer-events-none">
           <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
           <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
+          <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
           <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
         </div>
 
-        {/* CTA button - right */}
-        <Link
-          href="/workshops"
-          className="btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
-        >
-          Explore Workshops
-        </Link>
+        {/* Right side: CTA button (desktop) + Mobile menu button */}
+        <div className="flex items-center gap-2">
+          {/* CTA button - hidden on mobile */}
+          <Link
+            href="/workshops"
+            className="hidden md:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+          >
+            Explore Workshops
+          </Link>
+
+          {/* Mobile menu */}
+          <MobileNav />
+        </div>
       </div>
     </nav>
   );

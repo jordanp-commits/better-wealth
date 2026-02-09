@@ -1,8 +1,24 @@
+import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import FadeIn from '@/components/FadeIn'
 import FAQ from '@/components/FAQ'
+import Footer from '@/components/Footer'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Better Wealth | Marketing Education for Financial Services & Real Estate',
+  description: 'Face-to-face marketing workshops for mortgage brokers and financial advisors. Practical training with real deliverables. Manchester-based, FCA-compliant strategies.',
+  keywords: ['mortgage broker marketing', 'financial advisor marketing', 'FCA compliant marketing', 'broker workshops', 'Manchester', 'lead generation', 'financial services'],
+  alternates: {
+    canonical: 'https://better-wealth.co.uk',
+  },
+  openGraph: {
+    title: 'Better Wealth | Marketing Education for Financial Services & Real Estate',
+    description: 'Face-to-face marketing workshops for mortgage brokers and financial advisors. Practical training with real deliverables.',
+    url: 'https://better-wealth.co.uk',
+  },
+}
 
 export default function Home() {
   const accentLine = {
@@ -170,12 +186,12 @@ export default function Home() {
                       <div className="text-xl font-bold">15</div>
                     </div>
                     <div>
-                      <h3 className="text-base font-serif font-bold text-emerald">Paid Advertising for Mortgage Brokers</h3>
+                      <h3 className="text-base font-serif font-bold text-emerald">Paid Advertising Fundamentals for Lead Gen</h3>
                       <p className="text-sm mt-0.5" style={mutedDark}>Manchester • Full Day • Limited Places</p>
                     </div>
                   </div>
                   <p className="text-xs mt-2 leading-relaxed" style={{ color: '#6B7280' }}>Learn paid advertising strategies built specifically for mortgage brokers.</p>
-                  <Link href="/workshops" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
+                  <Link href="/workshops/paid-advertising" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
                 </div>
               </div>
             </FadeIn>
@@ -197,12 +213,12 @@ export default function Home() {
                       <div className="text-xl font-bold">01</div>
                     </div>
                     <div>
-                      <h3 className="text-base font-serif font-bold text-emerald">FCA Compliance & Qualification</h3>
+                      <h3 className="text-base font-serif font-bold text-emerald">Entering Financial Services</h3>
                       <p className="text-sm mt-0.5" style={mutedDark}>Manchester • Full Day • Limited Places</p>
                     </div>
                   </div>
                   <p className="text-xs mt-2 leading-relaxed" style={{ color: '#6B7280' }}>Master the compliance and qualification process to become FCA regulated.</p>
-                  <Link href="/workshops" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
+                  <Link href="/workshops/entering-financial-services" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
                 </div>
               </div>
             </FadeIn>
@@ -328,42 +344,7 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6" style={{ backgroundColor: '#022A18' }}>
-        <div className="max-w-6xl mx-auto">
-          <div className="w-full mb-8" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-            <div>
-              <div style={{ height: '32px', overflow: 'hidden', marginLeft: '-20px' }}>
-                <img src="/logo-single-line.png" alt="Better Wealth" style={{ height: '140px', width: 'auto', marginTop: '-54px' }} />
-              </div>
-              <p className="text-xs mt-3 max-w-xs leading-relaxed" style={{ color: 'rgba(250,250,248,0.4)' }}>
-                Marketing education and community for ambitious professionals in financial services.
-              </p>
-            </div>
-            <div className="flex gap-12">
-              <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider mb-3" style={{ color: 'rgba(250,250,248,0.85)' }}>Explore</h4>
-                <div className="space-y-2">
-                  <div><Link href="/workshops" className="text-sm footer-link">Workshops</Link></div>
-                  <div><Link href="/about" className="text-sm footer-link">About</Link></div>
-                  <div><Link href="/contact" className="text-sm footer-link">Contact</Link></div>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-xs font-medium uppercase tracking-wider mb-3" style={{ color: 'rgba(250,250,248,0.85)' }}>Legal</h4>
-                <div className="space-y-2">
-                  <div><Link href="#" className="text-sm footer-link">Privacy Policy</Link></div>
-                  <div><Link href="#" className="text-sm footer-link">Terms</Link></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="mt-10 pt-6" style={{ borderTop: '1px solid rgba(250,250,248,0.1)' }}>
-            <p className="text-xs" style={{ color: 'rgba(250,250,248,0.2)' }}>© 2026 Better Wealth. All rights reserved. better-wealth.co.uk</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
