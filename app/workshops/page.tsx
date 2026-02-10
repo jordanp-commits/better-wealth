@@ -37,7 +37,7 @@ export default function Workshops() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-28 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
+      <section className="pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <defs>
             <filter id="grain">
@@ -63,9 +63,9 @@ export default function Workshops() {
       </section>
 
       {/* Workshops Grid */}
-      <section className="py-28 px-6" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="py-12 md:py-16 lg:py-20 px-6" style={{ backgroundColor: '#F4F2EF' }}>
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Workshop Card 1: Paid Advertising */}
             <FadeIn delay={0} className="h-full">
               <Link href="/workshops/paid-advertising" className="block h-full">
@@ -78,8 +78,8 @@ export default function Workshops() {
                       className="w-full object-cover rounded-lg"
                     />
                   </div>
-                  <div className="p-8 flex-1 flex flex-col">
-                    <h3 className="text-emerald font-serif text-2xl md:text-3xl font-bold mb-3 min-h-[5rem]">
+                  <div className="p-6 md:p-8 flex-1 flex flex-col">
+                    <h3 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
                       Paid Advertising Fundamentals for Lead Gen
                     </h3>
                     <p className="text-xs mb-5" style={mutedDark}>
@@ -116,8 +116,8 @@ export default function Workshops() {
                       className="w-full object-cover rounded-lg"
                     />
                   </div>
-                  <div className="p-8 flex-1 flex flex-col">
-                    <h3 className="text-emerald font-serif text-2xl md:text-3xl font-bold mb-3 min-h-[5rem]">
+                  <div className="p-6 md:p-8 flex-1 flex flex-col">
+                    <h3 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
                       Entering Financial Services
                     </h3>
                     <p className="text-xs mb-5" style={mutedDark}>

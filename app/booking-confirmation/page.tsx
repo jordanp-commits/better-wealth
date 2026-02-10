@@ -4,6 +4,8 @@ import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
+import CalendarModal from '@/components/CalendarModal'
+import { generateCalendarUrls } from '@/lib/ics-generator'
 
 type BookingDetails = {
   workshopName: string
@@ -24,6 +26,7 @@ function BookingConfirmationContent() {
   const [loading, setLoading] = useState(true)
   const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null)
   const [error, setError] = useState(false)
+  const [isCalendarModalOpen, setIsCalendarModalOpen] = useState(false)
 
   useEffect(() => {
     if (sessionId) {
@@ -190,6 +193,22 @@ function BookingConfirmationContent() {
               </ul>
             </div>
 
+            {/* Add to Calendar Button - only show if we have valid date info */}
+            {bookingDetails.date && !bookingDetails.date.includes('confirmation email') && (
+              <div className="mb-6">
+                <button
+                  onClick={() => setIsCalendarModalOpen(true)}
+                  className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2"
+                  style={{ backgroundColor: '#C4926A', color: '#033A22' }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Add to Calendar
+                </button>
+              </div>
+            )}
+
             {/* Actions */}
             <div className="flex gap-4">
               <Link
@@ -206,6 +225,22 @@ function BookingConfirmationContent() {
               </Link>
             </div>
           </div>
+
+          {/* Calendar Modal - only render if we have valid date info */}
+          {bookingDetails && bookingDetails.date && !bookingDetails.date.includes('confirmation email') && (
+            <CalendarModal
+              isOpen={isCalendarModalOpen}
+              onClose={() => setIsCalendarModalOpen(false)}
+              calendarUrls={generateCalendarUrls({
+                workshopName: bookingDetails.workshopName,
+                workshopDate: bookingDetails.date,
+                workshopTime: bookingDetails.time,
+                location: 'Cortland by Colliers Yard, Salford, Manchester',
+                bookingReference: bookingDetails.bookingReference,
+                baseUrl: typeof window !== 'undefined' ? window.location.origin : 'https://better-wealth.co.uk',
+              })}
+            />
+          )}
 
           {/* Help Section */}
           <div className="text-center text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>

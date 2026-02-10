@@ -34,7 +34,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-28 px-6" style={{ backgroundColor: '#F4F2EF' }}>
+    <section className="pt-12 pb-16 md:pt-20 md:pb-24 px-6" style={{ backgroundColor: '#F4F2EF' }}>
       <div className="max-w-3xl mx-auto">
         <FadeIn>
           <div className="text-center mb-12">

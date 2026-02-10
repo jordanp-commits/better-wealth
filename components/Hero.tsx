@@ -40,29 +40,29 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="mt-20 py-20" style={border}>
-          <div className="w-48 mx-auto mb-12" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-          <div className="flex justify-center items-center gap-10 md:gap-16">
+        <div className="mt-12 md:mt-20 py-12 md:py-16" style={border}>
+          <div className="w-32 md:w-48 mx-auto mb-8 md:mb-12" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-16">
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-serif font-bold">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
                 <CountUp end={250} suffix="+" style={{ color: '#C4926A' }} />
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 font-medium" style={muted}>
                 Brokers Trained
               </div>
             </div>
-            <div className="w-px h-10" style={divider}></div>
+            <div className="hidden md:block w-px h-10" style={divider}></div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-serif font-bold">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
                 <CountUp end={12} suffix="+" style={{ color: '#C4926A' }} />
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 font-medium" style={muted}>
                 Workshops Delivered
               </div>
             </div>
-            <div className="w-px h-10" style={divider}></div>
+            <div className="hidden md:block w-px h-10" style={divider}></div>
             <div className="text-center">
-              <div className="text-5xl md:text-6xl font-serif font-bold">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold">
                 <CountUp end={95} prefix="£" suffix="k+" style={{ color: '#C4926A' }} />
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 font-medium" style={muted}>

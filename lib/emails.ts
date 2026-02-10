@@ -22,31 +22,6 @@ interface BookingEmailData {
 }
 
 /**
- * Generate Google Calendar link
- */
-function generateCalendarLink(data: BookingEmailData): string {
-  const startDate = new Date(data.workshopDate)
-  const [startTime] = data.workshopTime.split(' - ')
-  const [hours, minutes] = startTime.replace(/[^\d:]/g, '').split(':')
-  startDate.setHours(parseInt(hours), parseInt(minutes) || 0)
-
-  // Assume 4 hour workshop
-  const endDate = new Date(startDate.getTime() + 4 * 60 * 60 * 1000)
-
-  const formatDate = (date: Date) => date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
-
-  const params = new URLSearchParams({
-    action: 'TEMPLATE',
-    text: `Better Wealth Workshop: ${data.workshopName}`,
-    dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
-    details: `Booking Reference: ${data.bookingReference}\nAttendees: ${data.quantity}\n\nContact: info@better-wealth.co.uk`,
-    location: LOCATION,
-  })
-
-  return `https://calendar.google.com/calendar/render?${params.toString()}`
-}
-
-/**
  * Format currency in GBP
  */
 function formatCurrency(amount: number): string {
@@ -60,7 +35,15 @@ function formatCurrency(amount: number): string {
  * Generate customer confirmation email HTML
  */
 function generateCustomerEmailHtml(data: BookingEmailData): string {
-  const calendarLink = generateCalendarLink(data)
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://better-wealth.co.uk'
+  const icsParams = new URLSearchParams({
+    workshop: data.workshopName,
+    date: data.workshopDate,
+    time: data.workshopTime,
+    location: LOCATION,
+    ref: data.bookingReference,
+  })
+  const calendarDownloadUrl = `${siteUrl}/api/calendar?${icsParams.toString()}`
 
   return `
     <!DOCTYPE html>
@@ -169,9 +152,10 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
               <!-- Add to Calendar Button -->
               <tr>
                 <td style="padding: 0 32px 32px 32px; text-align: center;">
-                  <a href="${calendarLink}" target="_blank" style="display: inline-block; background-color: #C4926A; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: bold;">
+                  <a href="${calendarDownloadUrl}" style="display: inline-block; background-color: #C4926A; color: #033A22; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 14px; font-weight: bold;">
                     Add to Calendar
                   </a>
+                  <p style="color: #999999; font-size: 12px; margin: 12px 0 0 0;">Downloads a calendar file (.ics) that works with all calendar apps</p>
                 </td>
               </tr>
 

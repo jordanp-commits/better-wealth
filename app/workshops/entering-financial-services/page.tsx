@@ -29,12 +29,12 @@ export default function EnteringFinancialServicesWorkshop() {
       <Navigation />
 
       {/* Main Content Section */}
-      <section className="w-full py-16 lg:py-24" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="w-full pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24" style={{ backgroundColor: '#F4F2EF' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-16 items-start">
             {/* Left Column - Image */}
-            <FadeIn className="lg:col-span-2 pl-6 lg:pl-12">
-              <div className="relative w-full h-[400px] overflow-hidden rounded-2xl shadow-2xl">
+            <FadeIn className="lg:col-span-2 px-6 lg:pl-12 lg:pr-0">
+              <div className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/workshop-photo-6.jpeg"
                   alt="Entering Financial Services"
@@ -46,7 +46,7 @@ export default function EnteringFinancialServicesWorkshop() {
             </FadeIn>
 
             {/* Right Column - Content */}
-            <FadeIn delay={100} className="lg:col-span-3 pr-6 lg:pr-12">
+            <FadeIn delay={100} className="lg:col-span-3 px-6 lg:pl-0 lg:pr-12">
               <div className="p-8 lg:p-12 bg-white rounded-2xl" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
                 {/* Title */}
                 <h1 className="text-emerald text-3xl md:text-4xl font-serif font-bold mb-4">
@@ -132,7 +132,7 @@ export default function EnteringFinancialServicesWorkshop() {
       </section>
 
       {/* What's Included Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif font-bold text-emerald">What's Included</h2>

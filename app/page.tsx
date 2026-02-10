@@ -50,10 +50,10 @@ export default function Home() {
       </svg>
 
       {/* What We Offer */}
-      <section className="pt-28 pb-16 px-6 relative overflow-hidden" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="pt-16 pb-12 md:pt-20 md:pb-16 px-6 relative overflow-hidden" style={{ backgroundColor: '#F4F2EF' }}>
         <div className="max-w-6xl mx-auto relative z-10">
           <FadeIn>
-            <div className="text-center mb-24">
+            <div className="text-center mb-12 md:mb-20">
               <div className="w-12 mx-auto mb-6" style={accentLine}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>What We Offer</p>
               <h2 className="text-emerald text-3xl md:text-4xl font-serif font-bold mt-1 mb-6">
@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* How We Work */}
-      <section className="pt-16 pb-28 px-6" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="pt-8 pb-16 md:pt-12 md:pb-20 px-6" style={{ backgroundColor: '#F4F2EF' }}>
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
@@ -152,13 +152,13 @@ export default function Home() {
       </section>
 
       {/* Upcoming Workshops */}
-      <section className="py-28 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
+      <section className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
         <div className="max-w-5xl mx-auto relative z-10">
           <FadeIn>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-16">
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Upcoming</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-1">Upcoming Workshops</h2>
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Why Face-to-Face Matters */}
-      <section className="py-28 px-6" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="py-12 md:py-16 lg:py-20 px-6" style={{ backgroundColor: '#F4F2EF' }}>
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-8">
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Who You'll Meet */}
-      <section className="py-28 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
+      <section className="py-12 md:py-16 lg:py-20 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
@@ -262,15 +262,15 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="pt-24 pb-16 relative overflow-hidden" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="pt-12 pb-8 md:pt-20 md:pb-12 relative overflow-hidden" style={{ backgroundColor: '#F4F2EF' }}>
         <FadeIn>
-          <div className="text-center">
+          <div className="text-center px-6">
             <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Testimonials</p>
-            <h2 className="font-serif text-4xl md:text-5xl text-emerald mt-1">What Our Members Say</h2>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-emerald mt-1">What Our Members Say</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-6 mt-10 md:mt-16">
             <div className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
               <div className="font-serif text-7xl -mb-4" style={{ color: 'rgba(196,146,106,0.4)' }}>{"\u201C"}</div>
               <p className="font-serif italic text-sm leading-relaxed text-emerald-dark">
@@ -325,7 +325,7 @@ export default function Home() {
       <FAQ />
 
       {/* CTA */}
-      <section className="py-28 px-6 relative overflow-hidden">
+      <section className="py-16 md:py-24 px-6 relative overflow-hidden">
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
@@ -334,12 +334,13 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 60%, rgba(196, 146, 106, 0.08) 0%, transparent 50%)' }}></div>
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(3, 58, 34, 0.6) 0%, transparent 60%)' }}></div>
         <FadeIn>
-          <div className="relative z-10 max-w-3xl mx-auto text-center">
-            <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-4">Ready to Build Something Real?</h2>
-            <p className="max-w-xl mx-auto mb-8 leading-relaxed text-sm" style={{ color: 'rgba(250,250,248,0.6)' }}>
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <div className="w-12 h-0.5 mx-auto mb-6" style={{ background: '#C4926A' }}></div>
+            <h2 className="text-white text-3xl md:text-5xl font-serif font-bold mb-4 md:mb-6">Ready to Build Something Real?</h2>
+            <p className="max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed text-base md:text-lg" style={{ color: 'rgba(250,250,248,0.8)' }}>
               Join a community of professionals who are serious about growth. Not just talking about it.
             </p>
-            <Link href="/workshops" className="btn-copper inline-block px-8 py-3.5 text-white rounded-lg font-semibold text-sm shadow-lg">Explore Workshops</Link>
+            <Link href="/workshops" className="btn-copper inline-block px-10 py-4 text-white rounded-lg font-semibold text-base md:text-lg shadow-lg hover:scale-105 transition-transform duration-200">Explore Workshops</Link>
           </div>
         </FadeIn>
       </section>

@@ -195,18 +195,18 @@ export default function AboutPage() {
 
           {/* Stats */}
           <FadeIn delay={200}>
-            <div className="grid grid-cols-3 gap-8 mt-16 pt-12" style={{ borderTop: '1px solid rgba(196, 146, 106, 0.2)' }}>
+            <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 pt-12 px-2" style={{ borderTop: '1px solid rgba(196, 146, 106, 0.2)' }}>
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>250+</p>
-                <p className="text-xs uppercase tracking-wider mt-2" style={mutedLight}>Brokers Trained</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>250+</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Brokers Trained</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>12+</p>
-                <p className="text-xs uppercase tracking-wider mt-2" style={mutedLight}>Workshops Delivered</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>12+</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Workshops Delivered</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>£95k+</p>
-                <p className="text-xs uppercase tracking-wider mt-2" style={mutedLight}>Avg Revenue Increase</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold whitespace-nowrap" style={{ color: '#C4926A' }}>£95k+</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Avg Revenue Increase</p>
               </div>
             </div>
           </FadeIn>
