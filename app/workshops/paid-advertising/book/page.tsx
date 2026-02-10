@@ -192,11 +192,11 @@ function BookWorkshopContent() {
           </div>
 
           {/* Main Card */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h1 className="text-2xl font-serif font-bold text-emerald mb-2">
+          <div className="bg-white rounded-2xl py-8 md:py-12 px-8 shadow-lg">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-emerald mb-2">
               {workshop.name}
             </h1>
-            <p className="text-sm mb-8" style={{ color: 'rgba(0,0,0,0.6)' }}>
+            <p className="text-sm mb-8 md:mb-12" style={{ color: 'rgba(0,0,0,0.6)' }}>
               £{workshop.price / 100} per person
             </p>
 
@@ -404,13 +404,13 @@ function BookWorkshopContent() {
             {/* Step 3: Payment Summary */}
             {step === 3 && (
               <div>
-                <h2 className="text-lg font-medium text-emerald mb-4">Confirm & Pay</h2>
+                <h2 className="text-lg font-medium text-emerald mb-8">Confirm & Pay</h2>
 
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
                   <h3 className="font-medium mb-3">Booking Summary</h3>
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
+                    <div>
+                      <span className="block mb-1" style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
                       <span className="font-medium">{workshop.name}</span>
                     </div>
                     <div className="flex justify-between">

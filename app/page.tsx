@@ -65,11 +65,11 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          <div className="flex flex-col md:flex-row gap-8 md:gap-0">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-0 text-center">
             <FadeIn delay={0} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Workshops That Deliver Output, Not Theory</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   You don't need another seminar where someone talks at you for three hours. Our workshops are structured around tangible deliverables—whether that's a 90-day ad campaign you've already mapped out, compliance frameworks you can implement Monday morning, or lead generation systems ready to launch. We focus on execution, not inspiration.
                 </p>
               </div>
@@ -80,7 +80,7 @@ export default function Home() {
             <FadeIn delay={150} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Networks That Are Vetted, Not Volume-Driven</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   This isn't a free-for-all networking event. Membership is curated. We're building a community of ambitious, ethically-driven professionals who operate at a certain standard. Advisors, agents, and operators who respect the game, share insights openly, and contribute more than they take. If that sounds like you, you'll fit right in.
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function Home() {
             <FadeIn delay={300} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Education Built for Financial Services and Real Estate Reality</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Generic marketing advice doesn't work in regulated industries. Compliance matters. Client trust matters. Our programs are designed specifically for professionals in financial services and real estate who need strategies that work within the rules—and still generate real commercial outcomes.
                 </p>
               </div>
@@ -102,13 +102,13 @@ export default function Home() {
 
       {/* How We Work */}
       <section className="pt-8 pb-16 md:pt-12 md:pb-20 px-6" style={{ backgroundColor: '#F4F2EF' }}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <div className="text-center mb-12">
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Approach</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1 mb-6">How We Work</h2>
-              <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
+              <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                 Better Wealth operates across three core areas: Workshops, Bootcamps, and Private Networking Events.
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function Home() {
             <FadeIn delay={0}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Workshops</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Three-hour intensive sessions focused on specific marketing disciplines—paid advertising, compliance, lead generation systems. You walk in with a problem, you walk out with a plan.
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
             <FadeIn delay={100}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Bootcamps</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Multi-day immersive programs for businesses and professionals ready to overhaul their entire commercial operation. Marketing, operations, sales systems, team structure—we build it with you, not for you.
                 </p>
               </div>
@@ -136,14 +136,14 @@ export default function Home() {
             <FadeIn delay={200}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Private Networking Events</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Curated gatherings for vetted members focused on strategic discussions, deal flow opportunities, and high-level introductions. These aren't mixers. They're curated environments designed for professionals who value quality connections over quantity.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={300}>
-              <p className="text-sm text-center pt-6" style={mutedDark}>
+              <p className="text-sm text-center pt-6 max-w-3xl mx-auto" style={mutedDark}>
                 Workshops are open to all. Bootcamps and networking require application.
               </p>
             </FadeIn>

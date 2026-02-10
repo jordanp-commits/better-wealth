@@ -92,7 +92,7 @@ export default function AboutPage() {
 
       {/* The Problem Section */}
       <section className="py-24 px-6" style={{ backgroundColor: '#F4F2EF' }}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <div className="text-center mb-12">
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
@@ -104,13 +104,13 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={100}>
             <div className="space-y-6 text-sm leading-relaxed" style={mutedDark}>
-              <p>
+              <p className="max-w-3xl mx-auto">
                 We've all been there. You sign up for a marketing course, pay good money, and spend a day listening to someone talk about "building your brand" and "finding your voice." You leave with a notebook full of vague ideas and zero clarity on what to actually do Monday morning.
               </p>
-              <p>
+              <p className="max-w-3xl mx-auto">
                 The problem is simple: most marketing education is built for generic businesses, not regulated industries. The people teaching it have never had to navigate FCA compliance, never had to build trust in a sector where clients are inherently skeptical, and never had to generate leads without the luxury of aggressive sales tactics.
               </p>
-              <p>
+              <p className="max-w-3xl mx-auto">
                 Financial services and real estate professionals need strategies that work within the rules. Strategies that acknowledge the unique challenges of building a client pipeline when you can't make wild promises. That's where we come in.
               </p>
             </div>
