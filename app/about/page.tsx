@@ -78,7 +78,6 @@ export default function AboutPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 60%, rgba(196, 146, 106, 0.08) 0%, transparent 50%)' }}></div>
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>About Better Wealth</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
               Built by Brokers, For Brokers
@@ -95,7 +94,6 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <div className="text-center mb-12">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>The Problem</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
                 Most Marketing Training Is Broken
@@ -123,7 +121,6 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Approach</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
                 Execution Over Inspiration
@@ -169,7 +166,6 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-12">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Our Story</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
                 Started in a Spare Room, Scaled to Seven Figures
@@ -218,7 +214,6 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-center mb-16">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Values</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
                 What We Stand For

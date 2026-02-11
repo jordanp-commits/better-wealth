@@ -21,13 +21,8 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-  const accentLine = {
-    height: '2px',
-    background: 'linear-gradient(90deg, transparent, #C4926A, transparent)'
-  }
   const labelColor = { color: '#9d6d47' }
-  const copperLine = { height: '1px', background: '#C4926A' }
-    const cardBorder = {
+  const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
     boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
   }
@@ -54,7 +49,6 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-12 md:mb-20">
-              <div className="w-12 mx-auto mb-6" style={accentLine}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>What We Offer</p>
               <h2 className="text-emerald text-3xl md:text-4xl font-serif font-bold mt-1 mb-6">
                 What We Offer
@@ -105,7 +99,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
             <div className="text-center mb-12">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Approach</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1 mb-6">How We Work</h2>
               <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
@@ -159,7 +152,6 @@ export default function Home() {
         <div className="max-w-5xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-10 md:mb-16">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Upcoming</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-1">Upcoming Workshops</h2>
               <p className="mt-3 max-w-lg mx-auto text-base" style={mutedLight}>
@@ -231,7 +223,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-8">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Philosophy</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1 mb-6">Why Face-to-Face Matters</h2>
               <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
@@ -250,7 +241,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center mb-8">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>The Community</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-1 mb-6">Who You'll Meet</h2>
               <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
@@ -265,7 +255,6 @@ export default function Home() {
       <section className="pt-12 pb-8 md:pt-20 md:pb-12 relative overflow-hidden" style={{ backgroundColor: '#F4F2EF' }}>
         <FadeIn>
           <div className="text-center px-6">
-            <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#9d6d47' }}>Testimonials</p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-emerald mt-1">What Our Members Say</h2>
           </div>

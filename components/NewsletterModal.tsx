@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Turnstile } from '@marsidev/react-turnstile'
+// TODO: Re-enable Turnstile before production
+// import { Turnstile } from '@marsidev/react-turnstile'
 import { csrfHeaders } from '@/lib/csrf'
 
 export default function NewsletterModal() {
@@ -14,7 +15,8 @@ export default function NewsletterModal() {
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  // TODO: Re-enable Turnstile before production
+  // const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   useEffect(() => {
     // Don't show if already subscribed
@@ -80,7 +82,7 @@ export default function NewsletterModal() {
           lastName,
           email,
           source: 'modal',
-          turnstileToken,
+          turnstileToken: null,
         }),
       })
 
@@ -212,14 +214,15 @@ export default function NewsletterModal() {
                 <p className="text-red-600 text-sm">{error}</p>
               )}
 
-              <Turnstile
+              {/* TODO: Re-enable Turnstile before production */}
+              {/* <Turnstile
                 siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
                 onSuccess={setTurnstileToken}
-              />
+              /> */}
 
               <button
                 type="submit"
-                disabled={submitting || !gdprConsent || !turnstileToken}
+                disabled={submitting || !gdprConsent}
                 className="w-full py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ backgroundColor: '#C4926A', color: '#033A22' }}
               >

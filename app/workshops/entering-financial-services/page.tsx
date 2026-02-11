@@ -71,8 +71,6 @@ export default function EnteringFinancialServicesWorkshop() {
                   </div>
                 </div>
 
-                <div className="w-16 h-1 my-8" style={{ background: 'linear-gradient(90deg, #C4926A, transparent)' }}></div>
-
                 {/* Overview */}
                 <div className="space-y-4 text-base leading-relaxed mb-10" style={mutedDark}>
                   <p>
@@ -86,7 +84,6 @@ export default function EnteringFinancialServicesWorkshop() {
                   </p>
                 </div>
 
-                <div className="w-full h-px my-8" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
 
                 {/* What You'll Learn */}
                 <div className="mb-10">
@@ -105,7 +102,6 @@ export default function EnteringFinancialServicesWorkshop() {
                   </div>
                 </div>
 
-                <div className="w-full h-px my-8" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
 
                 {/* Available Dates */}
                 <div className="mb-10">

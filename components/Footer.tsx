@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Instagram, Facebook, Linkedin } from 'lucide-react'
-import { Turnstile } from '@marsidev/react-turnstile'
+// TODO: Re-enable Turnstile before production
+// import { Turnstile } from '@marsidev/react-turnstile'
 import { csrfHeaders } from '@/lib/csrf'
 
 // Custom TikTok icon since Lucide doesn't have one
@@ -50,7 +51,8 @@ export default function Footer() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
   const [alreadySubscribed, setAlreadySubscribed] = useState(false)
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  // TODO: Re-enable Turnstile before production
+  // const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -67,7 +69,7 @@ export default function Footer() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...csrfHeaders() },
-        body: JSON.stringify({ email, source: 'footer', turnstileToken }),
+        body: JSON.stringify({ email, source: 'footer', turnstileToken: null }),
       })
 
       const data = await response.json()
@@ -138,13 +140,14 @@ export default function Footer() {
                       style={{ borderColor: 'rgba(255,255,255,0.2)' }}
                       required
                     />
-                    <Turnstile
+                    {/* TODO: Re-enable Turnstile before production */}
+                    {/* <Turnstile
                       siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
                       onSuccess={setTurnstileToken}
-                    />
+                    /> */}
                     <button
                       type="submit"
-                      disabled={submitting || !turnstileToken}
+                      disabled={submitting}
                       className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50"
                       style={{ backgroundColor: '#C4926A', color: '#033A22' }}
                     >
@@ -167,10 +170,6 @@ export default function Footer() {
         </section>
 
         {/* Main Footer Content */}
-        <div
-          className="w-full mb-8"
-          style={{ height: '1px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}
-        />
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8">
           <div>
             <div style={{ height: '32px', overflow: 'hidden', marginLeft: '-20px' }}>

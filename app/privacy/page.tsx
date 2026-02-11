@@ -46,7 +46,6 @@ export default function PrivacyPolicyPage() {
         </svg>
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Legal</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-4">
               Privacy Policy

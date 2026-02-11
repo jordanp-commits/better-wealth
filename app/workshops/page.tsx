@@ -20,10 +20,6 @@ export const metadata: Metadata = {
 }
 
 export default function Workshops() {
-  const accentLine = {
-    height: '2px',
-    background: 'linear-gradient(90deg, transparent, #C4926A, transparent)'
-  }
   const labelColor = { color: '#9d6d47' }
   const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
@@ -49,7 +45,6 @@ export default function Workshops() {
         <div className="max-w-4xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center">
-              <div className="w-12 mx-auto mb-6" style={accentLine}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Workshops</p>
               <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mt-1 mb-6">
                 Practical Marketing Education

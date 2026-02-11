@@ -68,7 +68,6 @@ export default function PartnershipsPage() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(196, 146, 106, 0.12) 0%, transparent 55%)' }}></div>
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Partnerships</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
               Let's Build Something Together
@@ -85,7 +84,6 @@ export default function PartnershipsPage() {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-center mb-16">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Partnership Opportunities</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
                 How We Work Together
@@ -226,7 +224,6 @@ export default function PartnershipsPage() {
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Who We Work With</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mb-4">
                 Our Partners
@@ -422,7 +419,6 @@ export default function PartnershipsPage() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-16">
-              <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Get Started</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
                 Partnership Process

@@ -5,7 +5,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Navigation from '@/components/Navigation'
 import { supabase } from '@/lib/supabase'
 import { loadStripe } from '@stripe/stripe-js'
-import { Turnstile } from '@marsidev/react-turnstile'
+// TODO: Re-enable Turnstile before production
+// import { Turnstile } from '@marsidev/react-turnstile'
 import { csrfHeaders } from '@/lib/csrf'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
@@ -36,7 +37,8 @@ function BookWorkshopContent() {
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [datePreSelected, setDatePreSelected] = useState(false)
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  // TODO: Re-enable Turnstile before production
+  // const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   // Form data
   const [selectedDateId, setSelectedDateId] = useState('')
@@ -127,7 +129,7 @@ function BookWorkshopContent() {
           email,
           phone,
           company,
-          turnstileToken,
+          turnstileToken: null,
         }),
       })
 
@@ -464,10 +466,11 @@ function BookWorkshopContent() {
                   </div>
                 </div>
 
-                <Turnstile
+                {/* TODO: Re-enable Turnstile before production */}
+                {/* <Turnstile
                   siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
                   onSuccess={setTurnstileToken}
-                />
+                /> */}
 
                 <div className="flex gap-4">
                   <button
@@ -479,7 +482,7 @@ function BookWorkshopContent() {
                   </button>
                   <button
                     onClick={handlePayment}
-                    disabled={submitting || !turnstileToken}
+                    disabled={submitting}
                     className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {submitting ? 'Processing...' : `Pay £${totalPrice} →`}

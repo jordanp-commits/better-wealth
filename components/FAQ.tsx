@@ -38,7 +38,6 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto">
         <FadeIn>
           <div className="text-center mb-12">
-            <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
             <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#9d6d47' }}>FAQ</p>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1">
               Frequently Asked Questions
