@@ -50,7 +50,7 @@ export default function CalendarModal({ isOpen, onClose, calendarUrls }: Calenda
           <h2 className="text-2xl font-serif font-bold text-[#033A22] mb-2">
             Add to Calendar
           </h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 text-base">
             Choose your preferred calendar service
           </p>
         </div>

@@ -1,10 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase-admin'
+import { sanitizeInput } from '@/lib/sanitize'
+import { verifyTurnstileToken } from '@/lib/turnstile'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, firstName, lastName, source = 'footer' } = body
+
+    // Verify Turnstile token
+    const turnstileValid = await verifyTurnstileToken(body.turnstileToken || '')
+    if (!turnstileValid) {
+      return NextResponse.json(
+        { error: 'Bot verification failed' },
+        { status: 400 }
+      )
+    }
+
+    const email = sanitizeInput(body.email || '')
+    const firstName = sanitizeInput(body.firstName || '')
+    const lastName = sanitizeInput(body.lastName || '')
+    const source = sanitizeInput(body.source || 'footer')
 
     // Validate email
     if (!email) {

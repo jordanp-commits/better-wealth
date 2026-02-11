@@ -91,14 +91,14 @@ function BookingConfirmationContent() {
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-2xl mx-auto">
           {/* Success Card */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg mb-6">
+          <section aria-label="Booking confirmation" className="bg-white rounded-2xl p-8 shadow-lg mb-6">
             {/* Success Icon */}
             <div className="text-center mb-6">
               <div
                 className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4"
                 style={{ backgroundColor: 'rgba(3, 58, 34, 0.1)' }}
               >
-                <svg className="w-8 h-8" style={{ color: '#033A22' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8" style={{ color: '#033A22' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -116,7 +116,7 @@ function BookingConfirmationContent() {
             <div className="border-t border-b py-6 my-6" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
               <h2 className="font-medium text-emerald mb-4">Booking Details</h2>
 
-              <div className="space-y-3 text-sm">
+              <div className="space-y-3 text-base">
                 <div className="flex justify-between">
                   <span style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
                   <span className="font-medium text-right">{bookingDetails.workshopName}</span>
@@ -166,7 +166,7 @@ function BookingConfirmationContent() {
 
             {/* Booking Reference */}
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#C4926A' }}>
+              <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>
                 Booking Reference
               </p>
               <p className="font-mono text-lg font-bold text-emerald">
@@ -177,17 +177,17 @@ function BookingConfirmationContent() {
             {/* What's Next */}
             <div className="mb-6">
               <h3 className="font-medium text-emerald mb-3">What happens next?</h3>
-              <ul className="space-y-2 text-sm" style={{ color: 'rgba(0,0,0,0.7)' }}>
+              <ul className="space-y-2 text-base" style={{ color: 'rgba(0,0,0,0.7)' }}>
                 <li className="flex items-start">
-                  <span className="mr-2">✓</span>
+                  <span className="mr-2" aria-hidden="true">✓</span>
                   <span>You'll receive a confirmation email with all workshop details</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="mr-2">✓</span>
+                  <span className="mr-2" aria-hidden="true">✓</span>
                   <span>We'll send you a reminder email 1 week before the workshop</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="mr-2">✓</span>
+                  <span className="mr-2" aria-hidden="true">✓</span>
                   <span>You'll receive a final reminder 1 day before with directions and parking info</span>
                 </li>
               </ul>
@@ -201,7 +201,7 @@ function BookingConfirmationContent() {
                   className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2"
                   style={{ backgroundColor: '#C4926A', color: '#033A22' }}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Add to Calendar
@@ -224,7 +224,7 @@ function BookingConfirmationContent() {
                 Return Home
               </Link>
             </div>
-          </div>
+          </section>
 
           {/* Calendar Modal - only render if we have valid date info */}
           {bookingDetails && bookingDetails.date && !bookingDetails.date.includes('confirmation email') && (
@@ -243,9 +243,9 @@ function BookingConfirmationContent() {
           )}
 
           {/* Help Section */}
-          <div className="text-center text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>
+          <div className="text-center text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>
             <p>Questions about your booking?</p>
-            <Link href="/contact" className="underline" style={{ color: '#C4926A' }}>
+            <Link href="/contact" className="underline" style={{ color: '#9d6d47' }}>
               Contact us for assistance
             </Link>
           </div>

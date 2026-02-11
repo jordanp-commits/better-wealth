@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { Turnstile } from '@marsidev/react-turnstile'
+import { csrfHeaders } from '@/lib/csrf'
 import FadeIn from '@/components/FadeIn'
 import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
@@ -15,6 +17,7 @@ function TikTokIcon({ className }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
     </svg>
@@ -35,11 +38,12 @@ interface FormData {
   phone: string
   company: string
   message: string
+  marketingOptIn: boolean
 }
 
 export default function ContactPage() {
-  const labelColor = { color: '#C4926A' }
-  const mutedLight = { color: 'rgba(250,250,248,0.45)' }
+  const labelColor = { color: '#9d6d47' }
+  const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
   const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
@@ -52,10 +56,12 @@ export default function ContactPage() {
     email: '',
     phone: '',
     company: '',
-    message: ''
+    message: '',
+    marketingOptIn: false
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -69,8 +75,8 @@ export default function ContactPage() {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: { 'Content-Type': 'application/json', ...csrfHeaders() },
+        body: JSON.stringify({ ...formData, turnstileToken })
       })
 
       if (response.ok) {
@@ -81,7 +87,8 @@ export default function ContactPage() {
           email: '',
           phone: '',
           company: '',
-          message: ''
+          message: '',
+          marketingOptIn: false
         })
       }
     } catch (error) {
@@ -102,14 +109,14 @@ export default function ContactPage() {
           <Link href="/">
             <div style={{ height: '40px', overflow: 'hidden' }} className="flex items-center">
               <img
-                src="/logo-single-line.png"
-                alt="Better Wealth"
+                src="/logo-single-line.svg"
+                alt="Better Wealth - Home"
                 style={{ height: '160px', width: 'auto' }}
               />
             </div>
           </Link>
 
-          <div className="absolute left-0 right-0 hidden md:flex justify-center gap-8 pointer-events-none">
+          <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
             <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
             <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
@@ -119,7 +126,7 @@ export default function ContactPage() {
           <div className="flex items-center gap-2">
             <Link
               href="/workshops"
-              className="hidden md:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+              className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
               Explore Workshops
             </Link>
@@ -146,7 +153,7 @@ export default function ContactPage() {
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-            <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Get In Touch</p>
+            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Get In Touch</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
               Let's Talk
             </h1>
@@ -165,7 +172,7 @@ export default function ContactPage() {
             <FadeIn>
               <div>
                 <h2 className="text-2xl font-serif font-bold text-emerald mb-4">Contact Information</h2>
-                <p className="text-sm leading-relaxed mb-10" style={mutedDark}>
+                <p className="text-base leading-relaxed mb-10" style={mutedDark}>
                   Whether you're ready to book a workshop or just want to learn more about what we do, we're happy to chat. No sales pitch—just straight answers.
                 </p>
 
@@ -173,7 +180,7 @@ export default function ContactPage() {
                 <div className="mb-10">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                      <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -182,18 +189,18 @@ export default function ContactPage() {
                   <a
                     href="mailto:info@better-wealth.co.uk"
                     className="text-base font-medium transition-colors duration-200 hover:opacity-80"
-                    style={{ color: '#C4926A' }}
+                    style={{ color: '#9d6d47' }}
                   >
                     info@better-wealth.co.uk
                   </a>
-                  <p className="text-xs mt-1" style={mutedDark}>We typically respond within 24 hours</p>
+                  <p className="text-sm mt-1" style={mutedDark}>We typically respond within 24 hours</p>
                 </div>
 
                 {/* Social Media */}
                 <div className="mb-10">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                      <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                       </svg>
                     </div>
@@ -214,7 +221,7 @@ export default function ContactPage() {
                       </a>
                     ))}
                   </div>
-                  <p className="text-xs" style={mutedDark}>Behind the scenes and workshop updates</p>
+                  <p className="text-sm" style={mutedDark}>Behind the scenes and workshop updates</p>
                 </div>
 
                 {/* Quick Links */}
@@ -222,15 +229,15 @@ export default function ContactPage() {
                   <h3 className="text-lg font-serif font-bold text-emerald mb-4">Quick Links</h3>
                   <div className="space-y-3">
                     <Link href="/workshops" className="flex items-center gap-2 text-sm text-emerald hover:opacity-70 transition-opacity">
-                      <span style={{ color: '#C4926A' }}>→</span>
+                      <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
                       View Upcoming Workshops
                     </Link>
                     <Link href="/partnerships" className="flex items-center gap-2 text-sm text-emerald hover:opacity-70 transition-opacity">
-                      <span style={{ color: '#C4926A' }}>→</span>
+                      <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
                       Partnership Opportunities
                     </Link>
                     <Link href="/about" className="flex items-center gap-2 text-sm text-emerald hover:opacity-70 transition-opacity">
-                      <span style={{ color: '#C4926A' }}>→</span>
+                      <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
                       About Better Wealth
                     </Link>
                   </div>
@@ -246,8 +253,8 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-emerald mb-2">
-                        First Name <span style={{ color: '#C4926A' }}>*</span>
+                      <label htmlFor="firstName" className="block text-base font-medium text-emerald mb-2">
+                        First Name <span style={{ color: '#9d6d47' }}>*</span>
                       </label>
                       <input
                         type="text"
@@ -261,8 +268,8 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-emerald mb-2">
-                        Last Name <span style={{ color: '#C4926A' }}>*</span>
+                      <label htmlFor="lastName" className="block text-base font-medium text-emerald mb-2">
+                        Last Name <span style={{ color: '#9d6d47' }}>*</span>
                       </label>
                       <input
                         type="text"
@@ -278,8 +285,8 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-emerald mb-2">
-                      Email <span style={{ color: '#C4926A' }}>*</span>
+                    <label htmlFor="email" className="block text-base font-medium text-emerald mb-2">
+                      Email <span style={{ color: '#9d6d47' }}>*</span>
                     </label>
                     <input
                       type="email"
@@ -294,7 +301,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-emerald mb-2">
+                    <label htmlFor="phone" className="block text-base font-medium text-emerald mb-2">
                       Phone Number
                     </label>
                     <input
@@ -309,7 +316,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-emerald mb-2">
+                    <label htmlFor="company" className="block text-base font-medium text-emerald mb-2">
                       Company
                     </label>
                     <input
@@ -324,24 +331,49 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-emerald mb-2">
-                      Message <span style={{ color: '#C4926A' }}>*</span>
+                    <label htmlFor="message" className="block text-base font-medium text-emerald mb-2">
+                      Message <span style={{ color: '#9d6d47' }}>*</span>
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      maxLength={1500}
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-emerald focus:outline-none transition-colors text-sm resize-none"
                       style={{ borderColor: 'rgba(0,0,0,0.15)' }}
                     />
+                    <p className="text-xs text-right mt-1" style={{ color: formData.message.length > 1500 ? '#dc2626' : 'rgba(0,0,0,0.35)' }}>
+                      {formData.message.length}/1,500 characters
+                    </p>
                   </div>
+
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="marketingOptIn"
+                      checked={formData.marketingOptIn}
+                      onChange={(e) => setFormData(prev => ({ ...prev, marketingOptIn: e.target.checked }))}
+                      className="mt-1 w-4 h-4 rounded border-gray-300 text-[#033A22] focus:ring-[#033A22]"
+                    />
+                    <label htmlFor="marketingOptIn" className="text-base" style={mutedDark}>
+                      I'd like to receive marketing emails from Better Wealth.{' '}
+                      <Link href="/privacy" className="underline hover:text-[#C4926A]">
+                        Privacy Policy
+                      </Link>
+                    </label>
+                  </div>
+
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
+                    onSuccess={setTurnstileToken}
+                  />
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || formData.message.length > 1500 || !turnstileToken}
                     className="w-full py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ backgroundColor: '#C4926A' }}
                   >
@@ -368,7 +400,7 @@ export default function ContactPage() {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mb-4">
                 Common Questions
               </h2>
-              <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
+              <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
                 Before you reach out, here are answers to our most frequently asked questions.
               </p>
             </div>
@@ -376,30 +408,30 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             <FadeIn delay={0}>
-              <div className="bg-white p-6 rounded-xl" style={cardBorder}>
+              <article className="bg-white p-6 rounded-xl" style={cardBorder}>
                 <h3 className="text-base font-serif font-bold text-emerald mb-2">Can I bring a colleague to a workshop?</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   Yes, each person books separately. If you're booking 3 or more places, you'll receive a 10% group discount automatically applied at checkout.
                 </p>
-              </div>
+              </article>
             </FadeIn>
 
             <FadeIn delay={100}>
-              <div className="bg-white p-6 rounded-xl" style={cardBorder}>
+              <article className="bg-white p-6 rounded-xl" style={cardBorder}>
                 <h3 className="text-base font-serif font-bold text-emerald mb-2">Do you offer private workshops for teams?</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   Yes, we offer bespoke workshops for firms looking to train their entire team. Get in touch to discuss your requirements and we'll create a tailored programme.
                 </p>
-              </div>
+              </article>
             </FadeIn>
 
             <FadeIn delay={200}>
-              <div className="bg-white p-6 rounded-xl" style={cardBorder}>
+              <article className="bg-white p-6 rounded-xl" style={cardBorder}>
                 <h3 className="text-base font-serif font-bold text-emerald mb-2">What's your refund policy?</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   We offer full refunds up to 14 days before the workshop date. After that, you can transfer your booking to a future date or send a colleague in your place.
                 </p>
-              </div>
+              </article>
             </FadeIn>
           </div>
         </div>
@@ -423,12 +455,12 @@ export default function ContactPage() {
               className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center"
               style={{ backgroundColor: '#033A22' }}
             >
-              <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+              <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <h3 className="text-2xl font-serif font-bold text-emerald mb-3">Message Sent!</h3>
-            <p className="text-sm leading-relaxed mb-6" style={mutedDark}>
+            <p className="text-base leading-relaxed mb-6" style={mutedDark}>
               Thank you for getting in touch. We've received your message and will respond within 24 hours.
             </p>
             <button

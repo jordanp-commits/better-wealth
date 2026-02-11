@@ -2,7 +2,7 @@ import Link from 'next/link'
 import CountUp from '@/components/CountUp'
 
 export default function Hero() {
-  const muted = { color: 'rgba(250, 250, 248, 0.55)' }
+  const muted = { color: '#B8D4C5' }
   const divider = { backgroundColor: 'rgba(250, 250, 248, 0.15)' }
   const subtext = { color: 'rgba(250, 250, 248, 0.88)' }
   const border = { borderTop: '1px solid rgba(250, 250, 248, 0.12)' }
@@ -21,7 +21,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-16 text-center">
         <div className="mt-10 mb-4">
-          <img src="/brand-mark.png" alt="Better Wealth" className="h-32 w-auto mx-auto" />
+          <img src="/brand-mark.svg" alt="Better Wealth logo" className="h-32 w-auto mx-auto" />
         </div>
 
         <h1 className="text-metallic font-serif font-bold leading-tight mb-6 text-4xl md:text-5xl lg:text-6xl">

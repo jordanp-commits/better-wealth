@@ -6,8 +6,8 @@ import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 
 export default function PartnershipsPage() {
-  const labelColor = { color: '#C4926A' }
-  const mutedLight = { color: 'rgba(250,250,248,0.45)' }
+  const labelColor = { color: '#9d6d47' }
+  const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
   const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
@@ -25,14 +25,14 @@ export default function PartnershipsPage() {
           <Link href="/">
             <div style={{ height: '40px', overflow: 'hidden' }} className="flex items-center">
               <img
-                src="/logo-single-line.png"
-                alt="Better Wealth"
+                src="/logo-single-line.svg"
+                alt="Better Wealth - Home"
                 style={{ height: '160px', width: 'auto' }}
               />
             </div>
           </Link>
 
-          <div className="absolute left-0 right-0 hidden md:flex justify-center gap-8 pointer-events-none">
+          <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
             <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
             <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-sm font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>Partnerships</Link>
@@ -42,7 +42,7 @@ export default function PartnershipsPage() {
           <div className="flex items-center gap-2">
             <Link
               href="/workshops"
-              className="hidden md:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+              className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
               Explore Workshops
             </Link>
@@ -69,7 +69,7 @@ export default function PartnershipsPage() {
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-            <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Partnerships</p>
+            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Partnerships</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
               Let's Build Something Together
             </h1>
@@ -97,12 +97,12 @@ export default function PartnershipsPage() {
             <FadeIn delay={0} className="h-full">
               <div className="bg-white p-8 rounded-2xl h-full flex flex-col" style={cardBorder}>
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Corporate Training</h3>
-                <p className="text-sm leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
+                <p className="text-base leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
                   Bespoke workshops for brokerage networks, advisory firms, and estate agency groups. Tailored to your team's needs with ongoing support.
                 </p>
                 <p className="text-xs text-center" style={labelColor}>
@@ -114,12 +114,12 @@ export default function PartnershipsPage() {
             <FadeIn delay={100} className="h-full">
               <div className="bg-white p-8 rounded-2xl h-full flex flex-col" style={cardBorder}>
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Network Partners</h3>
-                <p className="text-sm leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
+                <p className="text-base leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
                   Exclusive training benefits for professional networks and industry bodies. Discounted member rates, co-branded materials, and priority booking.
                 </p>
                 <p className="text-xs text-center" style={labelColor}>
@@ -131,12 +131,12 @@ export default function PartnershipsPage() {
             <FadeIn delay={200} className="h-full">
               <div className="bg-white p-8 rounded-2xl h-full flex flex-col" style={cardBorder}>
                 <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Technology Partners</h3>
-                <p className="text-sm leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
+                <p className="text-base leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
                   Integration workshops and co-created content for CRM providers and marketing platforms serving financial services or real estate.
                 </p>
                 <p className="text-xs text-center" style={labelColor}>
@@ -152,11 +152,11 @@ export default function PartnershipsPage() {
       <section className="py-16 bg-white overflow-hidden">
         <FadeIn>
           <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-widest" style={labelColor}>Our Accreditations</p>
+            <h2 className="text-sm uppercase tracking-widest" style={labelColor}>Our Accreditations</h2>
           </div>
         </FadeIn>
 
-        <div className="relative">
+        <div className="relative overflow-hidden">
           {/* Gradient fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
@@ -190,31 +190,31 @@ export default function PartnershipsPage() {
                 <img src="/accreditations/trading-standards-logo.png" alt="Trading Standards Approved" className="h-10 w-auto accreditation-logo" />
               </div>
             </div>
-            {/* Duplicate set for seamless loop */}
-            <div className="flex items-center gap-16 px-8">
+            {/* Duplicate set for seamless loop — decorative duplicates, hidden from screen readers */}
+            <div className="flex items-center gap-16 px-8" aria-hidden="true">
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/fca-logo.png" alt="FCA Regulated" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/fca-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/cii-logo.png" alt="Chartered Insurance Institute" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/cii-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/libf-logo.png" alt="London Institute of Banking & Finance" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/libf-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/naea-logo.png" alt="NAEA Propertymark" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/naea-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/arla-logo.png" alt="ARLA Propertymark" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/arla-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/biba-logo.png" alt="British Insurance Brokers Association" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/biba-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/cpd-logo.png" alt="CPD Certified" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/cpd-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
               <div className="flex-shrink-0 h-12 flex items-center justify-center px-6">
-                <img src="/accreditations/trading-standards-logo.png" alt="Trading Standards Approved" className="h-10 w-auto accreditation-logo" />
+                <img src="/accreditations/trading-standards-logo.png" alt="" className="h-10 w-auto accreditation-logo" />
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function PartnershipsPage() {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mb-4">
                 Our Partners
               </h2>
-              <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
+              <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
                 We're proud to work with leading organizations in financial services and real estate.
               </p>
             </div>
@@ -246,7 +246,7 @@ export default function PartnershipsPage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div
+                <article
                   className="bg-white p-8 rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   style={cardBorder}
                 >
@@ -258,13 +258,13 @@ export default function PartnershipsPage() {
                     />
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Primis Mortgage Network</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
                     We deliver exclusive marketing workshops for Primis members, helping brokers across their network build sustainable lead generation systems.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
                   </span>
-                </div>
+                </article>
               </a>
             </FadeIn>
 
@@ -276,7 +276,7 @@ export default function PartnershipsPage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div
+                <article
                   className="bg-white p-8 rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   style={cardBorder}
                 >
@@ -288,13 +288,13 @@ export default function PartnershipsPage() {
                     />
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Openwork Partnership</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
                     Providing bespoke training programs for Openwork advisors, focusing on compliant digital marketing and client acquisition strategies.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
                   </span>
-                </div>
+                </article>
               </a>
             </FadeIn>
 
@@ -306,7 +306,7 @@ export default function PartnershipsPage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div
+                <article
                   className="bg-white p-8 rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   style={cardBorder}
                 >
@@ -318,13 +318,13 @@ export default function PartnershipsPage() {
                     />
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Mortgage Advice Bureau</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
                     Partnering with MAB to deliver regional training events, equipping their advisors with modern marketing techniques for local lead generation.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
                   </span>
-                </div>
+                </article>
               </a>
             </FadeIn>
 
@@ -336,7 +336,7 @@ export default function PartnershipsPage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div
+                <article
                   className="bg-white p-8 rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   style={cardBorder}
                 >
@@ -348,13 +348,13 @@ export default function PartnershipsPage() {
                     />
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Sesame Bankhall Group</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
                     Collaborating on professional development initiatives, bringing our workshop methodology to advisors across the Sesame network.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
                   </span>
-                </div>
+                </article>
               </a>
             </FadeIn>
 
@@ -366,7 +366,7 @@ export default function PartnershipsPage() {
                 rel="noopener noreferrer"
                 className="block h-full"
               >
-                <div
+                <article
                   className="bg-white p-8 rounded-2xl h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   style={cardBorder}
                 >
@@ -378,13 +378,13 @@ export default function PartnershipsPage() {
                     />
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Quilter Financial Planning</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-grow" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
                     Supporting Quilter's advisor development program with specialized marketing education focused on high-net-worth client acquisition.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
                   </span>
-                </div>
+                </article>
               </a>
             </FadeIn>
 
@@ -399,15 +399,15 @@ export default function PartnershipsPage() {
                   style={{ ...cardBorder, borderStyle: 'dashed' }}
                 >
                   <div className="w-16 h-16 mb-6 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110" style={{ backgroundColor: 'rgba(196, 146, 106, 0.1)' }}>
-                    <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
                     </svg>
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Become a Partner</h3>
-                  <p className="text-sm leading-relaxed mb-4 text-center" style={mutedDark}>
+                  <p className="text-base leading-relaxed mb-4 text-center" style={mutedDark}>
                     Interested in partnering with Better Wealth? We'd love to hear from you.
                   </p>
-                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#C4926A' }}>
+                  <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Get In Touch →
                   </span>
                 </div>
@@ -437,7 +437,7 @@ export default function PartnershipsPage() {
                   1
                 </div>
                 <h3 className="text-emerald font-serif text-lg font-bold mb-3">Initial Conversation</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   Email info@better-wealth.co.uk with details about your organization. We'll schedule a 30-minute call to discuss fit.
                 </p>
               </div>
@@ -449,7 +449,7 @@ export default function PartnershipsPage() {
                   2
                 </div>
                 <h3 className="text-emerald font-serif text-lg font-bold mb-3">Proposal Development</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   We'll create a tailored partnership proposal. Typically takes 5-7 days.
                 </p>
               </div>
@@ -461,7 +461,7 @@ export default function PartnershipsPage() {
                   3
                 </div>
                 <h3 className="text-emerald font-serif text-lg font-bold mb-3">Agreement & Launch</h3>
-                <p className="text-sm leading-relaxed" style={mutedDark}>
+                <p className="text-base leading-relaxed" style={mutedDark}>
                   Formalize partnership and begin implementation. Most partnerships are live within 3-4 weeks.
                 </p>
               </div>
@@ -482,7 +482,7 @@ export default function PartnershipsPage() {
             <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-4">
               Ready to Explore a Partnership?
             </h2>
-            <p className="max-w-xl mx-auto mb-8 leading-relaxed text-sm" style={{ color: 'rgba(250,250,248,0.6)' }}>
+            <p className="max-w-xl mx-auto mb-8 leading-relaxed text-base" style={{ color: 'rgba(250,250,248,0.6)' }}>
               Let's have a conversation about how we can create value together. No obligation, just an honest discussion about fit.
             </p>
             <Link

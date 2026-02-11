@@ -39,7 +39,7 @@ export default function FAQ() {
         <FadeIn>
           <div className="text-center mb-12">
             <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>FAQ</p>
+            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#9d6d47' }}>FAQ</p>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1">
               Frequently Asked Questions
             </h2>
@@ -56,15 +56,16 @@ export default function FAQ() {
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                  aria-expanded={openIndex === index}
                 >
                   <span className="font-medium text-emerald pr-8">{faq.question}</span>
-                  <span className="text-2xl flex-shrink-0" style={{ color: '#C4926A' }}>
+                  <span className="text-2xl flex-shrink-0" style={{ color: '#9d6d47' }} aria-hidden="true">
                     {openIndex === index ? '−' : '+'}
                   </span>
                 </button>
                 {openIndex === index && (
                   <div className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>
+                    <p className="text-base leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>
                       {faq.answer}
                     </p>
                   </div>

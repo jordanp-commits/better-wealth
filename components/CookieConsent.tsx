@@ -93,7 +93,7 @@ export default function CookieConsent() {
                 <Link
                   href="/cookie-policy"
                   className="underline hover:no-underline"
-                  style={{ color: '#C4926A' }}
+                  style={{ color: '#9d6d47' }}
                 >
                   Learn more
                 </Link>
@@ -149,13 +149,14 @@ export default function CookieConsent() {
                 <button
                   onClick={() => setShowModal(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Close cookie preferences"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
+              <p className="text-base mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
                 Manage your cookie preferences below. Essential cookies cannot be disabled as they are required for the website to function.
               </p>
             </div>
@@ -169,13 +170,16 @@ export default function CookieConsent() {
                   <div
                     className="relative w-12 h-6 rounded-full cursor-not-allowed"
                     style={{ backgroundColor: '#033A22' }}
+                    role="switch"
+                    aria-checked="true"
+                    aria-label="Essential cookies enabled"
                   >
                     <div
                       className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white transition-transform"
                     />
                   </div>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   These cookies are necessary for the website to function and cannot be switched off. They include session management, booking system functionality, and storing your cookie preferences.
                 </p>
                 <p className="text-xs mt-2 italic" style={{ color: 'rgba(0,0,0,0.4)' }}>
@@ -193,6 +197,9 @@ export default function CookieConsent() {
                       analyticsEnabled ? '' : 'bg-gray-300'
                     }`}
                     style={analyticsEnabled ? { backgroundColor: '#033A22' } : {}}
+                    role="switch"
+                    aria-checked={analyticsEnabled}
+                    aria-label="Toggle analytics cookies"
                   >
                     <div
                       className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${
@@ -201,7 +208,7 @@ export default function CookieConsent() {
                     />
                   </button>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This includes Google Analytics for website performance tracking.
                 </p>
               </div>
@@ -216,6 +223,9 @@ export default function CookieConsent() {
                       marketingEnabled ? '' : 'bg-gray-300'
                     }`}
                     style={marketingEnabled ? { backgroundColor: '#033A22' } : {}}
+                    role="switch"
+                    aria-checked={marketingEnabled}
+                    aria-label="Toggle marketing cookies"
                   >
                     <div
                       className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${
@@ -224,7 +234,7 @@ export default function CookieConsent() {
                     />
                   </button>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   These cookies are used to track visitors across websites and show you relevant advertisements. This includes Meta Pixel (Facebook/Instagram) and LinkedIn Pixel for advertising and retargeting purposes.
                 </p>
               </div>
@@ -313,13 +323,14 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                 <button
                   onClick={() => setShowModal(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  aria-label="Close cookie preferences"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <p className="text-sm mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
+              <p className="text-base mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
                 Manage your cookie preferences below. Essential cookies cannot be disabled as they are required for the website to function.
               </p>
             </div>
@@ -333,11 +344,14 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                   <div
                     className="relative w-12 h-6 rounded-full cursor-not-allowed"
                     style={{ backgroundColor: '#033A22' }}
+                    role="switch"
+                    aria-checked="true"
+                    aria-label="Essential cookies enabled"
                   >
                     <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white" />
                   </div>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   These cookies are necessary for the website to function and cannot be switched off.
                 </p>
                 <p className="text-xs mt-2 italic" style={{ color: 'rgba(0,0,0,0.4)' }}>
@@ -355,6 +369,9 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                       analyticsEnabled ? '' : 'bg-gray-300'
                     }`}
                     style={analyticsEnabled ? { backgroundColor: '#033A22' } : {}}
+                    role="switch"
+                    aria-checked={analyticsEnabled}
+                    aria-label="Toggle analytics cookies"
                   >
                     <div
                       className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${
@@ -363,7 +380,7 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                     />
                   </button>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   Help us understand how visitors interact with our website.
                 </p>
               </div>
@@ -378,6 +395,9 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                       marketingEnabled ? '' : 'bg-gray-300'
                     }`}
                     style={marketingEnabled ? { backgroundColor: '#033A22' } : {}}
+                    role="switch"
+                    aria-checked={marketingEnabled}
+                    aria-label="Toggle marketing cookies"
                   >
                     <div
                       className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-transform duration-200 ${
@@ -386,7 +406,7 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                     />
                   </button>
                 </div>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   Used to show you relevant advertisements across platforms.
                 </p>
               </div>

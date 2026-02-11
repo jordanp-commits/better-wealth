@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Instagram, Facebook, Linkedin } from 'lucide-react'
+import { Turnstile } from '@marsidev/react-turnstile'
+import { csrfHeaders } from '@/lib/csrf'
 
 // Custom TikTok icon since Lucide doesn't have one
 function TikTokIcon({ className }: { className?: string }) {
@@ -12,6 +14,7 @@ function TikTokIcon({ className }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
     </svg>
@@ -47,6 +50,7 @@ export default function Footer() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
   const [alreadySubscribed, setAlreadySubscribed] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -62,8 +66,8 @@ export default function Footer() {
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'footer' }),
+        headers: { 'Content-Type': 'application/json', ...csrfHeaders() },
+        body: JSON.stringify({ email, source: 'footer', turnstileToken }),
       })
 
       const data = await response.json()
@@ -89,7 +93,8 @@ export default function Footer() {
     <footer className="pt-12 pb-12 px-6" style={{ backgroundColor: '#022A18' }}>
       <div className="max-w-6xl mx-auto">
         {/* Newsletter Signup Section */}
-        <div
+        <section
+          aria-label="Newsletter signup"
           className="pb-10 mb-10"
           style={{ borderBottom: '1px solid rgba(196, 146, 106, 0.2)' }}
         >
@@ -98,26 +103,26 @@ export default function Footer() {
               <h3 className="text-xl font-serif font-bold mb-2" style={{ color: '#C4926A' }}>
                 Join Our Community
               </h3>
-              <p className="text-sm" style={{ color: 'rgba(250,250,248,0.5)' }}>
+              <p className="text-base" style={{ color: '#B8D4C5' }}>
                 Get practical marketing strategies and workshop updates delivered monthly.
               </p>
             </div>
             <div>
               {alreadySubscribed ? (
                 <div className="flex items-center gap-2 py-3">
-                  <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-sm" style={{ color: '#C4926A' }}>
+                  <span className="text-base" style={{ color: '#C4926A' }}>
                     You're subscribed!
                   </span>
                 </div>
               ) : success ? (
                 <div className="flex items-center gap-2 py-3">
-                  <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-sm" style={{ color: '#C4926A' }}>
+                  <span className="text-base" style={{ color: '#C4926A' }}>
                     Thank you for subscribing!
                   </span>
                 </div>
@@ -133,9 +138,13 @@ export default function Footer() {
                       style={{ borderColor: 'rgba(255,255,255,0.2)' }}
                       required
                     />
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
+                      onSuccess={setTurnstileToken}
+                    />
                     <button
                       type="submit"
-                      disabled={submitting}
+                      disabled={submitting || !turnstileToken}
                       className="px-6 py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50"
                       style={{ backgroundColor: '#C4926A', color: '#033A22' }}
                     >
@@ -145,7 +154,7 @@ export default function Footer() {
                   {error && (
                     <p className="text-red-400 text-sm mt-2">{error}</p>
                   )}
-                  <p className="text-xs mt-3" style={{ color: 'rgba(250,250,248,0.3)' }}>
+                  <p className="text-xs mt-3" style={{ color: '#FFFFFF' }}>
                     By subscribing you agree to receive marketing emails.{' '}
                     <Link href="/privacy" className="underline hover:text-[#C4926A]">
                       Privacy Policy
@@ -155,7 +164,7 @@ export default function Footer() {
               )}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Main Footer Content */}
         <div
@@ -166,14 +175,14 @@ export default function Footer() {
           <div>
             <div style={{ height: '32px', overflow: 'hidden', marginLeft: '-20px' }}>
               <img
-                src="/logo-single-line.png"
-                alt="Better Wealth"
+                src="/logo-single-line.svg"
+                alt="Better Wealth logo"
                 style={{ height: '140px', width: 'auto', marginTop: '-54px' }}
               />
             </div>
             <p
               className="text-xs mt-3 max-w-xs leading-relaxed"
-              style={{ color: 'rgba(250,250,248,0.4)' }}
+              style={{ color: '#B8D4C5' }}
             >
               Marketing education and community for ambitious professionals in financial services.
             </p>
@@ -193,10 +202,10 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex gap-12">
-            <div>
+            <nav aria-label="Footer navigation">
               <h4
                 className="text-xs font-medium uppercase tracking-wider mb-3"
-                style={{ color: 'rgba(250,250,248,0.85)' }}
+                style={{ color: '#FFFFFF' }}
               >
                 Explore
               </h4>
@@ -222,11 +231,11 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-            </div>
-            <div>
+            </nav>
+            <nav aria-label="Legal links">
               <h4
                 className="text-xs font-medium uppercase tracking-wider mb-3"
-                style={{ color: 'rgba(250,250,248,0.85)' }}
+                style={{ color: '#FFFFFF' }}
               >
                 Legal
               </h4>
@@ -242,11 +251,11 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
         <div className="mt-10 pt-6" style={{ borderTop: '1px solid rgba(250,250,248,0.1)' }}>
-          <p className="text-xs" style={{ color: 'rgba(250,250,248,0.2)' }}>
+          <p className="text-xs" style={{ color: '#FFFFFF' }}>
             © 2026 Better Wealth. All rights reserved. better-wealth.co.uk
           </p>
         </div>

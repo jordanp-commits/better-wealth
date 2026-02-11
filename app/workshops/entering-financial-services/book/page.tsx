@@ -5,6 +5,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Navigation from '@/components/Navigation'
 import { supabase } from '@/lib/supabase'
 import { loadStripe } from '@stripe/stripe-js'
+import { Turnstile } from '@marsidev/react-turnstile'
+import { csrfHeaders } from '@/lib/csrf'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
@@ -34,6 +36,7 @@ function BookWorkshopContent() {
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [datePreSelected, setDatePreSelected] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   // Form data
   const [selectedDateId, setSelectedDateId] = useState('')
@@ -115,7 +118,7 @@ function BookWorkshopContent() {
     try {
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...csrfHeaders() },
         body: JSON.stringify({
           workshopDateId: selectedDateId,
           quantity,
@@ -124,6 +127,7 @@ function BookWorkshopContent() {
           email,
           phone,
           company,
+          turnstileToken,
         }),
       })
 
@@ -202,7 +206,7 @@ function BookWorkshopContent() {
 
             {/* Step 1: Select Date */}
             {step === 1 && (
-              <div>
+              <section aria-label="Select date">
                 <h2 className="text-lg font-medium text-emerald mb-4">Select Your Workshop Date</h2>
                 <div className="space-y-3">
                   {workshopDates.map((date) => (
@@ -230,7 +234,7 @@ function BookWorkshopContent() {
                           </p>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm font-medium" style={{ color: '#C4926A' }}>
+                          <p className="text-sm font-medium" style={{ color: '#9d6d47' }}>
                             {date.seats_remaining} {date.seats_remaining === 1 ? 'spot' : 'spots'} left
                           </p>
                         </div>
@@ -245,12 +249,12 @@ function BookWorkshopContent() {
                 >
                   Continue to Details →
                 </button>
-              </div>
+              </section>
             )}
 
             {/* Step 2: Your Details */}
             {step === 2 && (
-              <div>
+              <section aria-label="Your details">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-medium text-emerald">Your Details</h2>
                   <button
@@ -259,7 +263,7 @@ function BookWorkshopContent() {
                       setDatePreSelected(false)
                     }}
                     className="text-sm font-medium transition-colors hover:underline"
-                    style={{ color: '#C4926A' }}
+                    style={{ color: '#9d6d47' }}
                   >
                     Change Date
                   </button>
@@ -285,7 +289,7 @@ function BookWorkshopContent() {
                 <div className="space-y-4">
                   {/* Quantity Selector */}
                   <div className="bg-gray-50 rounded-lg p-4 mb-2">
-                    <label className="block text-sm font-medium mb-2">Number of Attendees *</label>
+                    <label className="block text-base font-medium mb-2">Number of Attendees *</label>
                     <div className="flex items-center gap-4">
                       <div className="flex items-center">
                         <button
@@ -316,7 +320,7 @@ function BookWorkshopContent() {
                           +
                         </button>
                       </div>
-                      <span className="text-sm" style={{ color: '#C4926A' }}>
+                      <span className="text-sm" style={{ color: '#9d6d47' }}>
                         {selectedDate?.seats_remaining} spots available
                       </span>
                     </div>
@@ -329,7 +333,7 @@ function BookWorkshopContent() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">First Name *</label>
+                      <label className="block text-base font-medium mb-2">First Name *</label>
                       <input
                         type="text"
                         value={firstName}
@@ -340,7 +344,7 @@ function BookWorkshopContent() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Last Name *</label>
+                      <label className="block text-base font-medium mb-2">Last Name *</label>
                       <input
                         type="text"
                         value={lastName}
@@ -352,7 +356,7 @@ function BookWorkshopContent() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <label className="block text-base font-medium mb-2">Email *</label>
                     <input
                       type="email"
                       value={email}
@@ -363,7 +367,7 @@ function BookWorkshopContent() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                    <label className="block text-base font-medium mb-2">Phone Number *</label>
                     <input
                       type="tel"
                       value={phone}
@@ -374,7 +378,7 @@ function BookWorkshopContent() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Company (Optional)</label>
+                    <label className="block text-base font-medium mb-2">Company (Optional)</label>
                     <input
                       type="text"
                       value={company}
@@ -399,17 +403,17 @@ function BookWorkshopContent() {
                     Continue to Payment →
                   </button>
                 </div>
-              </div>
+              </section>
             )}
 
             {/* Step 3: Payment Summary */}
             {step === 3 && (
-              <div>
+              <section aria-label="Payment summary">
                 <h2 className="text-lg font-medium text-emerald mb-8">Confirm & Pay</h2>
 
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
                   <h3 className="font-medium mb-3">Booking Summary</h3>
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-2 text-base">
                     <div>
                       <span className="block mb-1" style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
                       <span className="font-medium">{workshop.name}</span>
@@ -461,6 +465,11 @@ function BookWorkshopContent() {
                   </div>
                 </div>
 
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
+                  onSuccess={setTurnstileToken}
+                />
+
                 <div className="flex gap-4">
                   <button
                     onClick={() => setStep(2)}
@@ -471,7 +480,7 @@ function BookWorkshopContent() {
                   </button>
                   <button
                     onClick={handlePayment}
-                    disabled={submitting}
+                    disabled={submitting || !turnstileToken}
                     className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {submitting ? 'Processing...' : `Pay £${totalPrice} →`}
@@ -481,7 +490,7 @@ function BookWorkshopContent() {
                 <p className="text-xs text-center mt-4" style={{ color: 'rgba(0,0,0,0.5)' }}>
                   Secure payment powered by Stripe
                 </p>
-              </div>
+              </section>
             )}
           </div>
         </div>

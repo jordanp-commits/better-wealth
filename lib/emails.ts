@@ -1,4 +1,5 @@
 import { Resend } from 'resend'
+import { escapeHtml } from '@/lib/sanitize'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -72,7 +73,7 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
                   <div style="width: 64px; height: 64px; background-color: #033A22; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px;">
                     <span style="color: #C4926A; font-size: 32px;">✓</span>
                   </div>
-                  <h2 style="color: #033A22; margin: 0 0 8px 0; font-size: 22px;">Thank You, ${data.firstName}!</h2>
+                  <h2 style="color: #033A22; margin: 0 0 8px 0; font-size: 22px;">Thank You, ${escapeHtml(data.firstName)}!</h2>
                   <p style="color: #666666; margin: 0; font-size: 15px; line-height: 1.5;">Your workshop booking has been confirmed. We're looking forward to seeing you.</p>
                 </td>
               </tr>
@@ -91,7 +92,7 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
                               <span style="color: #666666; font-size: 13px;">Workshop</span>
                             </td>
                             <td style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); text-align: right;">
-                              <strong style="color: #033A22; font-size: 14px;">${data.workshopName}</strong>
+                              <strong style="color: #033A22; font-size: 14px;">${escapeHtml(data.workshopName)}</strong>
                             </td>
                           </tr>
                           <tr>
@@ -99,7 +100,7 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
                               <span style="color: #666666; font-size: 13px;">Date</span>
                             </td>
                             <td style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); text-align: right;">
-                              <strong style="color: #033A22; font-size: 14px;">${data.workshopDate}</strong>
+                              <strong style="color: #033A22; font-size: 14px;">${escapeHtml(data.workshopDate)}</strong>
                             </td>
                           </tr>
                           <tr>
@@ -107,7 +108,7 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
                               <span style="color: #666666; font-size: 13px;">Time</span>
                             </td>
                             <td style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); text-align: right;">
-                              <strong style="color: #033A22; font-size: 14px;">${data.workshopTime}</strong>
+                              <strong style="color: #033A22; font-size: 14px;">${escapeHtml(data.workshopTime)}</strong>
                             </td>
                           </tr>
                           <tr>
@@ -139,7 +140,7 @@ function generateCustomerEmailHtml(data: BookingEmailData): string {
                               <span style="color: #666666; font-size: 13px;">Booking Reference</span>
                             </td>
                             <td style="padding: 8px 0; text-align: right;">
-                              <strong style="color: #C4926A; font-size: 14px; font-family: monospace;">${data.bookingReference}</strong>
+                              <strong style="color: #C4926A; font-size: 14px; font-family: monospace;">${escapeHtml(data.bookingReference)}</strong>
                             </td>
                           </tr>
                         </table>
@@ -239,7 +240,7 @@ function generateInternalEmailHtml(data: BookingEmailData): string {
                   <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F4F2EF; border-radius: 8px; padding: 20px;">
                     <tr>
                       <td>
-                        <h2 style="color: #033A22; margin: 0 0 4px 0; font-size: 18px;">${data.firstName} ${data.lastName}</h2>
+                        <h2 style="color: #033A22; margin: 0 0 4px 0; font-size: 18px;">${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}</h2>
                         <p style="color: #C4926A; margin: 0; font-size: 14px;">
                           ${data.quantity} ticket${data.quantity > 1 ? 's' : ''} • ${formatCurrency(data.amountPaid)}
                         </p>
@@ -257,19 +258,19 @@ function generateInternalEmailHtml(data: BookingEmailData): string {
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; width: 120px; font-size: 13px;">Email</td>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">
-                        <a href="mailto:${data.customerEmail}" style="color: #033A22;">${data.customerEmail}</a>
+                        <a href="mailto:${escapeHtml(data.customerEmail)}" style="color: #033A22;">${escapeHtml(data.customerEmail)}</a>
                       </td>
                     </tr>
                     ${data.phone ? `
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Phone</td>
-                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${data.phone}</td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.phone!)}</td>
                     </tr>
                     ` : ''}
                     ${data.company ? `
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Company</td>
-                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${data.company}</td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.company!)}</td>
                     </tr>
                     ` : ''}
                   </table>
@@ -283,15 +284,15 @@ function generateInternalEmailHtml(data: BookingEmailData): string {
                   <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; width: 120px; font-size: 13px;">Workshop</td>
-                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px; font-weight: bold;">${data.workshopName}</td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px; font-weight: bold;">${escapeHtml(data.workshopName)}</td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Date</td>
-                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${data.workshopDate}</td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.workshopDate)}</td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Time</td>
-                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${data.workshopTime}</td>
+                      <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.workshopTime)}</td>
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Attendees</td>
@@ -303,7 +304,7 @@ function generateInternalEmailHtml(data: BookingEmailData): string {
                     </tr>
                     <tr>
                       <td style="padding: 8px 0; color: #666; font-size: 13px;">Reference</td>
-                      <td style="padding: 8px 0; color: #C4926A; font-size: 13px; font-family: monospace;">${data.bookingReference}</td>
+                      <td style="padding: 8px 0; color: #C4926A; font-size: 13px; font-family: monospace;">${escapeHtml(data.bookingReference)}</td>
                     </tr>
                   </table>
                 </td>
@@ -335,7 +336,7 @@ export async function sendCustomerConfirmationEmail(data: BookingEmailData): Pro
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: data.customerEmail,
-      subject: `Booking Confirmed - ${data.workshopName}`,
+      subject: `Booking Confirmed - ${escapeHtml(data.workshopName)}`,
       html: generateCustomerEmailHtml(data),
     })
 
@@ -361,7 +362,7 @@ export async function sendInternalNotificationEmail(data: BookingEmailData): Pro
       from: FROM_EMAIL,
       to: INTERNAL_EMAIL,
       replyTo: data.customerEmail,
-      subject: `New Workshop Booking - ${data.firstName} ${data.lastName}`,
+      subject: `New Workshop Booking - ${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}`,
       html: generateInternalEmailHtml(data),
     })
 

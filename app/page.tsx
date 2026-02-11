@@ -25,13 +25,13 @@ export default function Home() {
     height: '2px',
     background: 'linear-gradient(90deg, transparent, #C4926A, transparent)'
   }
-  const labelColor = { color: '#C4926A' }
+  const labelColor = { color: '#9d6d47' }
   const copperLine = { height: '1px', background: '#C4926A' }
     const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
     boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
   }
-  const mutedLight = { color: 'rgba(250,250,248,0.45)' }
+  const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
   const badgeBg = { backgroundColor: '#033A22' }
 
@@ -59,7 +59,7 @@ export default function Home() {
               <h2 className="text-emerald text-3xl md:text-4xl font-serif font-bold mt-1 mb-6">
                 What We Offer
               </h2>
-              <p className="max-w-3xl mx-auto text-sm leading-relaxed" style={mutedDark}>
+              <p className="max-w-3xl mx-auto text-base leading-relaxed" style={mutedDark}>
                 Better Wealth exists for one reason: most professionals in financial services and real estate never get taught how to actually market themselves. You can close deals and manage clients, but generating your own pipeline? That's a different game. We deliver face-to-face education built for your industry, a vetted community of operators who think like you, and workshops where you don't just learn—you leave with something built.
               </p>
             </div>
@@ -69,7 +69,7 @@ export default function Home() {
             <FadeIn delay={0} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Workshops That Deliver Output, Not Theory</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   You don't need another seminar where someone talks at you for three hours. Our workshops are structured around tangible deliverables—whether that's a 90-day ad campaign you've already mapped out, compliance frameworks you can implement Monday morning, or lead generation systems ready to launch. We focus on execution, not inspiration.
                 </p>
               </div>
@@ -80,7 +80,7 @@ export default function Home() {
             <FadeIn delay={150} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Networks That Are Vetted, Not Volume-Driven</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   This isn't a free-for-all networking event. Membership is curated. We're building a community of ambitious, ethically-driven professionals who operate at a certain standard. Advisors, agents, and operators who respect the game, share insights openly, and contribute more than they take. If that sounds like you, you'll fit right in.
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function Home() {
             <FadeIn delay={300} className="flex-1 md:px-8">
               <div className="relative">
                 <h3 className="text-emerald font-serif text-2xl font-bold mb-4">Education Built for Financial Services and Real Estate Reality</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Generic marketing advice doesn't work in regulated industries. Compliance matters. Client trust matters. Our programs are designed specifically for professionals in financial services and real estate who need strategies that work within the rules—and still generate real commercial outcomes.
                 </p>
               </div>
@@ -108,7 +108,7 @@ export default function Home() {
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Approach</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1 mb-6">How We Work</h2>
-              <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+              <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                 Better Wealth operates across three core areas: Workshops, Bootcamps, and Private Networking Events.
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function Home() {
             <FadeIn delay={0}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Workshops</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Three-hour intensive sessions focused on specific marketing disciplines—paid advertising, compliance, lead generation systems. You walk in with a problem, you walk out with a plan.
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
             <FadeIn delay={100}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Bootcamps</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Multi-day immersive programs for businesses and professionals ready to overhaul their entire commercial operation. Marketing, operations, sales systems, team structure—we build it with you, not for you.
                 </p>
               </div>
@@ -136,14 +136,14 @@ export default function Home() {
             <FadeIn delay={200}>
               <div className="bg-white p-8 rounded-2xl" style={cardBorder}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">Private Networking Events</h3>
-                <p className="text-sm leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
+                <p className="text-base leading-relaxed max-w-3xl mx-auto" style={mutedDark}>
                   Curated gatherings for vetted members focused on strategic discussions, deal flow opportunities, and high-level introductions. These aren't mixers. They're curated environments designed for professionals who value quality connections over quantity.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={300}>
-              <p className="text-sm text-center pt-6 max-w-3xl mx-auto" style={mutedDark}>
+              <p className="text-base text-center pt-6 max-w-3xl mx-auto" style={mutedDark}>
                 Workshops are open to all. Bootcamps and networking require application.
               </p>
             </FadeIn>
@@ -160,26 +160,26 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-10 md:mb-16">
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Upcoming</p>
+              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Upcoming</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-1">Upcoming Workshops</h2>
-              <p className="mt-3 max-w-lg mx-auto text-sm" style={mutedLight}>
+              <p className="mt-3 max-w-lg mx-auto text-base" style={mutedLight}>
                 Limited places available. Each workshop is capped to ensure maximum value and personal attention.
               </p>
             </div>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <FadeIn delay={0}>
-              <div className="bg-white rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300" style={cardBorder}>
-                <div style={{ height: '220px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }}>
+            <FadeIn delay={0} className="h-full">
+              <article className="bg-white rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 h-full flex flex-col" style={cardBorder}>
+                <div style={{ height: '220px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }} className="flex-shrink-0">
                   <img
                     src="/workshop-photo-1.jpeg"
-                    alt="Workshop A"
+                    alt="Mortgage brokers attending a paid advertising workshop at Better Wealth in Manchester"
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center' }}
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-5">
                     <div className="text-white rounded-xl p-3 text-center w-16 flex-shrink-0" style={badgeBg}>
                       <div className="text-xs uppercase tracking-wide opacity-50">Feb</div>
@@ -190,23 +190,23 @@ export default function Home() {
                       <p className="text-sm mt-0.5" style={mutedDark}>Manchester • Full Day • Limited Places</p>
                     </div>
                   </div>
-                  <p className="text-xs mt-2 leading-relaxed" style={{ color: '#6B7280' }}>Learn paid advertising strategies built specifically for mortgage brokers.</p>
+                  <p className="text-sm mt-2 leading-relaxed flex-grow" style={{ color: '#6B7280' }}>Learn paid advertising strategies built specifically for mortgage brokers.</p>
                   <Link href="/workshops/paid-advertising" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
                 </div>
-              </div>
+              </article>
             </FadeIn>
 
-            <FadeIn delay={100}>
-              <div className="bg-white rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300" style={cardBorder}>
-                <div style={{ height: '220px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }}>
+            <FadeIn delay={100} className="h-full">
+              <article className="bg-white rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 h-full flex flex-col" style={cardBorder}>
+                <div style={{ height: '220px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }} className="flex-shrink-0">
                   <img
                     src="/workshop-photo-2.jpeg"
-                    alt="Workshop B"
+                    alt="Professionals learning about entering financial services at a Better Wealth workshop"
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center' }}
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-5">
                     <div className="text-white rounded-xl p-3 text-center w-16 flex-shrink-0" style={badgeBg}>
                       <div className="text-xs uppercase tracking-wide opacity-50">Mar</div>
@@ -217,10 +217,10 @@ export default function Home() {
                       <p className="text-sm mt-0.5" style={mutedDark}>Manchester • Full Day • Limited Places</p>
                     </div>
                   </div>
-                  <p className="text-xs mt-2 leading-relaxed" style={{ color: '#6B7280' }}>Master the compliance and qualification process to become FCA regulated.</p>
+                  <p className="text-sm mt-2 leading-relaxed flex-grow" style={{ color: '#6B7280' }}>Master the compliance and qualification process to become FCA regulated.</p>
                   <Link href="/workshops/entering-financial-services" className="btn-copper mt-4 w-full inline-block px-6 py-2.5 text-white rounded-lg text-sm font-semibold text-center">Reserve Your Place</Link>
                 </div>
-              </div>
+              </article>
             </FadeIn>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function Home() {
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
               <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Philosophy</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald mt-1 mb-6">Why Face-to-Face Matters</h2>
-              <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
+              <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedDark}>
                 Online courses are convenient. They're also forgettable. You can pause them, skip through them, and never actually implement anything. Better Wealth is face-to-face because real learning happens in a room with other people who are solving the same problems you are. You can't hide. You can't multitask. You show up, you focus, and you leave with something built. That's the point.
               </p>
             </div>
@@ -251,9 +251,9 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-8">
               <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>The Community</p>
+              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>The Community</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mt-1 mb-6">Who You'll Meet</h2>
-              <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
+              <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
                 Better Wealth attracts a specific type of professional: ambitious, ethically driven, and commercially focused. Our workshops and events bring together financial advisors scaling their practices, estate agents developing marketing systems, wealth managers building client pipelines, and operators who've realized that the network you build determines the opportunities you access. If that's your calibre, you'll fit in.
               </p>
             </div>
@@ -266,14 +266,14 @@ export default function Home() {
         <FadeIn>
           <div className="text-center px-6">
             <div className="w-8 h-0.5 mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-            <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Testimonials</p>
+            <p className="text-xs uppercase tracking-widest mb-4" style={{ color: '#9d6d47' }}>Testimonials</p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-emerald mt-1">What Our Members Say</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-6 mt-10 md:mt-16">
-            <div className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
+            <article className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
               <div className="font-serif text-7xl -mb-4" style={{ color: 'rgba(196,146,106,0.4)' }}>{"\u201C"}</div>
-              <p className="font-serif italic text-sm leading-relaxed text-emerald-dark">
+              <p className="font-serif italic text-base leading-relaxed text-emerald-dark">
                 The workshop completely changed how I approach client acquisition. Within three months I had doubled my pipeline and the ROI was obvious.
               </p>
               <div className="flex items-center gap-3 mt-5">
@@ -285,11 +285,11 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-wider mt-0.5" style={mutedDark}>Independent Mortgage Broker, London</p>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
+            <article className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
               <div className="font-serif text-7xl -mb-4" style={{ color: 'rgba(196,146,106,0.4)' }}>{"\u201C"}</div>
-              <p className="font-serif italic text-sm leading-relaxed text-emerald-dark">
+              <p className="font-serif italic text-base leading-relaxed text-emerald-dark">
                 Finally, a training event that delivers real, actionable strategy. The network alone was worth every penny — I've already referred two brokers.
               </p>
               <div className="flex items-center gap-3 mt-5">
@@ -301,11 +301,11 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-wider mt-0.5" style={mutedDark}>Senior Broker, Manchester</p>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <div className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
+            <article className="p-6 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-default bg-white" style={cardBorder}>
               <div className="font-serif text-7xl -mb-4" style={{ color: 'rgba(196,146,106,0.4)' }}>{"\u201C"}</div>
-              <p className="font-serif italic text-sm leading-relaxed text-emerald-dark">
+              <p className="font-serif italic text-base leading-relaxed text-emerald-dark">
                 Genuinely the best professional development I've invested in. The community aspect is what sets Better Wealth apart from everything else out there.
               </p>
               <div className="flex items-center gap-3 mt-5">
@@ -317,7 +317,7 @@ export default function Home() {
                   <p className="text-xs uppercase tracking-wider mt-0.5" style={mutedDark}>Estate Agent, Birmingham</p>
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         </FadeIn>
       </section>

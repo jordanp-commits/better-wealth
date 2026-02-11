@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   creator: 'Better Wealth',
   publisher: 'Better Wealth',
   icons: {
-    icon: '/Favicon.png?v=2',
-    apple: '/Favicon.png?v=2',
+    icon: '/Favicon.svg?v=2',
+    apple: '/Favicon.svg?v=2',
   },
   openGraph: {
     title: 'Better Wealth | Marketing Education for Financial Services',
@@ -75,7 +75,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={atkinson.className}>
-        {children}
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
+        <div id="main-content">{children}</div>
         <CookieConsent />
         <NewsletterModal />
         <Analytics />

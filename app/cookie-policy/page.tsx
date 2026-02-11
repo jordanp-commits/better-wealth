@@ -7,8 +7,8 @@ import MobileNav from '@/components/MobileNav'
 import Footer from '@/components/Footer'
 
 export default function CookiePolicyPage() {
-  const labelColor = { color: '#C4926A' }
-  const mutedLight = { color: 'rgba(250,250,248,0.45)' }
+  const labelColor = { color: '#9d6d47' }
+  const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.5)' }
   const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
@@ -26,14 +26,14 @@ export default function CookiePolicyPage() {
           <Link href="/">
             <div style={{ height: '40px', overflow: 'hidden' }} className="flex items-center">
               <img
-                src="/logo-single-line.png"
+                src="/logo-single-line.svg"
                 alt="Better Wealth"
                 style={{ height: '160px', width: 'auto' }}
               />
             </div>
           </Link>
 
-          <div className="absolute left-0 right-0 hidden md:flex justify-center gap-8 pointer-events-none">
+          <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
             <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
             <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
@@ -43,7 +43,7 @@ export default function CookiePolicyPage() {
           <div className="flex items-center gap-2">
             <Link
               href="/workshops"
-              className="hidden md:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+              className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
               Explore Workshops
             </Link>
@@ -70,11 +70,11 @@ export default function CookiePolicyPage() {
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <div className="w-12 mx-auto mb-6" style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #C4926A, transparent)' }}></div>
-            <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Legal</p>
+            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Legal</p>
             <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
               Cookie Policy
             </h1>
-            <p className="text-sm leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
+            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
               Last updated: February 2026
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function CookiePolicyPage() {
           {/* Manage Preferences Button */}
           <FadeIn>
             <div className="bg-white p-6 rounded-2xl mb-12 text-center" style={cardBorder}>
-              <p className="text-sm mb-4" style={mutedDark}>
+              <p className="text-base mb-4" style={mutedDark}>
                 You can change your cookie preferences at any time.
               </p>
               <CookiePreferencesButton
@@ -103,10 +103,10 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-serif font-bold mb-4" style={{ color: '#033A22' }}>
                 What Are Cookies?
               </h2>
-              <p className="text-sm leading-relaxed mb-4" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-4" style={mutedDark}>
                 Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They are widely used to make websites work more efficiently and to provide information to the website owners.
               </p>
-              <p className="text-sm leading-relaxed" style={mutedDark}>
+              <p className="text-base leading-relaxed" style={mutedDark}>
                 We use cookies and similar technologies on better-wealth.co.uk to improve your browsing experience, analyse how our website is used, and to help us deliver relevant marketing content.
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function CookiePolicyPage() {
                   <p className="text-xs uppercase tracking-wider" style={labelColor}>Always Active</p>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-6" style={mutedDark}>
                 These cookies are necessary for the website to function properly. They enable core functionality such as security, network management, and account access. You cannot opt out of these cookies as the website cannot function without them.
               </p>
               <div className="overflow-x-auto">
@@ -178,7 +178,7 @@ export default function CookiePolicyPage() {
                   <p className="text-xs uppercase tracking-wider" style={labelColor}>Optional</p>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-6" style={mutedDark}>
                 These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website and provide a better user experience.
               </p>
               <div className="overflow-x-auto">
@@ -233,7 +233,7 @@ export default function CookiePolicyPage() {
                   <p className="text-xs uppercase tracking-wider" style={labelColor}>Optional</p>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-6" style={mutedDark}>
                 These cookies are used to track visitors across websites and display relevant advertisements. They help us measure the effectiveness of our advertising campaigns and show you content that is relevant to your interests.
               </p>
               <div className="overflow-x-auto">
@@ -283,7 +283,7 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-serif font-bold mb-4" style={{ color: '#033A22' }}>
                 How to Control Cookies
               </h2>
-              <div className="space-y-4 text-sm leading-relaxed" style={mutedDark}>
+              <div className="space-y-4 text-base leading-relaxed" style={mutedDark}>
                 <p>
                   <strong style={{ color: '#033A22' }}>Through Our Website:</strong> You can manage your cookie preferences at any time using the "Cookie Preferences" button above or in the footer of any page on our website.
                 </p>
@@ -292,10 +292,10 @@ export default function CookiePolicyPage() {
                 </p>
                 <p>Here are links to cookie management instructions for common browsers:</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>Google Chrome</a></li>
-                  <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>Mozilla Firefox</a></li>
-                  <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>Safari</a></li>
-                  <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>Microsoft Edge</a></li>
+                  <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>Google Chrome</a></li>
+                  <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>Mozilla Firefox</a></li>
+                  <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>Safari</a></li>
+                  <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>Microsoft Edge</a></li>
                 </ul>
               </div>
             </div>
@@ -307,25 +307,25 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-serif font-bold mb-4" style={{ color: '#033A22' }}>
                 Third-Party Opt-Out
               </h2>
-              <p className="text-sm leading-relaxed mb-4" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-4" style={mutedDark}>
                 You can also opt out of third-party tracking directly with the following providers:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-sm" style={mutedDark}>
                 <li>
                   <strong style={{ color: '#033A22' }}>Google Analytics:</strong>{' '}
-                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>
+                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>
                     Google Analytics Opt-out Browser Add-on
                   </a>
                 </li>
                 <li>
                   <strong style={{ color: '#033A22' }}>Meta (Facebook/Instagram):</strong>{' '}
-                  <a href="https://www.facebook.com/settings/?tab=ads" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>
+                  <a href="https://www.facebook.com/settings/?tab=ads" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>
                     Facebook Ad Preferences
                   </a>
                 </li>
                 <li>
                   <strong style={{ color: '#033A22' }}>LinkedIn:</strong>{' '}
-                  <a href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#C4926A' }}>
+                  <a href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out" target="_blank" rel="noopener noreferrer" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>
                     LinkedIn Marketing Opt-out
                   </a>
                 </li>
@@ -339,7 +339,7 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-serif font-bold mb-4" style={{ color: '#033A22' }}>
                 Updates to This Policy
               </h2>
-              <p className="text-sm leading-relaxed" style={mutedDark}>
+              <p className="text-base leading-relaxed" style={mutedDark}>
                 We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, regulatory, or operational reasons. When we make changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.
               </p>
             </div>
@@ -351,18 +351,18 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-serif font-bold mb-4" style={{ color: '#033A22' }}>
                 Questions?
               </h2>
-              <p className="text-sm leading-relaxed mb-4" style={mutedDark}>
+              <p className="text-base leading-relaxed mb-4" style={mutedDark}>
                 If you have any questions about our use of cookies or this Cookie Policy, please contact us:
               </p>
               <p className="text-sm" style={mutedDark}>
                 <strong style={{ color: '#033A22' }}>Email:</strong>{' '}
-                <a href="mailto:privacy@better-wealth.co.uk" className="underline hover:no-underline" style={{ color: '#C4926A' }}>
+                <a href="mailto:privacy@better-wealth.co.uk" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>
                   privacy@better-wealth.co.uk
                 </a>
               </p>
               <p className="text-sm mt-4" style={mutedDark}>
                 For more information about how we handle your personal data, please see our{' '}
-                <Link href="/privacy" className="underline hover:no-underline" style={{ color: '#C4926A' }}>
+                <Link href="/privacy" className="underline hover:no-underline" style={{ color: '#9d6d47' }}>
                   Privacy Policy
                 </Link>.
               </p>

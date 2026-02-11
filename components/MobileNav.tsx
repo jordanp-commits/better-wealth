@@ -31,6 +31,16 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
     return () => window.removeEventListener('keydown', handleEscape)
   }, [])
 
+  // Close menu when viewport exceeds mobile breakpoint (lg: 1024px)
+  useEffect(() => {
+    const mql = window.matchMedia('(min-width: 1024px)')
+    const handleChange = () => {
+      if (mql.matches) setIsOpen(false)
+    }
+    mql.addEventListener('change', handleChange)
+    return () => mql.removeEventListener('change', handleChange)
+  }, [])
+
   const navLinks = [
     { href: '/workshops', label: 'Workshops', key: 'workshops' },
     { href: '/about', label: 'About', key: 'about' },
@@ -43,7 +53,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
       {/* Hamburger Button - Mobile Only */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden flex items-center justify-center w-11 h-11 -mr-2"
+        className="lg:hidden relative z-[51] flex items-center justify-center w-11 h-11 -mr-2"
         aria-label="Open menu"
         aria-expanded={isOpen}
       >
@@ -60,7 +70,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
 
       {/* Backdrop Overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsOpen(false)}
@@ -69,7 +79,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm transform transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm transform transition-transform duration-300 ease-out lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ backgroundColor: '#033A22' }}
@@ -126,7 +136,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
 
         {/* Footer Links */}
         <div className="absolute bottom-8 left-0 right-0 px-6">
-          <div className="flex gap-6 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <div className="flex gap-6 text-sm" style={{ color: '#B8D4C5' }}>
             <Link
               href="/privacy"
               onClick={() => setIsOpen(false)}

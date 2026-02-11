@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 export default function PaidAdvertisingWorkshop() {
-  const labelColor = { color: '#C4926A' }
+  const labelColor = { color: '#9d6d47' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
 
   return (
@@ -37,7 +37,7 @@ export default function PaidAdvertisingWorkshop() {
               <div className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/workshop-photo-5.jpeg"
-                  alt="Paid Advertising Fundamentals for Lead Gen"
+                  alt="Brokers working on paid advertising campaigns during a Better Wealth workshop in Manchester"
                   fill={true}
                   className="object-cover scale-125"
                   sizes="(max-width: 1024px) 100vw, 25vw"
@@ -57,16 +57,16 @@ export default function PaidAdvertisingWorkshop() {
                 <div className="bg-white rounded-xl p-6 mb-6" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#C4926A' }}>Location</p>
+                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Location</p>
                       <p className="text-sm font-medium text-emerald">Salford, Manchester</p>
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#C4926A' }}>Duration</p>
+                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Duration</p>
                       <p className="text-sm font-medium text-emerald">Half Day (9am - 1pm)</p>
                     </div>
                   </div>
                   <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-                    <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#C4926A' }}>Investment</p>
+                    <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Investment</p>
                     <p className="text-xl font-serif font-medium text-emerald">£125 <span className="text-sm font-normal" style={{ color: 'rgba(0,0,0,0.6)' }}>per person</span></p>
                   </div>
                 </div>
@@ -74,7 +74,7 @@ export default function PaidAdvertisingWorkshop() {
                 <div className="w-16 h-1 my-8" style={{ background: 'linear-gradient(90deg, #C4926A, transparent)' }}></div>
 
                 {/* Overview */}
-                <div className="space-y-4 text-sm leading-relaxed mb-10" style={mutedDark}>
+                <div className="space-y-4 text-base leading-relaxed mb-10" style={mutedDark}>
                   <p>
                     A practical, hands-on workshop where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
                   </p>
@@ -94,7 +94,7 @@ export default function PaidAdvertisingWorkshop() {
                     What You'll Learn
                   </p>
                   <div className="bg-white rounded-xl p-6" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-                    <ul className="list-disc list-inside space-y-3 text-sm" style={{ color: '#C4926A' }}>
+                    <ul className="list-disc list-inside space-y-3 text-base" style={{ color: '#9d6d47' }}>
                       <li><span className="text-emerald">Platform fundamentals specific to financial services</span></li>
                       <li><span className="text-emerald">Targeting strategies that comply with FCA guidelines</span></li>
                       <li><span className="text-emerald">How to structure campaigns that generate qualified leads</span></li>
@@ -141,41 +141,41 @@ export default function PaidAdvertisingWorkshop() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
               <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#C4926A' }}>✓</span>
+                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
                 <h3 className="font-medium text-emerald mb-1">Full Workshop Session</h3>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>Complete hands-on training day with practical exercises</p>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Complete hands-on training day with practical exercises</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
               <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#C4926A' }}>✓</span>
+                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
                 <h3 className="font-medium text-emerald mb-1">All Materials & Templates</h3>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>Ready-to-use resources and frameworks you can implement immediately</p>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Ready-to-use resources and frameworks you can implement immediately</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
               <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#C4926A' }}>✓</span>
+                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
                 <h3 className="font-medium text-emerald mb-1">Your Completed Ad Deliverable</h3>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>Leave with a ready-to-launch advertising campaign</p>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Leave with a ready-to-launch advertising campaign</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
               <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#C4926A' }}>✓</span>
+                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
                 <h3 className="font-medium text-emerald mb-1">Post-Workshop Community Access</h3>
-                <p className="text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>Join our network of professionals for ongoing support</p>
+                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Join our network of professionals for ongoing support</p>
               </div>
             </div>
           </div>

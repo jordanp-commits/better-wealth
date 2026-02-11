@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { Turnstile } from '@marsidev/react-turnstile'
+import { csrfHeaders } from '@/lib/csrf'
 
 export default function NewsletterModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,6 +14,7 @@ export default function NewsletterModal() {
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   useEffect(() => {
     // Don't show if already subscribed
@@ -71,12 +74,13 @@ export default function NewsletterModal() {
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...csrfHeaders() },
         body: JSON.stringify({
           firstName,
           lastName,
           email,
           source: 'modal',
+          turnstileToken,
         }),
       })
 
@@ -131,7 +135,7 @@ export default function NewsletterModal() {
               className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center"
               style={{ backgroundColor: '#033A22' }}
             >
-              <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24">
+              <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -144,14 +148,14 @@ export default function NewsletterModal() {
             <div className="w-12 h-1 mb-6" style={{ backgroundColor: '#C4926A' }} />
 
             <h2 className="text-2xl font-serif font-bold text-[#033A22] mb-2">Stay Connected</h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-base text-gray-600 mb-6">
               Get workshop updates, marketing tips, and exclusive offers delivered to your inbox.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">First Name *</label>
+                  <label className="block text-base font-medium mb-1">First Name *</label>
                   <input
                     type="text"
                     value={firstName}
@@ -162,7 +166,7 @@ export default function NewsletterModal() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Last Name *</label>
+                  <label className="block text-base font-medium mb-1">Last Name *</label>
                   <input
                     type="text"
                     value={lastName}
@@ -175,7 +179,7 @@ export default function NewsletterModal() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Email *</label>
+                <label className="block text-base font-medium mb-1">Email *</label>
                 <input
                   type="email"
                   value={email}
@@ -196,7 +200,7 @@ export default function NewsletterModal() {
                   className="mt-1 w-4 h-4 rounded border-gray-300 text-[#033A22] focus:ring-[#033A22]"
                   required
                 />
-                <label htmlFor="gdpr-consent" className="text-sm text-gray-600">
+                <label htmlFor="gdpr-consent" className="text-base text-gray-600">
                   I agree to receive marketing emails from Better Wealth.{' '}
                   <Link href="/privacy" className="underline hover:text-[#C4926A]">
                     Privacy Policy
@@ -208,9 +212,14 @@ export default function NewsletterModal() {
                 <p className="text-red-600 text-sm">{error}</p>
               )}
 
+              <Turnstile
+                siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY!}
+                onSuccess={setTurnstileToken}
+              />
+
               <button
                 type="submit"
-                disabled={submitting || !gdprConsent}
+                disabled={submitting || !gdprConsent || !turnstileToken}
                 className="w-full py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ backgroundColor: '#C4926A', color: '#033A22' }}
               >

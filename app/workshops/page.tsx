@@ -24,8 +24,8 @@ export default function Workshops() {
     height: '2px',
     background: 'linear-gradient(90deg, transparent, #C4926A, transparent)'
   }
-  const labelColor = { color: '#C4926A' }
-  const mutedLight = { color: 'rgba(250,250,248,0.45)' }
+  const labelColor = { color: '#9d6d47' }
+  const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
   const cardBorder = {
     border: '1px solid rgba(0,0,0,0.07)',
@@ -50,11 +50,11 @@ export default function Workshops() {
           <FadeIn>
             <div className="text-center">
               <div className="w-12 mx-auto mb-6" style={accentLine}></div>
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Workshops</p>
+              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Workshops</p>
               <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mt-1 mb-6">
                 Practical Marketing Education
               </h1>
-              <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={mutedLight}>
+              <p className="max-w-2xl mx-auto text-base leading-relaxed" style={mutedLight}>
                 Face-to-face workshops designed for ambitious professionals in financial services and real estate. No theory. No motivation. Just frameworks, templates, and deliverables you can implement immediately.
               </p>
             </div>
@@ -69,23 +69,23 @@ export default function Workshops() {
             {/* Workshop Card 1: Paid Advertising */}
             <FadeIn delay={0} className="h-full">
               <Link href="/workshops/paid-advertising" className="block h-full">
-                <div className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col cursor-pointer" style={cardBorder}>
+                <article className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col cursor-pointer" style={cardBorder}>
                   <div className="aspect-video relative overflow-hidden rounded-t-lg">
                     <Image
                       src="/workshop-photo-3.jpeg"
-                      alt="Paid Advertising Fundamentals for Lead Gen"
+                      alt="Attendees collaborating during the Paid Advertising Fundamentals for Lead Gen workshop"
                       fill
                       className="w-full object-cover rounded-lg"
                     />
                   </div>
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <h3 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
+                    <h2 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
                       Paid Advertising Fundamentals for Lead Gen
-                    </h3>
+                    </h2>
                     <p className="text-xs mb-5" style={mutedDark}>
                       Salford, Manchester • Full Day • £125
                     </p>
-                    <div className="flex-1 space-y-4 mb-6 text-sm leading-relaxed" style={mutedDark}>
+                    <div className="flex-1 space-y-4 mb-6 text-base leading-relaxed" style={mutedDark}>
                       <p>
                         A practical, hands-on workshop where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
                       </p>
@@ -100,30 +100,30 @@ export default function Workshops() {
                       View Details
                     </div>
                   </div>
-                </div>
+                </article>
               </Link>
             </FadeIn>
 
             {/* Workshop Card 2: Entering Financial Services */}
             <FadeIn delay={150} className="h-full">
               <Link href="/workshops/entering-financial-services" className="block h-full">
-                <div className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col cursor-pointer" style={cardBorder}>
+                <article className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full flex flex-col cursor-pointer" style={cardBorder}>
                   <div className="aspect-video relative overflow-hidden rounded-t-lg">
                     <Image
                       src="/workshop-photo-4.jpeg"
-                      alt="Entering Financial Services"
+                      alt="Participants at the Entering Financial Services workshop learning about FCA compliance"
                       fill
                       className="w-full object-cover rounded-lg"
                     />
                   </div>
                   <div className="p-6 md:p-8 flex-1 flex flex-col">
-                    <h3 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
+                    <h2 className="text-emerald font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3 md:min-h-[5rem]">
                       Entering Financial Services
-                    </h3>
+                    </h2>
                     <p className="text-xs mb-5" style={mutedDark}>
                       Salford, Manchester • Full Day • £125
                     </p>
-                    <div className="flex-1 space-y-4 mb-6 text-sm leading-relaxed" style={mutedDark}>
+                    <div className="flex-1 space-y-4 mb-6 text-base leading-relaxed" style={mutedDark}>
                       <p>
                         Designed for ambitious career changers and graduates looking to enter financial services without the corporate ladder or connections. We break down the real pathways into the industry—from employed adviser roles to self-employed models—and explain what it actually takes to earn £50k-£100k+ within 2-3 years.
                       </p>
@@ -138,7 +138,7 @@ export default function Workshops() {
                       View Details
                     </div>
                   </div>
-                </div>
+                </article>
               </Link>
             </FadeIn>
           </div>

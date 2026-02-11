@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { supabase } from '@/lib/supabase'
+import { sanitizeInput } from '@/lib/sanitize'
+import { verifyTurnstileToken } from '@/lib/turnstile'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-01-28.clover',
@@ -8,7 +10,24 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(req: NextRequest) {
   try {
-    const { workshopDateId, quantity = 1, firstName, lastName, email, phone, company } = await req.json()
+    const body = await req.json()
+
+    // Verify Turnstile token
+    const turnstileValid = await verifyTurnstileToken(body.turnstileToken || '')
+    if (!turnstileValid) {
+      return NextResponse.json(
+        { error: 'Bot verification failed' },
+        { status: 400 }
+      )
+    }
+
+    const workshopDateId = body.workshopDateId
+    const quantity = body.quantity ?? 1
+    const firstName = sanitizeInput(body.firstName || '')
+    const lastName = sanitizeInput(body.lastName || '')
+    const email = sanitizeInput(body.email || '')
+    const phone = sanitizeInput(body.phone || '')
+    const company = sanitizeInput(body.company || '')
 
     // Validate quantity
     const ticketQuantity = Math.max(1, Math.min(parseInt(quantity) || 1, 15))

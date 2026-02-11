@@ -17,7 +17,7 @@ export default function NotFound() {
       <Navigation />
 
       {/* Main Content - Simple Centered Layout */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-12 pt-16 md:pt-20">
+      <section className="flex-1 flex flex-col items-center justify-center px-6 py-12 pt-16 md:pt-20">
         <div className="max-w-2xl mx-auto text-center">
 
           {/* Compass Icon */}
@@ -26,6 +26,7 @@ export default function NotFound() {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <circle cx="12" cy="12" r="10" strokeWidth={0.75} />
             <polygon
@@ -36,7 +37,7 @@ export default function NotFound() {
           </svg>
 
           {/* 404 Number */}
-          <p className="text-[120px] md:text-[150px] font-serif font-bold leading-none text-[#C4926A] mb-2">
+          <p className="text-[120px] md:text-[150px] font-serif font-bold leading-none text-[#9d6d47] mb-2">
             404
           </p>
 
@@ -63,14 +64,14 @@ export default function NotFound() {
             </Link>
             <Link
               href="/workshops"
-              className="w-full sm:w-auto px-8 py-3 rounded-lg font-medium border-2 border-[#C4926A] text-[#C4926A] transition-all duration-200 hover:bg-[#C4926A] hover:text-[#033A22]"
+              className="w-full sm:w-auto px-8 py-3 rounded-lg font-medium border-2 border-[#9d6d47] text-[#9d6d47] transition-all duration-200 hover:bg-[#9d6d47] hover:text-[#033A22]"
             >
               Browse Workshops
             </Link>
           </div>
 
         </div>
-      </div>
+      </section>
 
       <Footer />
     </main>

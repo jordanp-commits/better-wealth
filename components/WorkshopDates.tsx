@@ -77,7 +77,7 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
         className="bg-white border-2 rounded-xl p-5 text-center"
         style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
       >
-        <p className="text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+        <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
           No dates currently available. Please check back soon.
         </p>
       </div>
@@ -108,17 +108,17 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-base font-serif font-bold text-emerald">{formattedDate}</p>
-                  <p className="text-sm mt-1" style={{ color: 'rgba(0,0,0,0.5)' }}>{timeDisplay}</p>
+                  <p className="text-base mt-1" style={{ color: 'rgba(0,0,0,0.5)' }}>{timeDisplay}</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-medium" style={{ color: '#C4926A' }}>
+                  <span className="text-xs font-medium" style={{ color: '#9d6d47' }}>
                     {item.seats_remaining} {item.seats_remaining === 1 ? 'spot' : 'spots'} left
                   </span>
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300"
                     style={{ backgroundColor: 'rgba(196, 146, 106, 0.1)' }}
                   >
-                    <span style={{ color: '#C4926A' }}>→</span>
+                    <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
                   </div>
                 </div>
               </div>
