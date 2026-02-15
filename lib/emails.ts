@@ -336,7 +336,7 @@ export async function sendCustomerConfirmationEmail(data: BookingEmailData): Pro
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: data.customerEmail,
-      subject: `Booking Confirmed - ${escapeHtml(data.workshopName)}`,
+      subject: `Booking Confirmed - ${data.workshopName}`,
       html: generateCustomerEmailHtml(data),
     })
 
@@ -362,7 +362,7 @@ export async function sendInternalNotificationEmail(data: BookingEmailData): Pro
       from: FROM_EMAIL,
       to: INTERNAL_EMAIL,
       replyTo: data.customerEmail,
-      subject: `New Workshop Booking - ${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}`,
+      subject: `New Workshop Booking - ${data.firstName} ${data.lastName}`,
       html: generateInternalEmailHtml(data),
     })
 
