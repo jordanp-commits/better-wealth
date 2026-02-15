@@ -29,6 +29,12 @@ export async function POST(req: NextRequest) {
     const phone = sanitizeInput(body.phone || '')
     const company = sanitizeInput(body.company || '')
 
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!email || !emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Please enter a valid email address' }, { status: 400 })
+    }
+
     // Validate quantity
     const ticketQuantity = Math.max(1, Math.min(parseInt(quantity) || 1, 15))
 

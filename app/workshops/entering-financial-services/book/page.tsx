@@ -114,7 +114,13 @@ function BookWorkshopContent() {
     setQuantity(newQuantity)
   }
 
+  const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
+
   async function handlePayment() {
+    if (!isValidEmail(email)) {
+      alert('Please enter a valid email address.')
+      return
+    }
     setSubmitting(true)
 
     try {
@@ -399,7 +405,7 @@ function BookWorkshopContent() {
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    disabled={!firstName || !lastName || !email || !phone || quantity < 1 || quantity > maxQuantity}
+                    disabled={!firstName || !lastName || !email || !isValidEmail(email) || !phone || quantity < 1 || quantity > maxQuantity}
                     className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Continue to Payment →
