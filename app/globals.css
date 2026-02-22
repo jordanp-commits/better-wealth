@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
-/* Prevent horizontal overflow and overscroll bounce on all pages */
+/* Prevent horizontal overflow */
 html {
-  overflow-x: hidden;
-  overscroll-behavior: none;
   background-color: #022A18;
 }
 
 body {
   overflow-x: hidden;
-  overscroll-behavior: none;
+}
+
+body.mobile-menu-open {
+  overflow: hidden !important;
 }
 
 /* Skip to content link - visible only on keyboard focus */

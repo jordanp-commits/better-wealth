@@ -13,13 +13,9 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
 
   // Lock body scroll when menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.classList.toggle('mobile-menu-open', isOpen)
     return () => {
-      document.body.style.overflow = ''
+      document.body.classList.remove('mobile-menu-open')
     }
   }, [isOpen])
 
