@@ -8,14 +8,14 @@ import WorkshopDates from '@/components/WorkshopDates'
 
 export const metadata: Metadata = {
   title: 'Paid Advertising Fundamentals for Lead Gen',
-  description: 'Learn paid advertising strategies for mortgage brokers and financial advisors. Half-day workshop in Manchester. Facebook, Google & LinkedIn ads that generate leads.',
-  keywords: ['paid advertising workshop', 'Facebook ads for brokers', 'Google ads mortgage', 'lead generation ads', 'financial advisor advertising'],
+  description: 'Learn paid advertising strategies for mortgage brokers and financial advisors. Half-day event in Manchester. Facebook, Google & LinkedIn ads that generate leads.',
+  keywords: ['paid advertising event', 'Facebook ads for brokers', 'Google ads mortgage', 'lead generation ads', 'financial advisor advertising'],
   alternates: {
     canonical: 'https://better-wealth.co.uk/workshops/paid-advertising',
   },
   openGraph: {
-    title: 'Paid Advertising Workshop | Better Wealth',
-    description: 'Learn paid advertising strategies built specifically for mortgage brokers. Half-day workshop in Manchester.',
+    title: 'Paid Advertising Event | Better Wealth',
+    description: 'Learn paid advertising strategies built specifically for mortgage brokers. Half-day event in Manchester.',
     url: 'https://better-wealth.co.uk/workshops/paid-advertising',
   },
 }
@@ -37,7 +37,7 @@ export default function PaidAdvertisingWorkshop() {
               <div className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/workshop-photo-5.jpeg"
-                  alt="Brokers working on paid advertising campaigns during a Better Wealth workshop in Manchester"
+                  alt="Brokers working on paid advertising campaigns during a Better Wealth event in Manchester"
                   fill={true}
                   className="object-cover scale-125"
                   sizes="(max-width: 1024px) 100vw, 25vw"
@@ -74,7 +74,7 @@ export default function PaidAdvertisingWorkshop() {
                 {/* Overview */}
                 <div className="space-y-4 text-base leading-relaxed mb-10" style={mutedDark}>
                   <p>
-                    A practical, hands-on workshop where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
+                    A practical, hands-on event where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
                   </p>
                   <p>
                     We cover platform fundamentals, targeting strategies that actually work in financial services, and how to structure campaigns that generate qualified leads without burning budget.
@@ -140,7 +140,7 @@ export default function PaidAdvertisingWorkshop() {
                 <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
-                <h3 className="font-medium text-emerald mb-1">Full Workshop Session</h3>
+                <h3 className="font-medium text-emerald mb-1">Full Event Session</h3>
                 <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Complete hands-on training day with practical exercises</p>
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function PaidAdvertisingWorkshop() {
                 <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
               </div>
               <div>
-                <h3 className="font-medium text-emerald mb-1">Post-Workshop Community Access</h3>
+                <h3 className="font-medium text-emerald mb-1">Post-Event Community Access</h3>
                 <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Join our network of professionals for ongoing support</p>
               </div>
             </div>

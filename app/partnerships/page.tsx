@@ -33,7 +33,7 @@ export default function PartnershipsPage() {
           </Link>
 
           <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
-            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
+            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Events</Link>
             <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-sm font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>Partnerships</Link>
             <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
@@ -44,7 +44,7 @@ export default function PartnershipsPage() {
               href="/workshops"
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Workshops
+              Explore Events
             </Link>
             <MobileNav currentPage="partnerships" />
           </div>
@@ -101,7 +101,7 @@ export default function PartnershipsPage() {
                 </div>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Corporate Training</h3>
                 <p className="text-base leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
-                  Bespoke workshops for brokerage networks, advisory firms, and estate agency groups. Tailored to your team's needs with ongoing support.
+                  Bespoke events for brokerage networks, advisory firms, and estate agency groups. Tailored to your team's needs with ongoing support.
                 </p>
                 <p className="text-xs text-center" style={labelColor}>
                   Ideal for: Teams of 8-30 professionals
@@ -135,7 +135,7 @@ export default function PartnershipsPage() {
                 </div>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3 text-center">Technology Partners</h3>
                 <p className="text-base leading-relaxed mb-4 text-center flex-grow" style={mutedDark}>
-                  Integration workshops and co-created content for CRM providers and marketing platforms serving financial services or real estate.
+                  Integration events and co-created content for CRM providers and marketing platforms serving financial services or real estate.
                 </p>
                 <p className="text-xs text-center" style={labelColor}>
                   Ideal for: Software companies in our sector
@@ -256,7 +256,7 @@ export default function PartnershipsPage() {
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Primis Mortgage Network</h3>
                   <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
-                    We deliver exclusive marketing workshops for Primis members, helping brokers across their network build sustainable lead generation systems.
+                    We deliver exclusive marketing events for Primis members, helping brokers across their network build sustainable lead generation systems.
                   </p>
                   <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →
@@ -346,7 +346,7 @@ export default function PartnershipsPage() {
                   </div>
                   <h3 className="text-emerald font-serif text-xl font-bold mb-3">Sesame Bankhall Group</h3>
                   <p className="text-base leading-relaxed mb-4 flex-grow" style={mutedDark}>
-                    Collaborating on professional development initiatives, bringing our workshop methodology to advisors across the Sesame network.
+                    Collaborating on professional development initiatives, bringing our event methodology to advisors across the Sesame network.
                   </p>
                   <span className="text-sm font-medium transition-all duration-200 group-hover:underline" style={{ color: '#9d6d47' }}>
                     Visit Website →

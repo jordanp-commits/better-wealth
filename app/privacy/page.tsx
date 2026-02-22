@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
 
                 <h3 className="text-lg font-serif font-bold text-emerald mb-3 mt-6">Personal information you provide:</h3>
                 <ul className="list-disc list-inside space-y-2 text-base leading-relaxed ml-4" style={mutedDark}>
-                  <li><strong>Workshop bookings:</strong> name, email, phone number, company name</li>
+                  <li><strong>Event bookings:</strong> name, email, phone number, company name</li>
                   <li><strong>Contact forms:</strong> name, email, phone number, company name, message content</li>
                   <li><strong>Payment information:</strong> processed by Stripe (we do not store card details)</li>
                   <li><strong>Email subscriptions:</strong> email address, name, communication preferences</li>
@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
 
                 <p className="text-base leading-relaxed mb-4" style={mutedDark}>We use your personal data to:</p>
                 <ul className="list-disc list-inside space-y-2 text-base leading-relaxed ml-4 mb-6" style={mutedDark}>
-                  <li>Process workshop bookings and payments</li>
+                  <li>Process event bookings and payments</li>
                   <li>Respond to enquiries and provide customer support</li>
                   <li>Send booking confirmations and important updates</li>
                   <li>Send marketing communications (with your consent)</li>

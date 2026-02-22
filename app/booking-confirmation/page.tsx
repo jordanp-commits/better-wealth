@@ -118,7 +118,7 @@ function BookingConfirmationContent() {
 
               <div className="space-y-3 text-base">
                 <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
+                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Event:</span>
                   <span className="font-medium text-right">{bookingDetails.workshopName}</span>
                 </div>
                 <div className="flex justify-between">
@@ -180,11 +180,11 @@ function BookingConfirmationContent() {
               <ul className="space-y-2 text-base" style={{ color: 'rgba(0,0,0,0.7)' }}>
                 <li className="flex items-start">
                   <span className="mr-2" aria-hidden="true">✓</span>
-                  <span>You'll receive a confirmation email with all workshop details</span>
+                  <span>You'll receive a confirmation email with all event details</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2" aria-hidden="true">✓</span>
-                  <span>We'll send you a reminder email 1 week before the workshop</span>
+                  <span>We'll send you a reminder email 1 week before the event</span>
                 </li>
                 <li className="flex items-start">
                   <span className="mr-2" aria-hidden="true">✓</span>
@@ -215,7 +215,7 @@ function BookingConfirmationContent() {
                 href="/workshops"
                 className="flex-1 px-6 py-3 border-2 border-emerald text-emerald rounded-lg font-semibold hover:bg-emerald/5 text-center"
               >
-                View All Workshops
+                View All Events
               </Link>
               <Link
                 href="/"

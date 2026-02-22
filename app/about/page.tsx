@@ -42,7 +42,7 @@ export default function AboutPage() {
           </Link>
 
           <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
-            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
+            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Events</Link>
             <Link href="/about" className="pointer-events-auto text-sm font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
             <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
@@ -53,7 +53,7 @@ export default function AboutPage() {
               href="/workshops"
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Workshops
+              Explore Events
             </Link>
             <MobileNav currentPage="about" />
           </div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
               <div className="pl-6" style={{ borderLeft: '2px solid #C4926A' }}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">We Build, Not Brainstorm</h3>
                 <p className="text-base leading-relaxed" style={mutedDark}>
-                  Every workshop ends with a tangible deliverable. Not a list of ideas to think about later, but something you've actually built during the session. A campaign ready to launch. A system ready to implement. Real output, not just inspiration.
+                  Every event ends with a tangible deliverable. Not a list of ideas to think about later, but something you've actually built during the session. A campaign ready to launch. A system ready to implement. Real output, not just inspiration.
                 </p>
               </div>
             </FadeIn>
@@ -150,7 +150,7 @@ export default function AboutPage() {
               <div className="pl-6" style={{ borderLeft: '2px solid #C4926A' }}>
                 <h3 className="text-emerald font-serif text-xl font-bold mb-3">We Keep Groups Small</h3>
                 <p className="text-base leading-relaxed" style={mutedDark}>
-                  This isn't a conference with 500 people. Our workshops are capped at 20 participants. Small enough that you get personal attention. Small enough that you can ask questions. Small enough that real relationships form. Quality over quantity, always.
+                  This isn't a conference with 500 people. Our events are capped at 20 participants. Small enough that you get personal attention. Small enough that you can ask questions. Small enough that real relationships form. Quality over quantity, always.
                 </p>
               </div>
             </FadeIn>
@@ -175,13 +175,13 @@ export default function AboutPage() {
           <FadeIn delay={100}>
             <div className="space-y-6 text-base leading-relaxed text-center" style={mutedLight}>
               <p>
-                Better Wealth was founded by Jordan Price, a mortgage broker who built his practice from zero to seven figures using the exact strategies now taught in our workshops. No family connections. No existing book of business. Just a systematic approach to marketing and lead generation.
+                Better Wealth was founded by Jordan Price, a mortgage broker who built his practice from zero to seven figures using the exact strategies now taught in our events. No family connections. No existing book of business. Just a systematic approach to marketing and lead generation.
               </p>
               <p>
                 After years of other brokers asking how he'd done it, Jordan realised the same question kept coming up: "Where do I actually learn this stuff?" The answer was nowhere. So he built it.
               </p>
               <p>
-                The first workshop was held in Manchester with eight brokers around a table. No fancy venue. No polished slides. Just practical, actionable strategies that had actually worked in the real world. The feedback was immediate: "This is what we've been looking for."
+                The first event was held in Manchester with eight brokers around a table. No fancy venue. No polished slides. Just practical, actionable strategies that had actually worked in the real world. The feedback was immediate: "This is what we've been looking for."
               </p>
               <p>
                 Today, Better Wealth has trained over 250 professionals, but the philosophy hasn't changed. Small groups. Real strategies. Tangible output. Everything else is just noise.
@@ -198,7 +198,7 @@ export default function AboutPage() {
               </div>
               <div className="text-center">
                 <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>12+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Workshops Delivered</p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Events Delivered</p>
               </div>
               <div className="text-center">
                 <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold whitespace-nowrap" style={{ color: '#C4926A' }}>£95k+</p>
@@ -274,13 +274,13 @@ export default function AboutPage() {
               Ready to See What We're About?
             </h2>
             <p className="max-w-xl mx-auto mb-8 leading-relaxed text-base" style={{ color: 'rgba(250,250,248,0.6)' }}>
-              Join a workshop and experience the difference. No fluff. No theory. Just practical strategies you can implement immediately.
+              Join an event and experience the difference. No fluff. No theory. Just practical strategies you can implement immediately.
             </p>
             <Link
               href="/workshops"
               className="btn-copper inline-block px-8 py-3.5 text-white rounded-lg font-semibold text-sm shadow-lg"
             >
-              Explore Workshops
+              Explore Events
             </Link>
           </div>
         </FadeIn>

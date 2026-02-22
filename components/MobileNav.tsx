@@ -42,7 +42,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
   }, [])
 
   const navLinks = [
-    { href: '/workshops', label: 'Workshops', key: 'workshops' },
+    { href: '/workshops', label: 'Events', key: 'workshops' },
     { href: '/about', label: 'About', key: 'about' },
     { href: '/partnerships', label: 'Partnerships', key: 'partnerships' },
     { href: '/contact', label: 'Contact', key: 'contact' },
@@ -130,7 +130,7 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
             className="block w-full text-center py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90"
             style={{ backgroundColor: '#C4926A' }}
           >
-            Explore Workshops
+            Explore Events
           </Link>
         </div>
 

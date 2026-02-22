@@ -66,7 +66,7 @@ export default function NotFound() {
               href="/workshops"
               className="w-full sm:w-auto px-8 py-3 rounded-lg font-medium border-2 border-[#9d6d47] text-[#9d6d47] transition-all duration-200 hover:bg-[#9d6d47] hover:text-[#033A22]"
             >
-              Browse Workshops
+              Browse Events
             </Link>
           </div>
 

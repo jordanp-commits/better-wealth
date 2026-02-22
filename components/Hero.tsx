@@ -34,7 +34,7 @@ export default function Hero() {
 
             <div className="flex justify-center">
               <Link href="/workshops" className="btn-copper px-8 py-3.5 rounded-lg font-semibold text-base shadow-lg">
-                Explore Workshops
+                Explore Events
               </Link>
             </div>
           </div>
@@ -65,7 +65,7 @@ export default function Hero() {
                 <CountUp end={12} suffix="+" style={{ color: '#C4926A' }} />
               </div>
               <div className="text-xs uppercase tracking-widest mt-2 font-medium" style={muted}>
-                Workshops Delivered
+                Events Delivered
               </div>
             </div>
             <div className="hidden md:block w-px h-10" style={divider}></div>

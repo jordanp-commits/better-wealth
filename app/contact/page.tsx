@@ -119,7 +119,7 @@ export default function ContactPage() {
           </Link>
 
           <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
-            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Workshops</Link>
+            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Events</Link>
             <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
             <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
             <Link href="/contact" className="pointer-events-auto text-sm font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>Contact</Link>
@@ -130,7 +130,7 @@ export default function ContactPage() {
               href="/workshops"
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Workshops
+              Explore Events
             </Link>
             <MobileNav currentPage="contact" />
           </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
               Let's Talk
             </h1>
             <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
-              Have questions about our workshops? Interested in group bookings? Want to discuss a partnership? We're here to help.
+              Have questions about our events? Interested in group bookings? Want to discuss a partnership? We're here to help.
             </p>
           </div>
         </FadeIn>
@@ -174,7 +174,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-2xl font-serif font-bold text-emerald mb-4">Contact Information</h2>
                 <p className="text-base leading-relaxed mb-10" style={mutedDark}>
-                  Whether you're ready to book a workshop or just want to learn more about what we do, we're happy to chat. No sales pitch—just straight answers.
+                  Whether you're ready to book an event or just want to learn more about what we do, we're happy to chat. No sales pitch—just straight answers.
                 </p>
 
                 {/* Email */}
@@ -222,7 +222,7 @@ export default function ContactPage() {
                       </a>
                     ))}
                   </div>
-                  <p className="text-sm" style={mutedDark}>Behind the scenes and workshop updates</p>
+                  <p className="text-sm" style={mutedDark}>Behind the scenes and event updates</p>
                 </div>
 
                 {/* Quick Links */}
@@ -231,7 +231,7 @@ export default function ContactPage() {
                   <div className="space-y-3">
                     <Link href="/workshops" className="flex items-center gap-2 text-sm text-emerald hover:opacity-70 transition-opacity">
                       <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
-                      View Upcoming Workshops
+                      View Upcoming Events
                     </Link>
                     <Link href="/partnerships" className="flex items-center gap-2 text-sm text-emerald hover:opacity-70 transition-opacity">
                       <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
@@ -410,7 +410,7 @@ export default function ContactPage() {
           <div className="space-y-4">
             <FadeIn delay={0}>
               <article className="bg-white p-6 rounded-xl" style={cardBorder}>
-                <h3 className="text-base font-serif font-bold text-emerald mb-2">Can I bring a colleague to a workshop?</h3>
+                <h3 className="text-base font-serif font-bold text-emerald mb-2">Can I bring a colleague to an event?</h3>
                 <p className="text-base leading-relaxed" style={mutedDark}>
                   Yes, each person books separately. If you're booking 3 or more places, you'll receive a 10% group discount automatically applied at checkout.
                 </p>
@@ -419,9 +419,9 @@ export default function ContactPage() {
 
             <FadeIn delay={100}>
               <article className="bg-white p-6 rounded-xl" style={cardBorder}>
-                <h3 className="text-base font-serif font-bold text-emerald mb-2">Do you offer private workshops for teams?</h3>
+                <h3 className="text-base font-serif font-bold text-emerald mb-2">Do you offer private events for teams?</h3>
                 <p className="text-base leading-relaxed" style={mutedDark}>
-                  Yes, we offer bespoke workshops for firms looking to train their entire team. Get in touch to discuss your requirements and we'll create a tailored programme.
+                  Yes, we offer bespoke events for firms looking to train their entire team. Get in touch to discuss your requirements and we'll create a tailored programme.
                 </p>
               </article>
             </FadeIn>
@@ -430,7 +430,7 @@ export default function ContactPage() {
               <article className="bg-white p-6 rounded-xl" style={cardBorder}>
                 <h3 className="text-base font-serif font-bold text-emerald mb-2">What's your refund policy?</h3>
                 <p className="text-base leading-relaxed" style={mutedDark}>
-                  We offer full refunds up to 14 days before the workshop date. After that, you can transfer your booking to a future date or send a colleague in your place.
+                  We offer full refunds up to 14 days before the event date. After that, you can transfer your booking to a future date or send a colleague in your place.
                 </p>
               </article>
             </FadeIn>

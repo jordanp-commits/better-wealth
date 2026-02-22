@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     default: 'Better Wealth | Marketing Education for Financial Services & Real Estate',
     template: '%s | Better Wealth',
   },
-  description: 'Face-to-face marketing workshops for mortgage brokers and financial advisors. Practical training with real deliverables. Manchester-based, FCA-compliant strategies.',
-  keywords: ['mortgage broker marketing', 'financial advisor marketing', 'FCA compliant marketing', 'broker workshops', 'Manchester', 'financial services training', 'real estate marketing'],
+  description: 'Face-to-face marketing events for mortgage brokers and financial advisors. Practical training with real deliverables. Manchester-based, FCA-compliant strategies.',
+  keywords: ['mortgage broker marketing', 'financial advisor marketing', 'FCA compliant marketing', 'broker events', 'Manchester', 'financial services training', 'real estate marketing'],
   authors: [{ name: 'Better Wealth' }],
   creator: 'Better Wealth',
   publisher: 'Better Wealth',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Better Wealth | Marketing Education for Financial Services',
-    description: 'Face-to-face marketing workshops for mortgage brokers and financial advisors. Practical training with real deliverables.',
+    description: 'Face-to-face marketing events for mortgage brokers and financial advisors. Practical training with real deliverables.',
     url: siteUrl,
     siteName: 'Better Wealth',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Better Wealth | Marketing Education for Financial Services',
-    description: 'Face-to-face marketing workshops for mortgage brokers and financial advisors.',
+    description: 'Face-to-face marketing events for mortgage brokers and financial advisors.',
     images: ['/og-image.jpg'],
   },
   robots: {

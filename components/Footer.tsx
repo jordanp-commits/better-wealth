@@ -106,7 +106,7 @@ export default function Footer() {
                 Join Our Community
               </h3>
               <p className="text-base" style={{ color: '#B8D4C5' }}>
-                Get practical marketing strategies and workshop updates delivered monthly.
+                Get practical marketing strategies and event updates delivered monthly.
               </p>
             </div>
             <div>
@@ -211,7 +211,7 @@ export default function Footer() {
               <div className="space-y-2">
                 <div>
                   <Link href="/workshops" className="text-sm footer-link">
-                    Workshops
+                    Events
                   </Link>
                 </div>
                 <div>

@@ -6,15 +6,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Workshops',
-  description: 'Practical marketing workshops for mortgage brokers and financial advisors. Face-to-face training in Manchester with real deliverables. Book your place today.',
-  keywords: ['marketing workshops', 'mortgage broker training', 'financial advisor workshops', 'Manchester workshops', 'paid advertising training', 'lead generation workshop'],
+  title: 'Events',
+  description: 'Practical marketing events for mortgage brokers and financial advisors. Face-to-face training in Manchester with real deliverables. Book your place today.',
+  keywords: ['marketing events', 'mortgage broker training', 'financial advisor events', 'Manchester events', 'paid advertising training', 'lead generation event'],
   alternates: {
     canonical: 'https://better-wealth.co.uk/workshops',
   },
   openGraph: {
-    title: 'Workshops | Better Wealth',
-    description: 'Practical marketing workshops for mortgage brokers and financial advisors. Face-to-face training with real deliverables.',
+    title: 'Events | Better Wealth',
+    description: 'Practical marketing events for mortgage brokers and financial advisors. Face-to-face training with real deliverables.',
     url: 'https://better-wealth.co.uk/workshops',
   },
 }
@@ -45,12 +45,12 @@ export default function Workshops() {
         <div className="max-w-4xl mx-auto relative z-10">
           <FadeIn>
             <div className="text-center">
-              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Workshops</p>
+              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Events</p>
               <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mt-1 mb-6">
                 Practical Marketing Education
               </h1>
               <p className="max-w-2xl mx-auto text-base leading-relaxed" style={mutedLight}>
-                Face-to-face workshops designed for ambitious professionals in financial services and real estate. No theory. No motivation. Just frameworks, templates, and deliverables you can implement immediately.
+                Face-to-face events designed for ambitious professionals in financial services and real estate. No theory. No motivation. Just frameworks, templates, and deliverables you can implement immediately.
               </p>
             </div>
           </FadeIn>
@@ -68,7 +68,7 @@ export default function Workshops() {
                   <div className="aspect-video relative overflow-hidden rounded-t-lg">
                     <Image
                       src="/workshop-photo-3.jpeg"
-                      alt="Attendees collaborating during the Paid Advertising Fundamentals for Lead Gen workshop"
+                      alt="Attendees collaborating during the Paid Advertising Fundamentals for Lead Gen event"
                       fill
                       className="w-full object-cover rounded-lg"
                     />
@@ -82,7 +82,7 @@ export default function Workshops() {
                     </p>
                     <div className="flex-1 space-y-4 mb-6 text-base leading-relaxed" style={mutedDark}>
                       <p>
-                        A practical, hands-on workshop where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
+                        A practical, hands-on event where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
                       </p>
                       <p>
                         We cover platform fundamentals, targeting strategies that actually work in financial services, and how to structure campaigns that generate qualified leads without burning budget.
@@ -106,7 +106,7 @@ export default function Workshops() {
                   <div className="aspect-video relative overflow-hidden rounded-t-lg">
                     <Image
                       src="/workshop-photo-4.jpeg"
-                      alt="Participants at the Entering Financial Services workshop learning about FCA compliance"
+                      alt="Participants at the Entering Financial Services event learning about FCA compliance"
                       fill
                       className="w-full object-cover rounded-lg"
                     />

@@ -168,7 +168,7 @@ function BookWorkshopContent() {
   if (!workshop) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Workshop not found</p>
+        <p>Event not found</p>
       </div>
     )
   }
@@ -217,7 +217,7 @@ function BookWorkshopContent() {
             {/* Step 1: Select Date */}
             {step === 1 && (
               <section aria-label="Select date">
-                <h2 className="text-lg font-medium text-emerald mb-4">Select Your Workshop Date</h2>
+                <h2 className="text-lg font-medium text-emerald mb-4">Select Your Event Date</h2>
                 <div className="space-y-3">
                   {workshopDates.map((date) => (
                     <button
@@ -425,7 +425,7 @@ function BookWorkshopContent() {
                   <h3 className="font-medium mb-3">Booking Summary</h3>
                   <div className="space-y-2 text-base">
                     <div>
-                      <span className="block mb-1" style={{ color: 'rgba(0,0,0,0.6)' }}>Workshop:</span>
+                      <span className="block mb-1" style={{ color: 'rgba(0,0,0,0.6)' }}>Event:</span>
                       <span className="font-medium">{workshop.name}</span>
                     </div>
                     <div className="flex justify-between">

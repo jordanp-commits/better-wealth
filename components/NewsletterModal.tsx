@@ -151,7 +151,7 @@ export default function NewsletterModal() {
 
             <h2 className="text-2xl font-serif font-bold text-[#033A22] mb-2">Stay Connected</h2>
             <p className="text-base text-gray-600 mb-6">
-              Get workshop updates, marketing tips, and exclusive offers delivered to your inbox.
+              Get event updates, marketing tips, and exclusive offers delivered to your inbox.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
