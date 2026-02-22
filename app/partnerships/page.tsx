@@ -21,7 +21,7 @@ export default function PartnershipsPage() {
     <main className="min-h-screen">
       {/* Navigation */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 h-16"
         style={{ backgroundColor: '#033A22' }}
       >
         <div className="relative h-16 px-6 max-w-7xl mx-auto flex items-center justify-between">

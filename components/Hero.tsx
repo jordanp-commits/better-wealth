@@ -13,6 +13,7 @@ export default function Hero() {
   const g1 = { background: 'radial-gradient(ellipse 150% 100% at 50% 50%, rgba(5,72,42,0.5) 0%, transparent 100%)' }
   const g2 = { background: 'radial-gradient(ellipse at 50% 40%, rgba(200,155,74,0.04) 0%, transparent 40%)' }
   return (
+    <>
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={base}></div>
       <div className="absolute inset-0 pointer-events-none" style={g1}></div>
@@ -84,7 +85,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
     </section>
+    <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
+    </>
   )
 }
