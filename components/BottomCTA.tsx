@@ -12,7 +12,7 @@ export default function BottomCTA() {
       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
         <rect width="100%" height="100%" filter="url(#grain)" />
       </svg>
-      <div className="absolute inset-0" style={{ backgroundColor: '#033A22' }}></div>
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: '#033A22' }}></div>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(196, 146, 106, 0.12) 0%, transparent 55%)' }}></div>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 60%, rgba(196, 146, 106, 0.08) 0%, transparent 50%)' }}></div>
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(3, 58, 34, 0.6) 0%, transparent 60%)' }}></div>

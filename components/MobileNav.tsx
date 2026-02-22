@@ -81,7 +81,7 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
       {/* Mobile Menu Panel */}
       <div
         className={`fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm transform transition-transform duration-300 ease-out lg:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
         style={{ backgroundColor: '#033A22' }}
       >

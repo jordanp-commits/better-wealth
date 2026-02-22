@@ -14,12 +14,12 @@ export default function Hero() {
   const g2 = { background: 'radial-gradient(ellipse at 50% 40%, rgba(200,155,74,0.04) 0%, transparent 40%)' }
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0" style={base}></div>
-      <div className="absolute inset-0" style={g1}></div>
-      <div className="absolute inset-0" style={g2}></div>
+      <div className="absolute inset-0 pointer-events-none" style={base}></div>
+      <div className="absolute inset-0 pointer-events-none" style={g1}></div>
+      <div className="absolute inset-0 pointer-events-none" style={g2}></div>
 
       {/* Hero content + divider — fills the viewport */}
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 min-h-screen flex flex-col pt-16">
         <div className="flex-grow flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <div className="mb-6">
