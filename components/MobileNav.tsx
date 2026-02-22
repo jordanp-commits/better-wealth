@@ -69,91 +69,91 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
         </svg>
       </button>
 
-      {/* Backdrop Overlay */}
-      <div
-        className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={() => setIsOpen(false)}
-        aria-hidden="true"
-      />
+      {/* Backdrop Overlay - only in DOM when open */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm lg:hidden"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Mobile Menu Panel */}
-      <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm transform transition-transform duration-300 ease-out lg:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
-        }`}
-        style={{ backgroundColor: '#033A22' }}
-      >
-        {/* Close Button */}
-        <div className="flex justify-end p-4">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center w-11 h-11"
-            aria-label="Close menu"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="#C4926A"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Navigation Links */}
-        <nav className="px-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.key}
-              href={link.href}
+      {/* Mobile Menu Panel - only in DOM when open */}
+      {isOpen && (
+        <div
+          className="fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm lg:hidden"
+          style={{ backgroundColor: '#033A22' }}
+        >
+          {/* Close Button */}
+          <div className="flex justify-end p-4">
+            <button
               onClick={() => setIsOpen(false)}
-              className={`block py-4 text-lg font-medium transition-colors duration-200 border-b ${
-                currentPage === link.key
-                  ? 'text-[#C4926A]'
-                  : 'text-white hover:text-[#C4926A]'
-              }`}
-              style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
+              className="flex items-center justify-center w-11 h-11"
+              aria-label="Close menu"
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+              <svg
+                className="w-7 h-7"
+                fill="none"
+                stroke="#C4926A"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-        {/* CTA Button */}
-        <div className="px-6 mt-8">
-          <button
-            onClick={() => { setIsOpen(false); onBecomeMember?.() }}
-            className="block w-full text-center py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: '#C4926A' }}
-          >
-            Become a Member
-          </button>
-        </div>
+          {/* Navigation Links */}
+          <nav className="px-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.key}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`block py-4 text-lg font-medium transition-colors duration-200 border-b ${
+                  currentPage === link.key
+                    ? 'text-[#C4926A]'
+                    : 'text-white hover:text-[#C4926A]'
+                }`}
+                style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Footer Links */}
-        <div className="absolute bottom-8 left-0 right-0 px-6">
-          <div className="flex gap-6 text-sm" style={{ color: '#B8D4C5' }}>
-            <Link
-              href="/privacy"
-              onClick={() => setIsOpen(false)}
-              className="hover:text-white transition-colors"
+          {/* CTA Button */}
+          <div className="px-6 mt-8">
+            <button
+              onClick={() => { setIsOpen(false); onBecomeMember?.() }}
+              className="block w-full text-center py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90"
+              style={{ backgroundColor: '#C4926A' }}
             >
-              Privacy
-            </Link>
-            <Link
-              href="/cookie-policy"
-              onClick={() => setIsOpen(false)}
-              className="hover:text-white transition-colors"
-            >
-              Cookies
-            </Link>
+              Become a Member
+            </button>
+          </div>
+
+          {/* Footer Links */}
+          <div className="absolute bottom-8 left-0 right-0 px-6">
+            <div className="flex gap-6 text-sm" style={{ color: '#B8D4C5' }}>
+              <Link
+                href="/privacy"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-white transition-colors"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/cookie-policy"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-white transition-colors"
+              >
+                Cookies
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
