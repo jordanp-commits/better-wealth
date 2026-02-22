@@ -81,11 +81,13 @@ function BookWorkshopContent() {
 
       setWorkshop(workshopData)
 
-      // Fetch available dates
+      // Fetch upcoming available dates
+      const today = new Date().toISOString().split('T')[0]
       const { data: datesData, error: datesError } = await supabase
         .from('workshop_dates')
         .select('*')
         .eq('workshop_id', workshopData.id)
+        .gte('date', today)
         .gt('seats_remaining', 0)
         .order('date', { ascending: true })
 

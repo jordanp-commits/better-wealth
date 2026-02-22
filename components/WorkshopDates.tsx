@@ -33,11 +33,13 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
 
         if (workshopError) throw workshopError
 
-        // Then fetch available dates
+        // Then fetch upcoming available dates
+        const today = new Date().toISOString().split('T')[0]
         const { data: datesData, error: datesError } = await supabase
           .from('workshop_dates')
           .select('*')
           .eq('workshop_id', workshop.id)
+          .gte('date', today)
           .gt('seats_remaining', 0)
           .order('date', { ascending: true })
 
