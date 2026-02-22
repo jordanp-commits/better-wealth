@@ -15,12 +15,18 @@ body {
 /* Skip to content link - visible only on keyboard focus */
 .skip-to-content {
   position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  top: -100px;
+  left: 0;
   z-index: 9999;
+  pointer-events: none;
+  padding: 12px 24px;
+  background-color: #033A22;
+  color: #C4926A;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  opacity: 0;
 }
 
 .skip-to-content:focus {
@@ -28,17 +34,9 @@ body {
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  width: auto;
-  height: auto;
-  overflow: visible;
-  padding: 12px 24px;
-  background-color: #033A22;
-  color: #C4926A;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
+  pointer-events: auto;
+  opacity: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  text-decoration: none;
   outline: 2px solid #C4926A;
   outline-offset: 2px;
 }
