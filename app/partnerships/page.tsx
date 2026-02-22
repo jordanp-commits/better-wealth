@@ -1,11 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 import MobileNav from '@/components/MobileNav'
+import WaitlistModal from '@/components/WaitlistModal'
 import Footer from '@/components/Footer'
 
 export default function PartnershipsPage() {
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false)
   const labelColor = { color: '#9d6d47' }
   const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
@@ -40,13 +43,13 @@ export default function PartnershipsPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="/workshops"
+            <button
+              onClick={() => setIsWaitlistModalOpen(true)}
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Events
-            </Link>
-            <MobileNav currentPage="partnerships" />
+              Become a Member
+            </button>
+            <MobileNav currentPage="partnerships" onBecomeMember={() => setIsWaitlistModalOpen(true)} />
           </div>
         </div>
       </nav>
@@ -492,6 +495,7 @@ export default function PartnershipsPage() {
       </section>
 
       <Footer />
+      <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
     </main>
   )
 }

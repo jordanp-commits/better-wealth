@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { csrfHeaders } from '@/lib/csrf'
 import FadeIn from '@/components/FadeIn'
 import MobileNav from '@/components/MobileNav'
+import WaitlistModal from '@/components/WaitlistModal'
 import Footer from '@/components/Footer'
 import { Instagram, Facebook, Linkedin } from 'lucide-react'
 
@@ -62,6 +63,7 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false)
   // TODO: Re-enable Turnstile before production
   // const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
@@ -126,13 +128,13 @@ export default function ContactPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="/workshops"
+            <button
+              onClick={() => setIsWaitlistModalOpen(true)}
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Events
-            </Link>
-            <MobileNav currentPage="contact" />
+              Become a Member
+            </button>
+            <MobileNav currentPage="contact" onBecomeMember={() => setIsWaitlistModalOpen(true)} />
           </div>
         </div>
       </nav>
@@ -490,6 +492,7 @@ export default function ContactPage() {
           animation: fade-in 0.2s ease-out;
         }
       `}</style>
+      <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
     </main>
   )
 }

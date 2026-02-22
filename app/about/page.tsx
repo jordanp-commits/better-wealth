@@ -1,24 +1,14 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 import MobileNav from '@/components/MobileNav'
+import WaitlistModal from '@/components/WaitlistModal'
 import Footer from '@/components/Footer'
 
-export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Learn about Better Wealth\'s mission to provide practical marketing education for mortgage brokers and financial professionals. Built by brokers, for brokers.',
-  keywords: ['about Better Wealth', 'mortgage broker training', 'financial advisor education', 'Jordan Price', 'broker marketing'],
-  alternates: {
-    canonical: 'https://better-wealth.co.uk/about',
-  },
-  openGraph: {
-    title: 'About Us | Better Wealth',
-    description: 'Learn about Better Wealth\'s mission to provide practical marketing education for mortgage brokers and financial professionals.',
-    url: 'https://better-wealth.co.uk/about',
-  },
-}
-
 export default function AboutPage() {
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false)
   const labelColor = { color: '#9d6d47' }
   const mutedLight = { color: '#B8D4C5' }
   const mutedDark = { color: 'rgba(0,0,0,0.35)' }
@@ -49,13 +39,13 @@ export default function AboutPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="/workshops"
+            <button
+              onClick={() => setIsWaitlistModalOpen(true)}
               className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
-              Explore Events
-            </Link>
-            <MobileNav currentPage="about" />
+              Become a Member
+            </button>
+            <MobileNav currentPage="about" onBecomeMember={() => setIsWaitlistModalOpen(true)} />
           </div>
         </div>
       </nav>
@@ -276,17 +266,18 @@ export default function AboutPage() {
             <p className="max-w-xl mx-auto mb-8 leading-relaxed text-base" style={{ color: 'rgba(250,250,248,0.6)' }}>
               Join an event and experience the difference. No fluff. No theory. Just practical strategies you can implement immediately.
             </p>
-            <Link
-              href="/workshops"
+            <button
+              onClick={() => setIsWaitlistModalOpen(true)}
               className="btn-copper inline-block px-8 py-3.5 text-white rounded-lg font-semibold text-sm shadow-lg"
             >
-              Explore Events
-            </Link>
+              Become a Member
+            </button>
           </div>
         </FadeIn>
       </section>
 
       <Footer />
+      <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
     </main>
   )
 }

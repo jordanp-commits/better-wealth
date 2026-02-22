@@ -5,9 +5,10 @@ import Link from 'next/link'
 
 interface MobileNavProps {
   currentPage?: 'workshops' | 'about' | 'partnerships' | 'contact' | 'privacy' | 'cookie-policy' | null
+  onBecomeMember?: () => void
 }
 
-export default function MobileNav({ currentPage = null }: MobileNavProps) {
+export default function MobileNav({ currentPage = null, onBecomeMember }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   // Lock body scroll when menu is open
@@ -124,14 +125,13 @@ export default function MobileNav({ currentPage = null }: MobileNavProps) {
 
         {/* CTA Button */}
         <div className="px-6 mt-8">
-          <Link
-            href="/workshops"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={() => { setIsOpen(false); onBecomeMember?.() }}
             className="block w-full text-center py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90"
             style={{ backgroundColor: '#C4926A' }}
           >
-            Explore Events
-          </Link>
+            Become a Member
+          </button>
         </div>
 
         {/* Footer Links */}

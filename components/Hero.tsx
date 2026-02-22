@@ -1,7 +1,11 @@
-import Link from 'next/link'
+'use client'
+
+import { useState } from 'react'
 import CountUp from '@/components/CountUp'
+import WaitlistModal from '@/components/WaitlistModal'
 
 export default function Hero() {
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false)
   const muted = { color: '#B8D4C5' }
   const divider = { backgroundColor: 'rgba(250, 250, 248, 0.15)' }
   const subtext = { color: 'rgba(250, 250, 248, 0.88)' }
@@ -33,9 +37,9 @@ export default function Hero() {
             </p>
 
             <div className="flex justify-center">
-              <Link href="/workshops" className="btn-copper px-8 py-3.5 rounded-lg font-semibold text-base shadow-lg">
-                Explore Events
-              </Link>
+              <button onClick={() => setIsWaitlistModalOpen(true)} className="btn-copper px-8 py-3.5 rounded-lg font-semibold text-base shadow-lg">
+                Become a Member
+              </button>
             </div>
           </div>
         </div>
@@ -80,6 +84,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <WaitlistModal isOpen={isWaitlistModalOpen} onClose={() => setIsWaitlistModalOpen(false)} />
     </section>
   )
 }

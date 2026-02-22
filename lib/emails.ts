@@ -8,6 +8,201 @@ const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Better Wealth <onboarding@r
 const INTERNAL_EMAIL = 'info@better-wealth.co.uk'
 const LOCATION = 'Cortland by Colliers Yard, Salford, Manchester'
 
+// ── Waitlist emails ──────────────────────────────────────────────────
+
+interface WaitlistApplicationData {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  company: string
+  whyJoin: string
+}
+
+/**
+ * Send confirmation email to waitlist applicant
+ */
+export async function sendWaitlistConfirmation(applicantEmail: string, firstName: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: applicantEmail,
+      subject: 'Better Wealth — Application Received',
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #F4F2EF;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F4F2EF; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+
+                  <!-- Header -->
+                  <tr>
+                    <td style="background-color: #033A22; padding: 32px; text-align: center;">
+                      <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold;">Better Wealth</h1>
+                      <p style="color: #C4926A; margin: 8px 0 0 0; font-size: 14px; letter-spacing: 1px;">MEMBERSHIP APPLICATION</p>
+                    </td>
+                  </tr>
+
+                  <!-- Body -->
+                  <tr>
+                    <td style="padding: 40px 32px;">
+                      <h2 style="color: #033A22; margin: 0 0 16px 0; font-size: 22px;">Thank you, ${escapeHtml(firstName)}.</h2>
+                      <p style="color: #666666; margin: 0 0 16px 0; font-size: 15px; line-height: 1.6;">
+                        We've received your application to join the Better Wealth community. Our team reviews every application personally to ensure the right fit.
+                      </p>
+                      <p style="color: #666666; margin: 0 0 16px 0; font-size: 15px; line-height: 1.6;">
+                        You'll hear from us soon. In the meantime, if you have any questions, feel free to reach out at
+                        <a href="mailto:info@better-wealth.co.uk" style="color: #C4926A; text-decoration: none;">info@better-wealth.co.uk</a>.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- Footer -->
+                  <tr>
+                    <td style="background-color: #022A18; padding: 24px 32px; text-align: center;">
+                      <p style="color: rgba(255,255,255,0.6); font-size: 13px; margin: 0 0 8px 0;">
+                        Better Wealth | Marketing Education for Financial Services
+                      </p>
+                      <p style="color: rgba(255,255,255,0.4); font-size: 12px; margin: 0;">
+                        &copy; ${new Date().getFullYear()} Better Wealth. All rights reserved.
+                      </p>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    })
+
+    if (error) {
+      console.error('Failed to send waitlist confirmation email:', error)
+      return { success: false, error: error.message }
+    }
+
+    console.log(`Waitlist confirmation email sent to ${applicantEmail}`)
+    return { success: true }
+  } catch (err) {
+    console.error('Error sending waitlist confirmation email:', err)
+    return { success: false, error: 'Failed to send email' }
+  }
+}
+
+/**
+ * Send internal notification about a new waitlist application
+ */
+export async function sendWaitlistNotification(data: WaitlistApplicationData): Promise<{ success: boolean; error?: string }> {
+  try {
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: INTERNAL_EMAIL,
+      replyTo: data.email,
+      subject: `New Membership Application — ${data.firstName} ${data.lastName}`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; background-color: #F4F2EF;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F4F2EF; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+
+                  <!-- Header -->
+                  <tr>
+                    <td style="background-color: #033A22; padding: 24px; text-align: center;">
+                      <h1 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: bold;">New Membership Application</h1>
+                    </td>
+                  </tr>
+
+                  <!-- Applicant summary -->
+                  <tr>
+                    <td style="padding: 32px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F4F2EF; border-radius: 8px; padding: 20px;">
+                        <tr>
+                          <td>
+                            <h2 style="color: #033A22; margin: 0 0 4px 0; font-size: 18px;">${escapeHtml(data.firstName)} ${escapeHtml(data.lastName)}</h2>
+                            <p style="color: #C4926A; margin: 0; font-size: 14px;">${escapeHtml(data.email)}</p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Details -->
+                  <tr>
+                    <td style="padding: 0 32px 24px 32px;">
+                      <h3 style="color: #033A22; margin: 0 0 16px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Applicant Details</h3>
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; width: 120px; font-size: 13px;">Phone</td>
+                          <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.phone)}</td>
+                        </tr>
+                        ${data.company ? `
+                        <tr>
+                          <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 13px;">Company</td>
+                          <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #333; font-size: 13px;">${escapeHtml(data.company)}</td>
+                        </tr>
+                        ` : ''}
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- Why join -->
+                  <tr>
+                    <td style="padding: 0 32px 32px 32px;">
+                      <h3 style="color: #033A22; margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Why They Want to Join</h3>
+                      <div style="background-color: #F4F2EF; padding: 16px; border-radius: 8px; color: #333; font-size: 14px; line-height: 1.6;">
+                        ${escapeHtml(data.whyJoin).replace(/\n/g, '<br>')}
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Footer -->
+                  <tr>
+                    <td style="background-color: #022A18; padding: 16px 32px; text-align: center;">
+                      <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">
+                        This is an automated notification from the Better Wealth website.
+                      </p>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    })
+
+    if (error) {
+      console.error('Failed to send waitlist notification email:', error)
+      return { success: false, error: error.message }
+    }
+
+    console.log(`Waitlist notification email sent to ${INTERNAL_EMAIL}`)
+    return { success: true }
+  } catch (err) {
+    console.error('Error sending waitlist notification email:', err)
+    return { success: false, error: 'Failed to send email' }
+  }
+}
+
+// ── Booking emails ──────────────────────────────────────────────────
+
 interface BookingEmailData {
   customerEmail: string
   firstName: string
