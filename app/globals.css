@@ -6,7 +6,6 @@ html {
 }
 
 body {
-  overflow-x: hidden;
 }
 
 body.mobile-menu-open {
