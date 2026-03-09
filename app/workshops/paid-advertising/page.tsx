@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: 'Paid Advertising Event | Better Wealth',
     description: 'Learn paid advertising strategies built specifically for mortgage brokers. Half-day event in Manchester.',
     url: 'https://better-wealth.co.uk/workshops/paid-advertising',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: 'Partnerships | Better Wealth',
     description: 'Partner with Better Wealth to provide marketing training to your network. Corporate training and network partnerships available.',
     url: 'https://better-wealth.co.uk/partnerships',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

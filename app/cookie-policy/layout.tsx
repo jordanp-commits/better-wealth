@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: 'Cookie Policy | Better Wealth',
     description: 'Information about how Better Wealth uses cookies on our website.',
     url: 'https://better-wealth.co.uk/cookie-policy',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

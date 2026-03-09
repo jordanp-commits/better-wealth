@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Better Wealth',
     description: 'Better Wealth privacy policy. Learn how we collect, use, and protect your personal data.',
     url: 'https://better-wealth.co.uk/privacy',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

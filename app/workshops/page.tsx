@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     title: 'Events & Workshops | Better Wealth',
     description: 'Better Wealth hosts member networking events and open workshops focused on property, financial services and growth-led business.',
     url: 'https://better-wealth.co.uk/workshops',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

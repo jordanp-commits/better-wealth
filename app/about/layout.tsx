@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: 'About Us | Better Wealth',
     description: 'Learn about Better Wealth\'s mission to provide practical marketing education for mortgage brokers and financial professionals.',
     url: 'https://better-wealth.co.uk/about',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

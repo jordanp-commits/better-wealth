@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     title: 'Better Wealth | A Private Community for Independent Wealth Builders',
     description: 'Better Wealth is a private network and events platform centred around real estate, financial services and growth-led business.',
     url: 'https://better-wealth.co.uk',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     title: 'Entering Financial Services Event | Better Wealth',
     description: 'Event for professionals entering financial services. Learn about FCA compliance and building your first client pipeline.',
     url: 'https://better-wealth.co.uk/workshops/entering-financial-services',
+    images: [{ url: 'https://better-wealth.co.uk/og-image.png', width: 1200, height: 630, alt: 'Better Wealth - Private Community for Independent Wealth Builders' }],
   },
 }
 
