@@ -5,6 +5,7 @@ import Link from 'next/link'
 import FadeIn from '@/components/FadeIn'
 import MobileNav from '@/components/MobileNav'
 import WaitlistModal from '@/components/WaitlistModal'
+import MarqueeTicker from '@/components/MarqueeTicker'
 import Footer from '@/components/Footer'
 
 export default function AboutPage() {
@@ -18,7 +19,7 @@ export default function AboutPage() {
       {/* Navigation */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 h-16"
-        style={{ backgroundColor: '#033A22' }}
+        style={{ backgroundColor: '#0D2418' }}
       >
         <div className="relative h-16 px-6 max-w-7xl mx-auto flex items-center justify-between">
           <Link href="/">
@@ -32,16 +33,16 @@ export default function AboutPage() {
           </Link>
 
           <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
-            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Events</Link>
-            <Link href="/about" className="pointer-events-auto text-sm font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>About</Link>
-            <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
-            <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
+            <Link href="/workshops" className="pointer-events-auto text-white hover:text-[#C4926A] text-base font-medium transition-colors duration-200">Events</Link>
+            <Link href="/about" className="pointer-events-auto text-base font-medium transition-colors duration-200" style={{ color: '#C4926A' }}>About</Link>
+            <Link href="/partnerships" className="pointer-events-auto text-white hover:text-[#C4926A] text-base font-medium transition-colors duration-200">Partnerships</Link>
+            <Link href="/contact" className="pointer-events-auto text-white hover:text-[#C4926A] text-base font-medium transition-colors duration-200">Contact</Link>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsWaitlistModalOpen(true)}
-              className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+              className="hidden lg:block bg-[#C4926A] hover:bg-[#B07D57] text-white text-base font-medium px-5 py-2 rounded-lg transition-all duration-200"
             >
               Become a Member
             </button>
@@ -60,139 +61,107 @@ export default function AboutPage() {
       </svg>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
+      <section className="py-36 md:py-48 px-6 relative overflow-hidden">
+        <div className="absolute inset-0" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.35) saturate(0.7) sepia(0.3)' }} />
+        <div className="absolute inset-0 bg-black/60" />
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(196, 146, 106, 0.12) 0%, transparent 55%)' }}></div>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 60%, rgba(196, 146, 106, 0.08) 0%, transparent 50%)' }}></div>
         <FadeIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>About Better Wealth</p>
-            <h1 className="text-white text-4xl md:text-5xl font-serif font-bold mb-6">
-              Built by Brokers, For Brokers
+            <h1 className="text-white text-5xl md:text-7xl font-serif font-bold mb-6">
+              Behind the Brand
             </h1>
-            <p className="text-base leading-relaxed max-w-2xl mx-auto" style={mutedLight}>
-              Better Wealth exists because we got tired of attending marketing courses that promised the world and delivered nothing but theory. We built the education we wish we'd had.
+            <p className="text-base leading-relaxed max-w-2xl mx-auto text-white/80">
+              Better Wealth was founded on a straightforward belief: proximity influences direction. The people you spend time with affect your thinking, your opportunities and your standards. We are building a network anchored in real estate and finance, while remaining open to founders and operators aligned with that ecosystem. Our approach is measured. We are not building for noise. We are building for longevity.
             </p>
           </div>
         </FadeIn>
       </section>
 
-      {/* The Problem Section */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#F4F2EF' }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>The Problem</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
-                Most Marketing Training Is Broken
-              </h2>
-            </div>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <div className="space-y-6 text-base leading-relaxed" style={mutedDark}>
-              <p className="max-w-3xl mx-auto">
-                We've all been there. You sign up for a marketing course, pay good money, and spend a day listening to someone talk about "building your brand" and "finding your voice." You leave with a notebook full of vague ideas and zero clarity on what to actually do Monday morning.
-              </p>
-              <p className="max-w-3xl mx-auto">
-                The problem is simple: most marketing education is built for generic businesses, not regulated industries. The people teaching it have never had to navigate FCA compliance, never had to build trust in a sector where clients are inherently skeptical, and never had to generate leads without the luxury of aggressive sales tactics.
-              </p>
-              <p className="max-w-3xl mx-auto">
-                Financial services and real estate professionals need strategies that work within the rules. Strategies that acknowledge the unique challenges of building a client pipeline when you can't make wild promises. That's where we come in.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <MarqueeTicker />
 
       {/* Our Approach Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Approach</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
-                Execution Over Inspiration
-              </h2>
+      <section className="py-24 px-6" style={{ backgroundColor: '#0A1F10' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <FadeIn>
+              <div>
+                <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                  How We Build
+                </h2>
+                <div className="w-10 border-t-2 border-[#C4926A]/50 mt-4 mb-6"></div>
+                <p className="font-serif italic text-xl" style={{ color: '#C4926A' }}>
+                  Better Wealth is designed for individuals who think beyond short-term cycles.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div>
+              <FadeIn delay={0}>
+                <div className="flex items-start gap-4 mb-6">
+                  <span className="font-serif text-3xl leading-none flex-shrink-0" style={{ color: 'rgba(196,146,106,0.4)' }}>01</span>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(237,232,224,0.8)' }}>Smaller rooms</span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={80}>
+                <div className="flex items-start gap-4 mb-6">
+                  <span className="font-serif text-3xl leading-none flex-shrink-0" style={{ color: 'rgba(196,146,106,0.4)' }}>02</span>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(237,232,224,0.8)' }}>Clear commercial relevance</span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={160}>
+                <div className="flex items-start gap-4 mb-6">
+                  <span className="font-serif text-3xl leading-none flex-shrink-0" style={{ color: 'rgba(196,146,106,0.4)' }}>03</span>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(237,232,224,0.8)' }}>Thoughtful growth</span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={240}>
+                <div className="flex items-start gap-4 mb-6">
+                  <span className="font-serif text-3xl leading-none flex-shrink-0" style={{ color: 'rgba(196,146,106,0.4)' }}>04</span>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(237,232,224,0.8)' }}>Trusted introductions</span>
+                </div>
+              </FadeIn>
+              <FadeIn delay={320}>
+                <div className="flex items-start gap-4">
+                  <span className="font-serif text-3xl leading-none flex-shrink-0" style={{ color: 'rgba(196,146,106,0.4)' }}>05</span>
+                  <span className="text-base leading-relaxed" style={{ color: 'rgba(237,232,224,0.8)' }}>Long-term relationships</span>
+                </div>
+              </FadeIn>
             </div>
-          </FadeIn>
-          <div className="space-y-8 mt-12">
-            <FadeIn delay={0}>
-              <div className="pl-6" style={{ borderLeft: '2px solid #C4926A' }}>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">We Build, Not Brainstorm</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  Every event ends with a tangible deliverable. Not a list of ideas to think about later, but something you've actually built during the session. A campaign ready to launch. A system ready to implement. Real output, not just inspiration.
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={100}>
-              <div className="pl-6" style={{ borderLeft: '2px solid #C4926A' }}>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">We Focus on What Works in Regulated Industries</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  Generic marketing advice doesn't cut it when you're FCA regulated. Our strategies are designed specifically for financial services and real estate professionals who need to generate leads while staying compliant. We know the rules because we've operated within them.
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div className="pl-6" style={{ borderLeft: '2px solid #C4926A' }}>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">We Keep Groups Small</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  This isn't a conference with 500 people. Our events are capped at 20 participants. Small enough that you get personal attention. Small enough that you can ask questions. Small enough that real relationships form. Quality over quantity, always.
-                </p>
-              </div>
-            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
-          <rect width="100%" height="100%" filter="url(#grain)" />
-        </svg>
-        <div className="max-w-4xl mx-auto relative z-10">
+      {/* Charitable Commitment Section */}
+      <section className="py-24 px-6 border-t border-[#C4926A]/25" style={{ backgroundColor: '#F5F0EB' }}>
+        <div className="max-w-4xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
-              <p className="text-sm uppercase tracking-widest mb-4" style={{ color: '#C4926A' }}>Our Story</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-                Started in a Spare Room, Scaled to Seven Figures
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
+                Charitable Commitment
               </h2>
             </div>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="space-y-6 text-base leading-relaxed text-center" style={mutedLight}>
-              <p>
-                Better Wealth was founded by Jordan Price, a mortgage broker who built his practice from zero to seven figures using the exact strategies now taught in our events. No family connections. No existing book of business. Just a systematic approach to marketing and lead generation.
-              </p>
-              <p>
-                After years of other brokers asking how he'd done it, Jordan realised the same question kept coming up: "Where do I actually learn this stuff?" The answer was nowhere. So he built it.
-              </p>
-              <p>
-                The first event was held in Manchester with eight brokers around a table. No fancy venue. No polished slides. Just practical, actionable strategies that had actually worked in the real world. The feedback was immediate: "This is what we've been looking for."
-              </p>
-              <p>
-                Today, Better Wealth has trained over 250 professionals, but the philosophy hasn't changed. Small groups. Real strategies. Tangible output. Everything else is just noise.
-              </p>
-            </div>
-          </FadeIn>
-
-          {/* Stats */}
-          <FadeIn delay={200}>
-            <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 pt-12 px-2" style={{ borderTop: '1px solid rgba(196, 146, 106, 0.2)' }}>
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>250+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Brokers Trained</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold" style={{ color: '#C4926A' }}>12+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Events Delivered</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold whitespace-nowrap" style={{ color: '#C4926A' }}>£95k+</p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-wider mt-2" style={mutedLight}>Avg Revenue Increase</p>
+            <p className="text-base leading-relaxed text-center max-w-3xl mx-auto" style={mutedDark}>
+              A percentage of workshop revenue supports charities aligned with housing access and financial education. Commercial progress and social responsibility are not separate ideas.
+            </p>
+            <div className="mt-12 text-center">
+              <p className="text-base uppercase tracking-widest mb-6 font-medium" style={labelColor}>We donate through:</p>
+              <div className="w-24 border-t border-[#C4926A]/20 mx-auto mt-8 mb-10"></div>
+              <div className="overflow-hidden">
+                <div className="flex items-center gap-16" style={{ animation: 'logoScroll 20s linear infinite', width: 'fit-content' }}>
+                  <img src="/logos/GoFundMe%20logo.png" alt="GoFundMe" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '22px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/JustGiving.png" alt="JustGiving" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '18px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/Crowdfunder.png" alt="Crowdfunder" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '24px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/paypal.svg" alt="PayPal" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '32px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  {/* Duplicate set for seamless loop */}
+                  <img src="/logos/GoFundMe%20logo.png" alt="" aria-hidden="true" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '22px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/JustGiving.png" alt="" aria-hidden="true" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '18px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/Crowdfunder.png" alt="" aria-hidden="true" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '24px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                  <img src="/logos/paypal.svg" alt="" aria-hidden="true" className="object-contain transition-all duration-300 flex-shrink-0" style={{ height: '32px', width: 'auto', filter: 'grayscale(100%) opacity(35%)', mixBlendMode: 'multiply' }} onMouseEnter={(e) => (e.currentTarget.style.filter = 'grayscale(0%) opacity(65%)')} onMouseLeave={(e) => (e.currentTarget.style.filter = 'grayscale(100%) opacity(35%)')} />
+                </div>
               </div>
             </div>
           </FadeIn>
@@ -200,50 +169,67 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#F4F2EF' }}>
+      <section className="py-24 px-6" style={{ backgroundColor: '#F5F0EB' }}>
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="text-center mb-16">
-              <p className="text-sm uppercase tracking-widest mb-4" style={labelColor}>Our Values</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-emerald">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#033A22]">
                 What We Stand For
               </h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <FadeIn delay={0} className="h-full">
-              <div className="bg-white p-8 rounded-2xl text-center h-full flex flex-col" style={{ border: '1px solid rgba(0,0,0,0.07)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <span className="text-2xl" style={{ color: '#C4926A' }}>✓</span>
-                </div>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">Honest Marketing</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  We don't believe in hype or false promises. Our approach is grounded in what actually works, backed by real results from real professionals.
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>Quality Over Volume</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  We don't chase numbers. Every member is vetted, every workshop is curated, and every connection is intentional. We'd rather build something exceptional for the right people than something average for everyone.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={50} className="h-full">
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>Practitioners, Not Theorists</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  Everything inside Better Wealth comes from people who are actively building. Our members, speakers, and sessions are grounded in real experience, not recycled frameworks or textbook strategy.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={100} className="h-full">
-              <div className="bg-white p-8 rounded-2xl text-center h-full flex flex-col" style={{ border: '1px solid rgba(0,0,0,0.07)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <span className="text-2xl" style={{ color: '#C4926A' }}>✓</span>
-                </div>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">Industry Expertise</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  We've worked in regulated industries. We understand the constraints, the compliance requirements, and the unique challenges of building trust with clients.
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>Wealth Built on Your Terms</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  We believe financial independence looks different for everyone. Better Wealth exists to give founders and operators the network, tools, and knowledge to build wealth in a way that fits their business and their life.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={150} className="h-full">
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>Long-Term Thinking</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  We're not interested in quick wins or short-term noise. The conversations, relationships, and strategies inside Better Wealth are built with longevity in mind, because lasting wealth takes a long view.
                 </p>
               </div>
             </FadeIn>
 
             <FadeIn delay={200} className="h-full">
-              <div className="bg-white p-8 rounded-2xl text-center h-full flex flex-col" style={{ border: '1px solid rgba(0,0,0,0.07)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#033A22' }}>
-                  <span className="text-2xl" style={{ color: '#C4926A' }}>✓</span>
-                </div>
-                <h3 className="text-emerald font-serif text-xl font-bold mb-3">Community Over Competition</h3>
-                <p className="text-base leading-relaxed" style={mutedDark}>
-                  We believe rising tides lift all boats. Our community shares openly, supports generously, and operates with a mindset of abundance.
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>A Network Worth Being Part Of</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  The people around you shape what's possible. We take the composition of our community seriously, which is why membership is application-based and why members consistently cite the network as the most valuable thing we offer.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={250} className="h-full">
+              <div className="p-8 rounded-xl h-full flex flex-col border border-[#C4926A]/15 border-t-2 border-t-[#C4926A] shadow-md" style={{ backgroundColor: '#0D2418' }}>
+                <h3 className="font-serif text-lg font-bold mb-3" style={{ color: '#C4926A' }}>Openness Within Trust</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,232,224,0.85)' }}>
+                  Our members share openly — strategies, mistakes, wins, and lessons. That level of honesty is only possible because everyone in the room has earned their place in it.
                 </p>
               </div>
             </FadeIn>
@@ -252,23 +238,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ backgroundColor: '#033A22' }}>
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.35) saturate(0.7) sepia(0.3)' }} />
+        <div className="absolute inset-0 bg-black/60" />
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(196, 146, 106, 0.12) 0%, transparent 55%)' }}></div>
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 60%, rgba(196, 146, 106, 0.08) 0%, transparent 50%)' }}></div>
         <FadeIn>
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-4">
-              Ready to See What We're About?
+            <div className="w-12 border-t-2 border-[#C4926A]/60 mx-auto mb-8"></div>
+            <h2 className="mb-8 text-center">
+              <span className="block text-3xl md:text-4xl font-serif font-bold italic text-white">Ready to Get</span>
+              <span className="block text-5xl md:text-6xl font-serif font-bold text-white">Involved.</span>
             </h2>
-            <p className="max-w-xl mx-auto mb-8 leading-relaxed text-base" style={{ color: 'rgba(250,250,248,0.6)' }}>
-              Join an event and experience the difference. No fluff. No theory. Just practical strategies you can implement immediately.
-            </p>
             <button
               onClick={() => setIsWaitlistModalOpen(true)}
-              className="btn-copper inline-block px-8 py-3.5 text-white rounded-lg font-semibold text-sm shadow-lg"
+              className="btn-copper px-8 py-3 text-white rounded-md font-semibold text-base shadow-lg block mx-auto"
             >
               Become a Member
             </button>

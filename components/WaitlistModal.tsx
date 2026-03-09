@@ -15,11 +15,14 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [phone, setPhone] = useState('')
   const [company, setCompany] = useState('')
   const [whyJoin, setWhyJoin] = useState('')
+  const [consent, setConsent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
 
   const isValidEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
+
+  const canSubmit = firstName && lastName && email && isValidEmail(email) && phone && whyJoin && !submitting
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,7 +59,6 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
   const handleClose = () => {
     onClose()
-    // Reset form after animation
     setTimeout(() => {
       setFirstName('')
       setLastName('')
@@ -64,6 +66,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       setPhone('')
       setCompany('')
       setWhyJoin('')
+      setConsent(false)
       setSubmitting(false)
       setSuccess(false)
       setError('')
@@ -74,168 +77,158 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
       onClick={handleClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative max-h-[90vh] overflow-y-auto"
+        className="border border-[#C4926A]/20 border-t-4 border-t-[#C4926A] rounded-lg p-8 md:p-10 max-w-md w-full relative max-h-[90vh] overflow-y-auto"
+        style={{ backgroundColor: '#0D2418' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute top-4 right-4 text-white/40 hover:text-white text-xl transition-colors"
           aria-label="Close"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          ×
         </button>
 
         {success ? (
-          <div className="text-center py-8">
-            <div
-              className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: '#033A22' }}
-            >
-              <svg className="w-8 h-8" fill="none" stroke="#C4926A" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
+          <div className="text-center py-6">
+            <div className="w-12 h-12 rounded-full border-2 border-[#C4926A] flex items-center justify-center mx-auto mb-4">
+              <span className="text-[#C4926A] text-xl">✓</span>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-[#033A22] mb-3">You're on the Waitlist</h3>
-            <p className="text-gray-600 mb-8">
-              Thank you for applying. We're reviewing applications and will be in touch soon.
+            <p className="font-serif text-white text-xl mb-2">Application Received</p>
+            <p className="text-white/55 text-sm">
+              We'll review your application and be in touch soon.
             </p>
-            <button
-              onClick={handleClose}
-              className="px-8 py-3 rounded-lg font-semibold transition-all duration-200"
-              style={{ backgroundColor: '#C4926A', color: '#033A22' }}
-            >
-              Close
-            </button>
           </div>
         ) : (
           <>
             {/* Header */}
-            <div className="mb-6">
-              <div className="w-12 h-0.5 mb-4" style={{ backgroundColor: '#C4926A' }} />
-              <h2 className="text-2xl font-serif font-bold text-[#033A22] mb-2">Become a Member</h2>
-              <p className="text-base text-gray-600">
-                Apply to be considered for our private community
-              </p>
-            </div>
-
-            {/* Value proposition */}
-            <div className="mb-6 p-4 rounded-lg" style={{ backgroundColor: '#F4F2EF' }}>
-              <ul className="space-y-2 text-sm" style={{ color: 'rgba(0,0,0,0.6)' }}>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: '#C4926A' }} className="mt-0.5 flex-shrink-0">&#10003;</span>
-                  Access to exclusive network
-                </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: '#C4926A' }} className="mt-0.5 flex-shrink-0">&#10003;</span>
-                  Private events at premium venues
-                </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: '#C4926A' }} className="mt-0.5 flex-shrink-0">&#10003;</span>
-                  Curated, measured connections
-                </li>
-                <li className="flex items-start gap-2">
-                  <span style={{ color: '#C4926A' }} className="mt-0.5 flex-shrink-0">&#10003;</span>
-                  Mentorship opportunities
-                </li>
-              </ul>
-            </div>
+            <div className="w-8 border-t-2 border-[#C4926A] mb-5" />
+            <h2 className="font-serif text-white text-2xl md:text-3xl font-bold mb-2">Apply for Membership</h2>
+            <p className="text-white/60 text-sm leading-relaxed mb-6">
+              Join the waitlist. We review every application personally and will be in touch soon.
+            </p>
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium mb-1">First Name *</label>
+                  <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">First Name *</label>
                   <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22]"
-                    style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Last Name *</label>
+                  <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Last Name *</label>
                   <input
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22]"
-                    style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Email *</label>
+                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Email *</label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22]"
-                  style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Phone *</label>
+                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Phone *</label>
                 <input
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22]"
-                  style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Company</label>
+                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Company</label>
                 <input
                   type="text"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
-                  className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22]"
-                  style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Why do you want to join our community? *</label>
+                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Why do you want to join? *</label>
                 <textarea
                   value={whyJoin}
                   onChange={(e) => setWhyJoin(e.target.value)}
-                  className="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:border-[#033A22] resize-none"
-                  style={{ borderColor: 'rgba(0,0,0,0.15)' }}
-                  rows={3}
                   placeholder="Tell us about your goals and what you're looking to achieve..."
+                  rows={3}
+                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors resize-none"
                   required
                 />
               </div>
 
+              {/* GDPR Consent */}
+              <label className="flex items-start gap-3 cursor-pointer">
+                <div className="relative flex-shrink-0 mt-0.5">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="sr-only"
+                  />
+                  <div className={`w-4 h-4 rounded-sm border transition-colors ${
+                    consent
+                      ? 'bg-[#C4926A] border-[#C4926A]'
+                      : 'bg-transparent border-white/20'
+                  } flex items-center justify-center`}>
+                    {consent && (
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-white/50 text-xs leading-relaxed">
+                  I agree to receive communications from Better Wealth.{' '}
+                  <a href="/privacy" className="text-[#C4926A] hover:underline">Privacy Policy</a>
+                </span>
+              </label>
+
               {error && (
-                <p className="text-red-600 text-sm">{error}</p>
+                <p className="text-red-400 text-sm">{error}</p>
               )}
 
               <button
                 type="submit"
-                disabled={submitting}
-                className="w-full py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: '#C4926A', color: '#033A22' }}
+                disabled={!canSubmit}
+                className={`w-full py-3 rounded-md font-medium tracking-wide transition-colors duration-200 ${
+                  canSubmit
+                    ? 'bg-[#C4926A] text-white hover:bg-[#B07D57]'
+                    : 'bg-[#C4926A]/40 text-white/50 cursor-not-allowed'
+                }`}
               >
-                {submitting ? 'Submitting...' : 'Join Waitlist'}
+                {submitting ? 'Submitting...' : 'Apply to Join →'}
               </button>
             </form>
+
+            <p className="text-white/30 text-xs text-center mt-4">
+              Applications reviewed personally. Not a mass-membership platform.
+            </p>
           </>
         )}
       </div>

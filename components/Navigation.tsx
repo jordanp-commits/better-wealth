@@ -11,8 +11,8 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 h-16"
-        style={{ backgroundColor: '#033A22' }}
+        className="fixed top-0 left-0 right-0 z-50 h-[68px]"
+        style={{ backgroundColor: '#0D2418' }}
       >
         <div className="relative h-full px-6 max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo - left */}
@@ -28,10 +28,10 @@ export default function Navigation() {
 
           {/* Nav links - absolutely centered, hidden on mobile */}
           <div className="absolute left-0 right-0 hidden lg:flex justify-center gap-8 pointer-events-none">
-            <Link href="/workshops" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Events</Link>
-            <Link href="/about" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">About</Link>
-            <Link href="/partnerships" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Partnerships</Link>
-            <Link href="/contact" className="pointer-events-auto text-white/85 hover:text-white text-sm font-medium transition-colors duration-200">Contact</Link>
+            <Link href="/workshops" className="pointer-events-auto nav-link text-base font-medium">Events</Link>
+            <Link href="/about" className="pointer-events-auto nav-link text-base font-medium">About</Link>
+            <Link href="/partnerships" className="pointer-events-auto nav-link text-base font-medium">Partnerships</Link>
+            <Link href="/contact" className="pointer-events-auto nav-link text-base font-medium">Contact</Link>
           </div>
 
           {/* Right side: CTA button (desktop) + Mobile menu button */}
@@ -39,7 +39,7 @@ export default function Navigation() {
             {/* CTA button - hidden on mobile */}
             <button
               onClick={() => setIsWaitlistModalOpen(true)}
-              className="hidden lg:block btn-outline-copper text-sm font-medium px-5 py-2 rounded-lg transition-all duration-200"
+              className="hidden lg:block bg-[#C4926A] hover:bg-[#B07D57] text-white text-base font-medium px-6 py-2.5 rounded-lg transition-all duration-200"
             >
               Become a Member
             </button>

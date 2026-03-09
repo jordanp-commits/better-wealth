@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 import FadeIn from '@/components/FadeIn'
 import Footer from '@/components/Footer'
-import Image from 'next/image'
 import Link from 'next/link'
 import WorkshopDates from '@/components/WorkshopDates'
+import MarqueeTicker from '@/components/MarqueeTicker'
 
 export const metadata: Metadata = {
   title: 'Entering Financial Services',
@@ -28,51 +28,39 @@ export default function EnteringFinancialServicesWorkshop() {
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Main Content Section */}
-      <section className="w-full pt-24 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24" style={{ backgroundColor: '#F4F2EF' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-16 items-start">
-            {/* Left Column - Image */}
-            <FadeIn className="lg:col-span-2 px-6 lg:pl-12 lg:pr-0">
-              <div className="relative w-full h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                  src="/workshop-photo-6.jpeg"
-                  alt="Aspiring financial advisors at a Better Wealth event learning pathways into the industry"
-                  fill={true}
-                  className="object-cover scale-125"
-                  sizes="(max-width: 1024px) 100vw, 25vw"
-                />
-              </div>
-            </FadeIn>
+      {/* Hero Section */}
+      <section className="relative min-h-[75vh] flex items-end">
+        <div className="absolute inset-0" style={{ backgroundImage: "url('/cortland-coworking.png')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.35) saturate(0.7) sepia(0.3)' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/15" />
+        <FadeIn>
+          <div className="relative z-10 w-full max-w-5xl mx-auto px-8 md:px-16 pb-16">
+            <h1 className="font-serif text-white text-4xl md:text-5xl font-bold max-w-xl mb-6">
+              Entering Financial Services
+            </h1>
+            <div className="flex flex-wrap items-center gap-6 mt-4">
+              <span className="flex items-center gap-2 text-white/70 text-sm">
+                <span className="w-1 h-1 rounded-full bg-[#C4926A] inline-block" />
+                Salford, Manchester
+              </span>
+              <span className="flex items-center gap-2 text-white/70 text-sm">
+                <span className="w-1 h-1 rounded-full bg-[#C4926A] inline-block" />
+                Half Day (2pm - 6pm)
+              </span>
+              <span className="font-serif text-[#C4926A] text-2xl font-bold">£125</span>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+      <MarqueeTicker />
 
-            {/* Right Column - Content */}
-            <FadeIn delay={100} className="lg:col-span-3 px-6 lg:pl-0 lg:pr-12">
-              <div className="p-8 lg:p-12 bg-white rounded-2xl" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-                {/* Title */}
-                <h1 className="text-emerald text-3xl md:text-4xl font-serif font-bold mb-4">
-                  Entering Financial Services
-                </h1>
-
-                {/* Details */}
-                <div className="bg-white rounded-xl p-6 mb-6" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Location</p>
-                      <p className="text-sm font-medium text-emerald">Salford, Manchester</p>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Duration</p>
-                      <p className="text-sm font-medium text-emerald">Half Day (2pm - 6pm)</p>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-                    <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>Investment</p>
-                    <p className="text-xl font-serif font-medium text-emerald">£125 <span className="text-sm font-normal" style={{ color: 'rgba(0,0,0,0.6)' }}>per person</span></p>
-                  </div>
-                </div>
-
-                {/* Overview */}
-                <div className="space-y-4 text-base leading-relaxed mb-10" style={mutedDark}>
+      {/* Content Section */}
+      <section className="py-20 px-6" style={{ backgroundColor: '#0D2418' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Left Column — Description + Bullets */}
+            <div className="lg:col-span-2">
+              <FadeIn>
+                <div className="space-y-4 text-base leading-relaxed mb-12" style={{ color: 'rgba(237,232,224,0.85)' }}>
                   <p>
                     A practical, hands-on event where mortgage brokers learn to build profitable advertising campaigns from scratch. No fluff, no theory—you'll leave with a working ad ready to launch.
                   </p>
@@ -83,97 +71,103 @@ export default function EnteringFinancialServicesWorkshop() {
                     You'll also record your first video ad during the session with live feedback. This is execution-focused: by the end of the day, you'll have something built.
                   </p>
                 </div>
+              </FadeIn>
 
+              <FadeIn delay={100}>
+                <h3 className="font-serif text-white text-xl font-semibold mb-4">What You'll Cover</h3>
+                <ul className="list-disc list-inside space-y-3 text-base" style={{ color: '#C4926A' }}>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>Platform fundamentals specific to financial services</span></li>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>Targeting strategies that comply with FCA guidelines</span></li>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>How to structure campaigns that generate qualified leads</span></li>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>Video ad creation with live feedback</span></li>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>Budget management and ROI tracking</span></li>
+                  <li><span style={{ color: 'rgba(237,232,224,0.8)' }}>Implementation roadmap for your first 90 days</span></li>
+                </ul>
+              </FadeIn>
+            </div>
 
-                {/* What You'll Learn */}
-                <div className="mb-10">
-                  <p className="text-xs uppercase tracking-widest mb-5 font-semibold" style={labelColor}>
-                    What You'll Learn
-                  </p>
-                  <div className="bg-white rounded-xl p-6" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-                    <ul className="list-disc list-inside space-y-3 text-base" style={{ color: '#9d6d47' }}>
-                      <li><span className="text-emerald">Platform fundamentals specific to financial services</span></li>
-                      <li><span className="text-emerald">Targeting strategies that comply with FCA guidelines</span></li>
-                      <li><span className="text-emerald">How to structure campaigns that generate qualified leads</span></li>
-                      <li><span className="text-emerald">Video ad creation with live feedback</span></li>
-                      <li><span className="text-emerald">Budget management and ROI tracking</span></li>
-                      <li><span className="text-emerald">Implementation roadmap for your first 90 days</span></li>
-                    </ul>
+            {/* Right Column — Booking Sidebar */}
+            <div className="lg:col-span-1">
+              <FadeIn delay={150}>
+                <div className="lg:sticky lg:top-24 rounded-md p-8 border border-[#C4926A]/20 border-t-2 border-t-[#C4926A]" style={{ backgroundColor: '#0A1F10' }}>
+                  {/* Price */}
+                  <div className="mb-6 pb-6 border-b border-white/10">
+                    <p className="text-xs tracking-[0.2em] uppercase text-[#C4926A] mb-1">INVESTMENT</p>
+                    <p className="font-serif text-white text-4xl font-bold">
+                      £125
+                      <span className="text-white/40 text-base font-normal ml-2">per person</span>
+                    </p>
                   </div>
-                </div>
 
+                  {/* Date selector */}
+                  <div className="mb-6">
+                    <p className="text-xs tracking-[0.2em] uppercase text-[#C4926A] mb-3">SELECT DATE</p>
+                    <WorkshopDates
+                      workshopSlug="entering-financial-services"
+                      bookingPath="/workshops/entering-financial-services/book"
+                      variant="dark"
+                    />
+                  </div>
 
-                {/* Available Dates */}
-                <div className="mb-10">
-                  <p className="text-xs uppercase tracking-widest mb-4 font-semibold" style={labelColor}>
-                    Available Dates
+                  {/* Reserve button */}
+                  <Link
+                    href="/workshops/entering-financial-services/book"
+                    className="w-full bg-[#C4926A] text-white border border-[#C4926A] py-4 rounded-md font-medium tracking-wide hover:bg-transparent hover:text-[#C4926A] transition-all duration-200 inline-block text-center text-base"
+                  >
+                    Reserve Your Place →
+                  </Link>
+
+                  <p className="text-white/30 text-xs text-center mt-4">
+                    Secure checkout · Limited places
                   </p>
-                  <WorkshopDates
-                    workshopSlug="entering-financial-services"
-                    bookingPath="/workshops/entering-financial-services/book"
-                  />
                 </div>
-
-                {/* Register Button */}
-                <Link
-                  href="/workshops/entering-financial-services/book"
-                  className="w-full btn-copper px-8 py-4 text-white rounded-lg text-base font-semibold inline-block text-center transition-all duration-300 hover:scale-[1.02]"
-                >
-                  Reserve Your Place →
-                </Link>
-              </div>
-            </FadeIn>
+              </FadeIn>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What's Included Section */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-emerald">What's Included</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
-              </div>
-              <div>
-                <h3 className="font-medium text-emerald mb-1">Full Event Session</h3>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Complete hands-on training day with practical exercises</p>
-              </div>
+      <section className="py-16 md:py-20 px-6" style={{ backgroundColor: '#F5F0EB' }}>
+        <div className="max-w-3xl mx-auto">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#033A22]">What's Included</h2>
             </div>
+          </FadeIn>
 
-            <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
+            <FadeIn delay={0}>
+              <div className="p-7 rounded-md border-t-2 border-[#C4926A] h-full flex flex-col" style={{ backgroundColor: '#0D2418' }}>
+                <span className="text-lg text-[#C4926A]">✓</span>
+                <h3 className="font-serif text-base font-bold mb-2 mt-3" style={{ color: '#C4926A' }}>Full Event Session</h3>
+                <p className="text-sm leading-relaxed flex-grow" style={{ color: 'rgba(237,232,224,0.75)' }}>Complete hands-on training day with practical exercises</p>
               </div>
-              <div>
-                <h3 className="font-medium text-emerald mb-1">All Materials & Templates</h3>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Ready-to-use resources and frameworks you can implement immediately</p>
-              </div>
-            </div>
+            </FadeIn>
 
-            <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
+            <FadeIn delay={80}>
+              <div className="p-7 rounded-md border-t-2 border-[#C4926A] h-full flex flex-col" style={{ backgroundColor: '#0D2418' }}>
+                <span className="text-lg text-[#C4926A]">✓</span>
+                <h3 className="font-serif text-base font-bold mb-2 mt-3" style={{ color: '#C4926A' }}>All Materials & Templates</h3>
+                <p className="text-sm leading-relaxed flex-grow" style={{ color: 'rgba(237,232,224,0.75)' }}>Ready-to-use resources and frameworks you can implement immediately</p>
               </div>
-              <div>
-                <h3 className="font-medium text-emerald mb-1">Your Completed Ad Deliverable</h3>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Leave with a ready-to-launch advertising campaign</p>
-              </div>
-            </div>
+            </FadeIn>
 
-            <div className="flex items-start gap-4 p-6 rounded-xl" style={{ backgroundColor: '#F4F2EF' }}>
-              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(196, 146, 106, 0.15)' }}>
-                <span className="text-xl" style={{ color: '#9d6d47' }}>✓</span>
+            <FadeIn delay={160}>
+              <div className="p-7 rounded-md border-t-2 border-[#C4926A] h-full flex flex-col" style={{ backgroundColor: '#0D2418' }}>
+                <span className="text-lg text-[#C4926A]">✓</span>
+                <h3 className="font-serif text-base font-bold mb-2 mt-3" style={{ color: '#C4926A' }}>Your Completed Ad Deliverable</h3>
+                <p className="text-sm leading-relaxed flex-grow" style={{ color: 'rgba(237,232,224,0.75)' }}>Leave with a ready-to-launch advertising campaign</p>
               </div>
-              <div>
-                <h3 className="font-medium text-emerald mb-1">Post-Event Community Access</h3>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>Join our network of professionals for ongoing support</p>
+            </FadeIn>
+
+            <FadeIn delay={240}>
+              <div className="p-7 rounded-md border-t-2 border-[#C4926A] h-full flex flex-col" style={{ backgroundColor: '#0D2418' }}>
+                <span className="text-lg text-[#C4926A]">✓</span>
+                <h3 className="font-serif text-base font-bold mb-2 mt-3" style={{ color: '#C4926A' }}>Post-Event Community Access</h3>
+                <p className="text-sm leading-relaxed flex-grow" style={{ color: 'rgba(237,232,224,0.75)' }}>Join our network of professionals for ongoing support</p>
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>

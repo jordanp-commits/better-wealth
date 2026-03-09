@@ -79,47 +79,41 @@ export default function CookieConsent() {
     <>
       {/* Cookie Banner */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-[90] bg-white border-t-2 transition-transform duration-300 ease-out ${
+        className={`fixed bottom-0 left-0 right-0 z-[90] bg-[#0D2418] border-t border-[#C4926A]/25 px-6 py-4 transition-transform duration-300 ease-out ${
           isVisible ? 'translate-y-0' : 'translate-y-full'
         }`}
-        style={{ borderColor: '#033A22' }}
+        style={{ boxShadow: '0 -4px 24px rgba(0,0,0,0.3)' }}
       >
-        <div className="max-w-6xl mx-auto px-4 py-4 md:py-5">
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between gap-6 flex-wrap">
             {/* Text Content */}
-            <div className="flex-1">
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.7)' }}>
-                We use cookies to improve your experience on our website. Essential cookies are required for the site to function, while analytics and marketing cookies help us understand how you use our site and show you relevant content.{' '}
-                <Link
-                  href="/cookie-policy"
-                  className="underline hover:no-underline"
-                  style={{ color: '#9d6d47' }}
-                >
-                  Learn more
-                </Link>
-              </p>
-            </div>
+            <p className="text-white/65 text-sm max-w-xl leading-relaxed">
+              We use cookies to improve your experience. Essential cookies keep the site running. Analytics cookies help us understand usage.{' '}
+              <Link
+                href="/cookie-policy"
+                className="text-[#C4926A] hover:underline"
+              >
+                Learn more
+              </Link>
+            </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-3 flex-shrink-0">
               <button
                 onClick={openModal}
-                className="text-sm font-medium px-4 py-2 transition-colors duration-200 hover:underline order-3 sm:order-1"
-                style={{ color: '#033A22' }}
+                className="text-white/50 text-sm hover:text-white transition-colors underline"
               >
                 Manage Preferences
               </button>
               <button
                 onClick={handleRejectNonEssential}
-                className="text-sm font-medium px-5 py-2.5 rounded-lg border transition-all duration-200 hover:bg-gray-50 order-2"
-                style={{ borderColor: 'rgba(3, 58, 34, 0.3)', color: '#033A22' }}
+                className="px-5 py-2 text-sm border border-white/20 text-white/70 rounded-md hover:border-white/40 hover:text-white transition-all duration-200"
               >
-                Reject Non-Essential
+                Reject
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="text-sm font-medium px-5 py-2.5 rounded-lg text-white transition-all duration-200 hover:opacity-90 order-1 sm:order-3"
-                style={{ backgroundColor: '#C4926A' }}
+                className="px-5 py-2 text-sm bg-[#C4926A] text-white rounded-md hover:bg-[#B07D57] transition-colors duration-200"
               >
                 Accept All
               </button>
@@ -131,24 +125,23 @@ export default function CookieConsent() {
       {/* Preferences Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
-            style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.25)' }}
+            className="bg-[#0D2418] border border-[#C4926A]/20 border-t-4 border-t-[#C4926A] rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto"
+            style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.4)' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-6 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+            <div className="p-6 border-b border-white/10">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-serif font-bold" style={{ color: '#033A22' }}>
+                <h2 className="text-xl font-serif font-bold text-white">
                   Cookie Preferences
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="text-white/40 hover:text-white transition-colors"
                   aria-label="Close cookie preferences"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -156,7 +149,7 @@ export default function CookieConsent() {
                   </svg>
                 </button>
               </div>
-              <p className="text-base mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
+              <p className="text-sm mt-2 text-white/50">
                 Manage your cookie preferences below. Essential cookies cannot be disabled as they are required for the website to function.
               </p>
             </div>
@@ -164,39 +157,35 @@ export default function CookieConsent() {
             {/* Cookie Categories */}
             <div className="p-6 space-y-6">
               {/* Essential Cookies */}
-              <div className="pb-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+              <div className="pb-5 border-b border-white/10">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Essential Cookies</h3>
+                  <h3 className="font-semibold text-white">Essential Cookies</h3>
                   <div
-                    className="relative w-12 h-6 rounded-full cursor-not-allowed"
-                    style={{ backgroundColor: '#033A22' }}
+                    className="relative w-12 h-6 rounded-full cursor-not-allowed bg-[#C4926A]"
                     role="switch"
                     aria-checked="true"
                     aria-label="Essential cookies enabled"
                   >
-                    <div
-                      className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white transition-transform"
-                    />
+                    <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white" />
                   </div>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   These cookies are necessary for the website to function and cannot be switched off. They include session management, booking system functionality, and storing your cookie preferences.
                 </p>
-                <p className="text-xs mt-2 italic" style={{ color: 'rgba(0,0,0,0.4)' }}>
+                <p className="text-sm mt-2 italic text-white/35">
                   Always enabled
                 </p>
               </div>
 
               {/* Analytics Cookies */}
-              <div className="pb-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+              <div className="pb-5 border-b border-white/10">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Analytics Cookies</h3>
+                  <h3 className="font-semibold text-white">Analytics Cookies</h3>
                   <button
                     onClick={() => setAnalyticsEnabled(!analyticsEnabled)}
                     className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
-                      analyticsEnabled ? '' : 'bg-gray-300'
+                      analyticsEnabled ? 'bg-[#C4926A]' : 'bg-white/20'
                     }`}
-                    style={analyticsEnabled ? { backgroundColor: '#033A22' } : {}}
                     role="switch"
                     aria-checked={analyticsEnabled}
                     aria-label="Toggle analytics cookies"
@@ -208,7 +197,7 @@ export default function CookieConsent() {
                     />
                   </button>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This includes Google Analytics for website performance tracking.
                 </p>
               </div>
@@ -216,13 +205,12 @@ export default function CookieConsent() {
               {/* Marketing Cookies */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Marketing Cookies</h3>
+                  <h3 className="font-semibold text-white">Marketing Cookies</h3>
                   <button
                     onClick={() => setMarketingEnabled(!marketingEnabled)}
                     className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
-                      marketingEnabled ? '' : 'bg-gray-300'
+                      marketingEnabled ? 'bg-[#C4926A]' : 'bg-white/20'
                     }`}
-                    style={marketingEnabled ? { backgroundColor: '#033A22' } : {}}
                     role="switch"
                     aria-checked={marketingEnabled}
                     aria-label="Toggle marketing cookies"
@@ -234,25 +222,23 @@ export default function CookieConsent() {
                     />
                   </button>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   These cookies are used to track visitors across websites and show you relevant advertisements. This includes Meta Pixel (Facebook/Instagram) and LinkedIn Pixel for advertising and retargeting purposes.
                 </p>
               </div>
             </div>
 
             {/* Modal Footer */}
-            <div className="p-6 border-t flex flex-col sm:flex-row gap-3" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+            <div className="p-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleSavePreferences}
-                className="flex-1 text-sm font-medium px-5 py-3 rounded-lg border transition-all duration-200 hover:bg-gray-50"
-                style={{ borderColor: 'rgba(3, 58, 34, 0.3)', color: '#033A22' }}
+                className="flex-1 text-sm font-medium px-5 py-3 rounded-md border border-white/20 text-white/70 transition-all duration-200 hover:border-white/40 hover:text-white"
               >
                 Save Preferences
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="flex-1 text-sm font-medium px-5 py-3 rounded-lg text-white transition-all duration-200 hover:opacity-90"
-                style={{ backgroundColor: '#C4926A' }}
+                className="flex-1 text-sm font-medium px-5 py-3 rounded-md bg-[#C4926A] text-white transition-colors duration-200 hover:bg-[#B07D57]"
               >
                 Accept All
               </button>
@@ -305,24 +291,23 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
 
       {showModal && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)' }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
-            style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.25)' }}
+            className="bg-[#0D2418] border border-[#C4926A]/20 border-t-4 border-t-[#C4926A] rounded-lg max-w-lg w-full max-h-[90vh] overflow-y-auto"
+            style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.4)' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-6 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+            <div className="p-6 border-b border-white/10">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-serif font-bold" style={{ color: '#033A22' }}>
+                <h2 className="text-xl font-serif font-bold text-white">
                   Cookie Preferences
                 </h2>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="text-white/40 hover:text-white transition-colors"
                   aria-label="Close cookie preferences"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -330,7 +315,7 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                   </svg>
                 </button>
               </div>
-              <p className="text-base mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
+              <p className="text-sm mt-2 text-white/50">
                 Manage your cookie preferences below. Essential cookies cannot be disabled as they are required for the website to function.
               </p>
             </div>
@@ -338,12 +323,11 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
             {/* Cookie Categories */}
             <div className="p-6 space-y-6">
               {/* Essential Cookies */}
-              <div className="pb-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+              <div className="pb-5 border-b border-white/10">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Essential Cookies</h3>
+                  <h3 className="font-semibold text-white">Essential Cookies</h3>
                   <div
-                    className="relative w-12 h-6 rounded-full cursor-not-allowed"
-                    style={{ backgroundColor: '#033A22' }}
+                    className="relative w-12 h-6 rounded-full cursor-not-allowed bg-[#C4926A]"
                     role="switch"
                     aria-checked="true"
                     aria-label="Essential cookies enabled"
@@ -351,24 +335,23 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                     <div className="absolute right-1 top-1 w-4 h-4 rounded-full bg-white" />
                   </div>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   These cookies are necessary for the website to function and cannot be switched off.
                 </p>
-                <p className="text-xs mt-2 italic" style={{ color: 'rgba(0,0,0,0.4)' }}>
+                <p className="text-sm mt-2 italic text-white/35">
                   Always enabled
                 </p>
               </div>
 
               {/* Analytics Cookies */}
-              <div className="pb-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+              <div className="pb-5 border-b border-white/10">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Analytics Cookies</h3>
+                  <h3 className="font-semibold text-white">Analytics Cookies</h3>
                   <button
                     onClick={() => setAnalyticsEnabled(!analyticsEnabled)}
                     className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
-                      analyticsEnabled ? '' : 'bg-gray-300'
+                      analyticsEnabled ? 'bg-[#C4926A]' : 'bg-white/20'
                     }`}
-                    style={analyticsEnabled ? { backgroundColor: '#033A22' } : {}}
                     role="switch"
                     aria-checked={analyticsEnabled}
                     aria-label="Toggle analytics cookies"
@@ -380,7 +363,7 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                     />
                   </button>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   Help us understand how visitors interact with our website.
                 </p>
               </div>
@@ -388,13 +371,12 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
               {/* Marketing Cookies */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold" style={{ color: '#033A22' }}>Marketing Cookies</h3>
+                  <h3 className="font-semibold text-white">Marketing Cookies</h3>
                   <button
                     onClick={() => setMarketingEnabled(!marketingEnabled)}
                     className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
-                      marketingEnabled ? '' : 'bg-gray-300'
+                      marketingEnabled ? 'bg-[#C4926A]' : 'bg-white/20'
                     }`}
-                    style={marketingEnabled ? { backgroundColor: '#033A22' } : {}}
                     role="switch"
                     aria-checked={marketingEnabled}
                     aria-label="Toggle marketing cookies"
@@ -406,25 +388,23 @@ export function CookiePreferencesButton({ className = '', style }: { className?:
                     />
                   </button>
                 </div>
-                <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-sm text-white/50">
                   Used to show you relevant advertisements across platforms.
                 </p>
               </div>
             </div>
 
             {/* Modal Footer */}
-            <div className="p-6 border-t flex flex-col sm:flex-row gap-3" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
+            <div className="p-6 border-t border-white/10 flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleSavePreferences}
-                className="flex-1 text-sm font-medium px-5 py-3 rounded-lg border transition-all duration-200 hover:bg-gray-50"
-                style={{ borderColor: 'rgba(3, 58, 34, 0.3)', color: '#033A22' }}
+                className="flex-1 text-sm font-medium px-5 py-3 rounded-md border border-white/20 text-white/70 transition-all duration-200 hover:border-white/40 hover:text-white"
               >
                 Save Preferences
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="flex-1 text-sm font-medium px-5 py-3 rounded-lg text-white transition-all duration-200 hover:opacity-90"
-                style={{ backgroundColor: '#C4926A' }}
+                className="flex-1 text-sm font-medium px-5 py-3 rounded-md bg-[#C4926A] text-white transition-colors duration-200 hover:bg-[#B07D57]"
               >
                 Accept All
               </button>

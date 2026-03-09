@@ -211,7 +211,7 @@ export default function NewsletterModal() {
               </div>
 
               {error && (
-                <p className="text-red-600 text-sm">{error}</p>
+                <p className="text-red-600 text-base">{error}</p>
               )}
 
               {/* TODO: Re-enable Turnstile before production */}
@@ -229,7 +229,7 @@ export default function NewsletterModal() {
                 {submitting ? 'Subscribing...' : 'Subscribe'}
               </button>
 
-              <p className="text-xs text-center text-gray-500">
+              <p className="text-base text-center text-gray-500">
                 Unsubscribe anytime. We respect your privacy.
               </p>
             </form>

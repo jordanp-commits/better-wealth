@@ -72,7 +72,7 @@ export default function CalendarModal({ isOpen, onClose, calendarUrls }: Calenda
         </div>
 
         {/* Footer note */}
-        <p className="text-xs text-gray-500 text-center mt-6">
+        <p className="text-base text-gray-500 text-center mt-6">
           Selecting a service will open it in a new tab or download an .ics file
         </p>
       </div>

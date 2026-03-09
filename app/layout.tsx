@@ -3,7 +3,7 @@ import { Atkinson_Hyperlegible } from 'next/font/google'
 import './globals.css'
 import CookieConsent from '@/components/CookieConsent'
 import Analytics from '@/components/Analytics'
-import NewsletterModal from '@/components/NewsletterModal'
+import AutoWaitlistModal from '@/components/AutoWaitlistModal'
 
 const atkinson = Atkinson_Hyperlegible({
   subsets: ['latin'],
@@ -80,7 +80,7 @@ export default function RootLayout({
         </a>
         <div id="main-content">{children}</div>
         <CookieConsent />
-        <NewsletterModal />
+        <AutoWaitlistModal />
         <Analytics />
       </body>
     </html>

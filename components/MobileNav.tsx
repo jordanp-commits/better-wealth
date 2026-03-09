@@ -78,7 +78,7 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
       {isOpen && (
         <div
           className="fixed top-0 right-0 bottom-0 z-[70] w-4/5 max-w-sm lg:hidden"
-          style={{ backgroundColor: '#033A22' }}
+          style={{ backgroundColor: '#0D2418' }}
         >
           {/* Close Button */}
           <div className="flex justify-end p-4">
@@ -122,7 +122,7 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
           <div className="px-6 mt-8">
             <button
               onClick={() => { setIsOpen(false); onBecomeMember?.() }}
-              className="block w-full text-center py-4 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:opacity-90"
+              className="block w-full text-center py-4 rounded-lg text-white font-semibold text-base transition-all duration-200 hover:opacity-90"
               style={{ backgroundColor: '#C4926A' }}
             >
               Become a Member
@@ -131,7 +131,7 @@ export default function MobileNav({ currentPage = null, onBecomeMember }: Mobile
 
           {/* Footer Links */}
           <div className="absolute bottom-8 left-0 right-0 px-6">
-            <div className="flex gap-6 text-sm" style={{ color: '#B8D4C5' }}>
+            <div className="flex gap-6 text-base" style={{ color: '#B8D4C5' }}>
               <Link
                 href="/privacy"
                 onClick={() => setIsOpen(false)}

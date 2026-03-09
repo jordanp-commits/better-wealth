@@ -103,10 +103,10 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-xl font-serif font-bold mb-2" style={{ color: '#C4926A' }}>
-                Join Our Community
+                Apply for Membership
               </h3>
-              <p className="text-base" style={{ color: '#B8D4C5' }}>
-                Get practical marketing strategies and event updates delivered monthly.
+              <p className="text-base" style={{ color: '#FFFFFF' }}>
+                Join a private network of founders and operators building long-term wealth.
               </p>
             </div>
             <div>
@@ -155,9 +155,9 @@ export default function Footer() {
                     </button>
                   </form>
                   {error && (
-                    <p className="text-red-400 text-sm mt-2">{error}</p>
+                    <p className="text-red-400 text-base mt-2">{error}</p>
                   )}
-                  <p className="text-xs mt-3" style={{ color: '#FFFFFF' }}>
+                  <p className="text-base mt-3" style={{ color: '#FFFFFF' }}>
                     By subscribing you agree to receive marketing emails.{' '}
                     <Link href="/privacy" className="underline hover:text-[#C4926A]">
                       Privacy Policy
@@ -180,10 +180,10 @@ export default function Footer() {
               />
             </div>
             <p
-              className="text-xs mt-3 max-w-xs leading-relaxed"
+              className="text-base mt-3 max-w-xs leading-relaxed"
               style={{ color: '#B8D4C5' }}
             >
-              Marketing education and community for ambitious professionals in financial services.
+              A Private Community for Independent Wealth Builders
             </p>
             <div className="flex gap-4 mt-4">
               {socialLinks.map((social) => (
@@ -203,29 +203,29 @@ export default function Footer() {
           <div className="flex gap-12">
             <nav aria-label="Footer navigation">
               <h4
-                className="text-xs font-medium uppercase tracking-wider mb-3"
+                className="text-base font-medium uppercase tracking-wider mb-3"
                 style={{ color: '#FFFFFF' }}
               >
                 Explore
               </h4>
               <div className="space-y-2">
                 <div>
-                  <Link href="/workshops" className="text-sm footer-link">
+                  <Link href="/workshops" className="text-base footer-link">
                     Events
                   </Link>
                 </div>
                 <div>
-                  <Link href="/about" className="text-sm footer-link">
+                  <Link href="/about" className="text-base footer-link">
                     About
                   </Link>
                 </div>
                 <div>
-                  <Link href="/partnerships" className="text-sm footer-link">
+                  <Link href="/partnerships" className="text-base footer-link">
                     Partnerships
                   </Link>
                 </div>
                 <div>
-                  <Link href="/contact" className="text-sm footer-link">
+                  <Link href="/contact" className="text-base footer-link">
                     Contact
                   </Link>
                 </div>
@@ -233,19 +233,19 @@ export default function Footer() {
             </nav>
             <nav aria-label="Legal links">
               <h4
-                className="text-xs font-medium uppercase tracking-wider mb-3"
+                className="text-base font-medium uppercase tracking-wider mb-3"
                 style={{ color: '#FFFFFF' }}
               >
                 Legal
               </h4>
               <div className="space-y-2">
                 <div>
-                  <Link href="/privacy" className="text-sm footer-link">
+                  <Link href="/privacy" className="text-base footer-link">
                     Privacy Policy
                   </Link>
                 </div>
                 <div>
-                  <Link href="/cookie-policy" className="text-sm footer-link">
+                  <Link href="/cookie-policy" className="text-base footer-link">
                     Cookie Policy
                   </Link>
                 </div>
@@ -254,7 +254,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6" style={{ borderTop: '1px solid rgba(250,250,248,0.1)' }}>
-          <p className="text-xs" style={{ color: '#FFFFFF' }}>
+          <p className="text-base" style={{ color: '#FFFFFF' }}>
             © 2026 Better Wealth. All rights reserved. better-wealth.co.uk
           </p>
         </div>

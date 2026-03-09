@@ -52,11 +52,11 @@ function BookingConfirmationContent() {
 
   if (loading) {
     return (
-      <main className="min-h-screen" style={{ backgroundColor: '#F4F2EF' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
         <Navigation />
         <div className="pt-24 pb-16 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <p>Loading your booking details...</p>
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-white/60">Loading your booking details...</p>
           </div>
         </div>
       </main>
@@ -65,15 +65,15 @@ function BookingConfirmationContent() {
 
   if (error || !bookingDetails) {
     return (
-      <main className="min-h-screen" style={{ backgroundColor: '#F4F2EF' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
         <Navigation />
         <div className="pt-24 pb-16 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-3xl font-serif font-bold text-emerald mb-4">
+          <div className="max-w-xl mx-auto text-center">
+            <h1 className="text-3xl font-serif font-bold text-white mb-4">
               Something went wrong
             </h1>
-            <p className="mb-6">We couldn't load your booking details. Please contact us if you need assistance.</p>
-            <Link href="/" className="btn-copper px-6 py-3 text-white rounded-lg font-semibold inline-block">
+            <p className="text-white/60 mb-6">We couldn't load your booking details. Please contact us if you need assistance.</p>
+            <Link href="/" className="bg-[#C4926A] text-white border border-[#C4926A] px-6 py-3 rounded-md font-medium hover:bg-transparent hover:text-[#C4926A] transition-all duration-200 inline-block">
               Return Home
             </Link>
           </div>
@@ -85,27 +85,22 @@ function BookingConfirmationContent() {
   const pricePerPerson = bookingDetails.unitPrice / 100
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F4F2EF' }}>
+    <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
       <Navigation />
 
       <div className="pt-24 pb-16 px-6">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-xl mx-auto">
           {/* Success Card */}
-          <section aria-label="Booking confirmation" className="bg-white rounded-2xl p-8 shadow-lg mb-6">
+          <section aria-label="Booking confirmation" className="rounded-lg border-t-4 border-[#C4926A] shadow-2xl p-10 md:p-14 mb-8" style={{ backgroundColor: '#F5F0EB' }}>
             {/* Success Icon */}
             <div className="text-center mb-6">
-              <div
-                className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4"
-                style={{ backgroundColor: 'rgba(3, 58, 34, 0.1)' }}
-              >
-                <svg className="w-8 h-8" style={{ color: '#033A22' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <div className="w-14 h-14 rounded-full border-2 border-[#C4926A] flex items-center justify-center mx-auto mb-6">
+                <span className="text-[#C4926A] text-2xl">✓</span>
               </div>
-              <h1 className="text-3xl font-serif font-bold text-emerald mb-2">
+              <h1 className="font-serif text-[#033A22] text-3xl md:text-4xl font-bold">
                 Booking Confirmed!
               </h1>
-              <p style={{ color: 'rgba(0,0,0,0.6)' }}>
+              <p className="text-[#033A22]/60 text-sm mt-2">
                 {bookingDetails.quantity > 1
                   ? `Your ${bookingDetails.quantity} spots have been reserved. Check your email for confirmation details.`
                   : 'Your spot has been reserved. Check your email for confirmation details.'}
@@ -113,120 +108,114 @@ function BookingConfirmationContent() {
             </div>
 
             {/* Booking Details */}
-            <div className="border-t border-b py-6 my-6" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
-              <h2 className="font-medium text-emerald mb-4">Booking Details</h2>
+            <div className="my-8">
+              <p className="text-xs tracking-[0.2em] uppercase text-[#C4926A] mb-4">Booking Details</p>
 
-              <div className="space-y-3 text-base">
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Event:</span>
-                  <span className="font-medium text-right">{bookingDetails.workshopName}</span>
+              <div>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Event</span>
+                  <span className="text-[#033A22] text-sm font-medium text-right">{bookingDetails.workshopName}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Date:</span>
-                  <span className="font-medium">{bookingDetails.date}</span>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Date</span>
+                  <span className="text-[#033A22] text-sm font-medium">{bookingDetails.date}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Time:</span>
-                  <span className="font-medium">{bookingDetails.time}</span>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Time</span>
+                  <span className="text-[#033A22] text-sm font-medium">{bookingDetails.time}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Attendees:</span>
-                  <span className="font-medium">{bookingDetails.quantity}</span>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Attendees</span>
+                  <span className="text-[#033A22] text-sm font-medium">{bookingDetails.quantity}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Contact Name:</span>
-                  <span className="font-medium">{bookingDetails.customerName}</span>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Contact Name</span>
+                  <span className="text-[#033A22] text-sm font-medium">{bookingDetails.customerName}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'rgba(0,0,0,0.6)' }}>Email:</span>
-                  <span className="font-medium">{bookingDetails.customerEmail}</span>
+                <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                  <span className="text-[#033A22]/50 text-sm">Email</span>
+                  <span className="text-[#033A22] text-sm font-medium">{bookingDetails.customerEmail}</span>
                 </div>
 
                 {/* Payment Breakdown */}
-                <div className="pt-3 border-t space-y-2" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
-                  {bookingDetails.quantity > 1 && (
-                    <>
-                      <div className="flex justify-between">
-                        <span style={{ color: 'rgba(0,0,0,0.6)' }}>Price per person:</span>
-                        <span className="font-medium">£{pricePerPerson.toFixed(2)}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span style={{ color: 'rgba(0,0,0,0.6)' }}>Quantity:</span>
-                        <span className="font-medium">× {bookingDetails.quantity}</span>
-                      </div>
-                    </>
-                  )}
-                  <div className="flex justify-between pt-2 border-t" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
-                    <span className="font-medium">Total Paid:</span>
-                    <span className="font-bold text-lg text-emerald">£{(bookingDetails.amountPaid / 100).toFixed(2)}</span>
-                  </div>
+                {bookingDetails.quantity > 1 && (
+                  <>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                      <span className="text-[#033A22]/50 text-sm">Price per person</span>
+                      <span className="text-[#033A22] text-sm font-medium">£{pricePerPerson.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-3">
+                      <span className="text-[#033A22]/50 text-sm">Quantity</span>
+                      <span className="text-[#033A22] text-sm font-medium">× {bookingDetails.quantity}</span>
+                    </div>
+                  </>
+                )}
+                <div className="flex justify-between py-3">
+                  <span className="text-[#033A22] font-semibold">Total Paid</span>
+                  <span className="text-[#C4926A] font-serif text-xl font-bold">£{(bookingDetails.amountPaid / 100).toFixed(2)}</span>
                 </div>
               </div>
             </div>
 
             {/* Booking Reference */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#9d6d47' }}>
+            <div className="rounded-md p-5 mb-8" style={{ backgroundColor: '#0D2418' }}>
+              <p className="text-xs tracking-[0.2em] uppercase text-[#C4926A] mb-2">
                 Booking Reference
               </p>
-              <p className="font-mono text-lg font-bold text-emerald">
+              <p className="text-white font-mono text-base font-semibold tracking-wider">
                 {bookingDetails.bookingReference}
               </p>
             </div>
 
             {/* What's Next */}
-            <div className="mb-6">
-              <h3 className="font-medium text-emerald mb-3">What happens next?</h3>
-              <ul className="space-y-2 text-base" style={{ color: 'rgba(0,0,0,0.7)' }}>
-                <li className="flex items-start">
-                  <span className="mr-2" aria-hidden="true">✓</span>
-                  <span>You'll receive a confirmation email with all event details</span>
+            <div className="mb-8">
+              <h3 className="font-serif text-[#033A22] text-base font-semibold mb-3">What happens next?</h3>
+              <ul className="space-y-2">
+                <li className="flex items-start text-sm">
+                  <span className="text-[#C4926A] font-bold mr-2" aria-hidden="true">✓</span>
+                  <span className="text-[#033A22]/70">You'll receive a confirmation email with all event details</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="mr-2" aria-hidden="true">✓</span>
-                  <span>We'll send you a reminder email 1 week before the event</span>
+                <li className="flex items-start text-sm">
+                  <span className="text-[#C4926A] font-bold mr-2" aria-hidden="true">✓</span>
+                  <span className="text-[#033A22]/70">We'll send you a reminder email 1 week before the event</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="mr-2" aria-hidden="true">✓</span>
-                  <span>You'll receive a final reminder 1 day before with directions and parking info</span>
+                <li className="flex items-start text-sm">
+                  <span className="text-[#C4926A] font-bold mr-2" aria-hidden="true">✓</span>
+                  <span className="text-[#033A22]/70">You'll receive a final reminder 1 day before with directions and parking info</span>
                 </li>
               </ul>
             </div>
 
-            {/* Add to Calendar Button - only show if we have valid date info */}
+            {/* Add to Calendar Button */}
             {bookingDetails.date && !bookingDetails.date.includes('confirmation email') && (
-              <div className="mb-6">
+              <div className="mb-4">
                 <button
                   onClick={() => setIsCalendarModalOpen(true)}
-                  className="w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center gap-2"
-                  style={{ backgroundColor: '#C4926A', color: '#033A22' }}
+                  className="w-full bg-[#C4926A] text-white border border-[#C4926A] rounded-md py-3 font-medium hover:bg-transparent hover:text-[#C4926A] transition-all duration-200"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
                   Add to Calendar
                 </button>
               </div>
             )}
 
             {/* Actions */}
-            <div className="flex gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <Link
                 href="/workshops"
-                className="flex-1 px-6 py-3 border-2 border-emerald text-emerald rounded-lg font-semibold hover:bg-emerald/5 text-center"
+                className="text-[#033A22] border border-[#033A22]/30 rounded-md py-3 font-medium hover:border-[#C4926A] hover:text-[#C4926A] transition-all duration-200 text-center text-sm"
               >
                 View All Events
               </Link>
               <Link
                 href="/"
-                className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold text-center"
+                className="bg-[#033A22] text-white border border-[#033A22] rounded-md py-3 font-medium hover:bg-[#0D2418] transition-colors duration-200 text-center text-sm"
               >
                 Return Home
               </Link>
             </div>
           </section>
 
-          {/* Calendar Modal - only render if we have valid date info */}
+          {/* Calendar Modal */}
           {bookingDetails && bookingDetails.date && !bookingDetails.date.includes('confirmation email') && (
             <CalendarModal
               isOpen={isCalendarModalOpen}
@@ -243,9 +232,9 @@ function BookingConfirmationContent() {
           )}
 
           {/* Help Section */}
-          <div className="text-center text-base" style={{ color: 'rgba(0,0,0,0.6)' }}>
-            <p>Questions about your booking?</p>
-            <Link href="/contact" className="underline" style={{ color: '#9d6d47' }}>
+          <div className="text-center text-sm">
+            <p className="text-white/50">Questions about your booking?</p>
+            <Link href="/contact" className="text-[#C4926A] hover:text-[#C4926A]/80 transition-colors duration-200">
               Contact us for assistance
             </Link>
           </div>
@@ -259,11 +248,11 @@ function BookingConfirmationContent() {
 export default function BookingConfirmation() {
   return (
     <Suspense fallback={
-      <main className="min-h-screen" style={{ backgroundColor: '#F4F2EF' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
         <Navigation />
         <div className="pt-24 pb-16 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <p>Loading your booking details...</p>
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-white/60">Loading your booking details...</p>
           </div>
         </div>
       </main>

@@ -159,103 +159,138 @@ function BookWorkshopContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
-      </div>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
+        <Navigation />
+        <div className="pt-24 pb-16 px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-white/60">Loading...</p>
+          </div>
+        </div>
+      </main>
     )
   }
 
   if (!workshop) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Event not found</p>
-      </div>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
+        <Navigation />
+        <div className="pt-24 pb-16 px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-white/60">Event not found</p>
+          </div>
+        </div>
+      </main>
     )
   }
 
   const totalPrice = (workshop.price / 100) * quantity
 
+  const step1Disabled = !selectedDateId
+  const step2Disabled = !firstName || !lastName || !email || !isValidEmail(email) || !phone || quantity < 1 || quantity > maxQuantity
+
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#F4F2EF' }}>
+    <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
       <Navigation />
 
       <div className="pt-24 pb-16 px-6">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-xl mx-auto">
           {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-2">
-              <span className={`text-sm font-medium ${step >= 1 ? 'text-emerald' : 'text-gray-400'}`}>
-                ① Select Date
-              </span>
-              <span className={`text-sm font-medium ${step >= 2 ? 'text-emerald' : 'text-gray-400'}`}>
-                ② Your Details
-              </span>
-              <span className={`text-sm font-medium ${step >= 3 ? 'text-emerald' : 'text-gray-400'}`}>
-                ③ Payment
-              </span>
+          <div className="py-6 mb-6">
+            <div className="flex items-center justify-between mb-4">
+              {[
+                { num: 1, label: 'Select Date' },
+                { num: 2, label: 'Your Details' },
+                { num: 3, label: 'Payment' },
+              ].map((s) => (
+                <div key={s.num} className="flex items-center gap-2">
+                  <div className={`w-6 h-6 rounded-full text-xs flex items-center justify-center ${
+                    step > s.num
+                      ? 'border border-[#C4926A] text-[#C4926A]'
+                      : step === s.num
+                        ? 'bg-[#C4926A] text-white'
+                        : 'border border-white/20 text-white/30'
+                  }`}>
+                    {step > s.num ? '✓' : s.num}
+                  </div>
+                  <span className={`text-sm font-medium ${
+                    step > s.num
+                      ? 'text-[#C4926A]'
+                      : step === s.num
+                        ? 'text-white'
+                        : 'text-white/30'
+                  }`}>
+                    {s.label}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full h-[2px] bg-white/15 rounded-full">
               <div
-                className="h-2 rounded-full transition-all duration-300"
-                style={{
-                  width: `${(step / 3) * 100}%`,
-                  backgroundColor: '#033A22'
-                }}
+                className="h-[2px] rounded-full bg-[#C4926A] transition-all duration-300"
+                style={{ width: `${(step / 3) * 100}%` }}
               />
             </div>
           </div>
 
           {/* Main Card */}
-          <div className="bg-white rounded-2xl py-8 md:py-12 px-8 shadow-lg">
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-emerald mb-2">
+          <div className="rounded-lg border-t-4 border-[#C4926A] p-8 md:p-10" style={{ backgroundColor: '#F5F0EB' }}>
+            <h1 className="font-serif text-[#033A22] text-2xl md:text-3xl font-bold">
               {workshop.name}
             </h1>
-            <p className="text-sm mb-8 md:mb-12" style={{ color: 'rgba(0,0,0,0.6)' }}>
+            <p className="text-[#033A22]/50 text-sm mt-1 mb-8">
               £{workshop.price / 100} per person
             </p>
 
             {/* Step 1: Select Date */}
             {step === 1 && (
               <section aria-label="Select date">
-                <h2 className="text-lg font-medium text-emerald mb-4">Select Your Event Date</h2>
+                <h2 className="font-serif text-[#033A22] text-base font-semibold mb-4">Select Your Event Date</h2>
                 <div className="space-y-3">
-                  {workshopDates.map((date) => (
-                    <button
-                      key={date.id}
-                      onClick={() => setSelectedDateId(date.id)}
-                      className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
-                        selectedDateId === date.id
-                          ? 'border-emerald bg-emerald/5'
-                          : 'border-gray-200 hover:border-emerald/50'
-                      }`}
-                    >
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <p className="font-medium text-emerald">
-                            {new Date(date.date + 'T00:00:00').toLocaleDateString('en-GB', {
-                              weekday: 'long',
-                              day: 'numeric',
-                              month: 'long',
-                              year: 'numeric'
-                            })}
-                          </p>
-                          <p className="text-sm mt-1" style={{ color: 'rgba(0,0,0,0.6)' }}>
-                            {date.time_start.slice(0, 5)} - {date.time_end.slice(0, 5)}
-                          </p>
+                  {workshopDates.map((date) => {
+                    const isSelected = selectedDateId === date.id
+                    return (
+                      <button
+                        key={date.id}
+                        onClick={() => setSelectedDateId(date.id)}
+                        className={`w-full p-4 rounded-md text-left transition-all ${
+                          isSelected
+                            ? 'border border-[#C4926A]'
+                            : 'bg-white border border-[#033A22]/10 hover:border-[#C4926A]/50'
+                        }`}
+                        style={isSelected ? { backgroundColor: '#0D2418' } : undefined}
+                      >
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className={`font-medium text-sm ${isSelected ? 'text-white' : 'text-[#033A22]'}`}>
+                              {new Date(date.date + 'T00:00:00').toLocaleDateString('en-GB', {
+                                weekday: 'long',
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                              })}
+                            </p>
+                            <p className={`text-sm mt-1 ${isSelected ? 'text-white/60' : 'text-[#033A22]/50'}`}>
+                              {date.time_start.slice(0, 5)} - {date.time_end.slice(0, 5)}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-[#C4926A] text-sm font-medium">
+                              {date.seats_remaining} {date.seats_remaining === 1 ? 'spot' : 'spots'} left
+                            </p>
+                          </div>
                         </div>
-                        <div className="text-right">
-                          <p className="text-sm font-medium" style={{ color: '#9d6d47' }}>
-                            {date.seats_remaining} {date.seats_remaining === 1 ? 'spot' : 'spots'} left
-                          </p>
-                        </div>
-                      </div>
-                    </button>
-                  ))}
+                      </button>
+                    )
+                  })}
                 </div>
                 <button
                   onClick={() => setStep(2)}
-                  disabled={!selectedDateId}
-                  className="w-full mt-6 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={step1Disabled}
+                  className={`w-full mt-6 rounded-md py-3 font-medium tracking-wide transition-all duration-200 ${
+                    step1Disabled
+                      ? 'bg-[#C4926A]/40 text-white/60 cursor-not-allowed'
+                      : 'bg-[#C4926A] text-white border border-[#C4926A] hover:bg-transparent hover:text-[#C4926A]'
+                  }`}
                 >
                   Continue to Details →
                 </button>
@@ -266,14 +301,13 @@ function BookWorkshopContent() {
             {step === 2 && (
               <section aria-label="Your details">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-medium text-emerald">Your Details</h2>
+                  <h2 className="font-serif text-[#033A22] text-base font-semibold">Your Details</h2>
                   <button
                     onClick={() => {
                       setStep(1)
                       setDatePreSelected(false)
                     }}
-                    className="text-sm font-medium transition-colors hover:underline"
-                    style={{ color: '#9d6d47' }}
+                    className="text-[#C4926A] text-sm hover:text-[#B07D57] transition-colors"
                   >
                     Change Date
                   </button>
@@ -281,8 +315,8 @@ function BookWorkshopContent() {
 
                 {/* Selected Date Summary */}
                 {selectedDate && (
-                  <div className="bg-emerald/5 border border-emerald/20 rounded-lg p-4 mb-6">
-                    <p className="text-sm font-medium text-emerald">
+                  <div className="rounded-md p-4 mb-6" style={{ backgroundColor: '#0D2418' }}>
+                    <p className="text-white font-medium text-sm">
                       {new Date(selectedDate.date + 'T00:00:00').toLocaleDateString('en-GB', {
                         weekday: 'long',
                         day: 'numeric',
@@ -290,7 +324,7 @@ function BookWorkshopContent() {
                         year: 'numeric'
                       })}
                     </p>
-                    <p className="text-sm mt-1" style={{ color: 'rgba(0,0,0,0.6)' }}>
+                    <p className="text-white/50 text-sm mt-1">
                       {selectedDate.time_start.slice(0, 5)} - {selectedDate.time_end.slice(0, 5)}
                     </p>
                   </div>
@@ -298,44 +332,32 @@ function BookWorkshopContent() {
 
                 <div className="space-y-4">
                   {/* Quantity Selector */}
-                  <div className="bg-gray-50 rounded-lg p-4 mb-2">
-                    <label className="block text-base font-medium mb-2">Number of Attendees *</label>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center">
-                        <button
-                          type="button"
-                          onClick={() => handleQuantityChange(quantity - 1)}
-                          disabled={quantity <= 1}
-                          className="w-10 h-10 rounded-l-lg border-2 border-r-0 border-gray-300 flex items-center justify-center hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                          style={{ borderColor: 'rgba(0,0,0,0.15)' }}
-                        >
-                          −
-                        </button>
-                        <input
-                          type="number"
-                          min={1}
-                          max={maxQuantity}
-                          value={quantity}
-                          onChange={(e) => handleQuantityChange(parseInt(e.target.value) || 1)}
-                          className="w-16 h-10 border-2 border-gray-300 text-center focus:outline-none focus:border-emerald"
-                          style={{ borderColor: 'rgba(0,0,0,0.15)' }}
-                        />
-                        <button
-                          type="button"
-                          onClick={() => handleQuantityChange(quantity + 1)}
-                          disabled={quantity >= maxQuantity}
-                          className="w-10 h-10 rounded-r-lg border-2 border-l-0 border-gray-300 flex items-center justify-center hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                          style={{ borderColor: 'rgba(0,0,0,0.15)' }}
-                        >
-                          +
-                        </button>
-                      </div>
-                      <span className="text-sm" style={{ color: '#9d6d47' }}>
+                  <div className="mb-2">
+                    <label className="block text-[#033A22]/70 text-sm font-medium mb-2">Number of Attendees *</label>
+                    <div className="flex items-center">
+                      <button
+                        type="button"
+                        onClick={() => handleQuantityChange(quantity - 1)}
+                        disabled={quantity <= 1}
+                        className="w-8 h-8 rounded-sm border border-[#C4926A]/40 text-[#C4926A] flex items-center justify-center hover:bg-[#C4926A]/10 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                      >
+                        −
+                      </button>
+                      <span className="text-[#033A22] font-serif text-lg font-bold px-4">{quantity}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleQuantityChange(quantity + 1)}
+                        disabled={quantity >= maxQuantity}
+                        className="w-8 h-8 rounded-sm border border-[#C4926A]/40 text-[#C4926A] flex items-center justify-center hover:bg-[#C4926A]/10 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                      >
+                        +
+                      </button>
+                      <span className="text-[#C4926A] text-sm ml-3">
                         {selectedDate?.seats_remaining} spots available
                       </span>
                     </div>
                     {quantity > 1 && (
-                      <p className="text-xs mt-2" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                      <p className="text-[#033A22]/50 text-sm mt-2">
                         Booking {quantity} places at £{workshop.price / 100} each = £{totalPrice}
                       </p>
                     )}
@@ -343,72 +365,71 @@ function BookWorkshopContent() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-base font-medium mb-2">First Name *</label>
+                      <label className="block text-[#033A22]/70 text-sm font-medium mb-1">First Name *</label>
                       <input
                         type="text"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
-                        className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald focus:border-emerald focus:outline-none"
-                        style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                        className="w-full bg-white border border-[#033A22]/15 rounded-md px-4 py-3 text-sm text-[#033A22] placeholder:text-gray-400 focus:border-[#C4926A]/60 focus:ring-0 focus:outline-none transition-colors"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-base font-medium mb-2">Last Name *</label>
+                      <label className="block text-[#033A22]/70 text-sm font-medium mb-1">Last Name *</label>
                       <input
                         type="text"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
-                        className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald focus:border-emerald focus:outline-none"
-                        style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                        className="w-full bg-white border border-[#033A22]/15 rounded-md px-4 py-3 text-sm text-[#033A22] placeholder:text-gray-400 focus:border-[#C4926A]/60 focus:ring-0 focus:outline-none transition-colors"
                         required
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-base font-medium mb-2">Email *</label>
+                    <label className="block text-[#033A22]/70 text-sm font-medium mb-1">Email *</label>
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald focus:border-emerald focus:outline-none"
-                      style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                      className="w-full bg-white border border-[#033A22]/15 rounded-md px-4 py-3 text-sm text-[#033A22] placeholder:text-gray-400 focus:border-[#C4926A]/60 focus:ring-0 focus:outline-none transition-colors"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-base font-medium mb-2">Phone Number *</label>
+                    <label className="block text-[#033A22]/70 text-sm font-medium mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald focus:border-emerald focus:outline-none"
-                      style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                      className="w-full bg-white border border-[#033A22]/15 rounded-md px-4 py-3 text-sm text-[#033A22] placeholder:text-gray-400 focus:border-[#C4926A]/60 focus:ring-0 focus:outline-none transition-colors"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-base font-medium mb-2">Company (Optional)</label>
+                    <label className="block text-[#033A22]/70 text-sm font-medium mb-1">Company (Optional)</label>
                     <input
                       type="text"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald focus:border-emerald focus:outline-none"
-                      style={{ borderColor: 'rgba(0,0,0,0.15)' }}
+                      className="w-full bg-white border border-[#033A22]/15 rounded-md px-4 py-3 text-sm text-[#033A22] placeholder:text-gray-400 focus:border-[#C4926A]/60 focus:ring-0 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
-                <div className="flex gap-4 mt-6">
+                <div className="flex gap-3 mt-6">
                   <button
                     onClick={() => setStep(1)}
-                    className="flex-1 px-6 py-3 border-2 border-emerald text-emerald rounded-lg font-semibold hover:bg-emerald/5"
+                    className="flex-1 bg-transparent text-[#033A22] border border-[#033A22]/25 rounded-md py-3 font-medium hover:border-[#C4926A]/50 hover:text-[#C4926A] transition-all duration-200"
                   >
                     ← Back
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    disabled={!firstName || !lastName || !email || !isValidEmail(email) || !phone || quantity < 1 || quantity > maxQuantity}
-                    className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={step2Disabled}
+                    className={`flex-1 rounded-md py-3 font-medium tracking-wide transition-all duration-200 ${
+                      step2Disabled
+                        ? 'bg-[#C4926A]/40 text-white/60 cursor-not-allowed'
+                        : 'bg-[#C4926A] text-white border border-[#C4926A] hover:bg-transparent hover:text-[#C4926A]'
+                    }`}
                   >
                     Continue to Payment →
                   </button>
@@ -419,18 +440,18 @@ function BookWorkshopContent() {
             {/* Step 3: Payment Summary */}
             {step === 3 && (
               <section aria-label="Payment summary">
-                <h2 className="text-lg font-medium text-emerald mb-8">Confirm & Pay</h2>
+                <h2 className="font-serif text-[#033A22] text-base font-semibold mb-4">Confirm & Pay</h2>
 
-                <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                  <h3 className="font-medium mb-3">Booking Summary</h3>
-                  <div className="space-y-2 text-base">
-                    <div>
-                      <span className="block mb-1" style={{ color: 'rgba(0,0,0,0.6)' }}>Event:</span>
-                      <span className="font-medium">{workshop.name}</span>
+                <div className="bg-white border border-[#033A22]/10 rounded-md p-5 mb-6">
+                  <p className="text-xs tracking-[0.2em] uppercase text-[#C4926A] mb-3">Booking Summary</p>
+                  <div>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Event</span>
+                      <span className="text-[#033A22] text-sm font-medium text-right">{workshop.name}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Date:</span>
-                      <span className="font-medium">
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Date</span>
+                      <span className="text-[#033A22] text-sm font-medium">
                         {selectedDate && new Date(selectedDate.date + 'T00:00:00').toLocaleDateString('en-GB', {
                           day: 'numeric',
                           month: 'long',
@@ -438,39 +459,37 @@ function BookWorkshopContent() {
                         })}
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Time:</span>
-                      <span className="font-medium">
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Time</span>
+                      <span className="text-[#033A22] text-sm font-medium">
                         {selectedDate && `${selectedDate.time_start.slice(0, 5)} - ${selectedDate.time_end.slice(0, 5)}`}
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Attendees:</span>
-                      <span className="font-medium">{quantity}</span>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Attendees</span>
+                      <span className="text-[#033A22] text-sm font-medium">{quantity}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Contact Name:</span>
-                      <span className="font-medium">{firstName} {lastName}</span>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Contact Name</span>
+                      <span className="text-[#033A22] text-sm font-medium">{firstName} {lastName}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span style={{ color: 'rgba(0,0,0,0.6)' }}>Email:</span>
-                      <span className="font-medium">{email}</span>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/50 text-sm">Email</span>
+                      <span className="text-[#033A22] text-sm font-medium">{email}</span>
                     </div>
 
                     {/* Pricing Breakdown */}
-                    <div className="pt-3 mt-3 border-t border-gray-200 space-y-2">
-                      <div className="flex justify-between">
-                        <span style={{ color: 'rgba(0,0,0,0.6)' }}>Price per person:</span>
-                        <span className="font-medium">£{workshop.price / 100}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span style={{ color: 'rgba(0,0,0,0.6)' }}>Attendees:</span>
-                        <span className="font-medium">× {quantity}</span>
-                      </div>
-                      <div className="flex justify-between pt-2 border-t border-gray-200">
-                        <span className="font-bold">Total:</span>
-                        <span className="font-bold text-xl text-emerald">£{totalPrice}</span>
-                      </div>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/60 text-sm">Price per person</span>
+                      <span className="text-[#033A22] text-sm font-medium">£{workshop.price / 100}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-[#033A22]/8 py-2">
+                      <span className="text-[#033A22]/60 text-sm">Attendees</span>
+                      <span className="text-[#033A22] text-sm font-medium">× {quantity}</span>
+                    </div>
+                    <div className="flex justify-between py-3">
+                      <span className="text-[#033A22] font-bold text-sm">Total</span>
+                      <span className="text-[#C4926A] font-serif text-xl font-bold">£{totalPrice}</span>
                     </div>
                   </div>
                 </div>
@@ -481,24 +500,28 @@ function BookWorkshopContent() {
                   onSuccess={setTurnstileToken}
                 /> */}
 
-                <div className="flex gap-4">
+                <div className="flex gap-3">
                   <button
                     onClick={() => setStep(2)}
                     disabled={submitting}
-                    className="flex-1 px-6 py-3 border-2 border-emerald text-emerald rounded-lg font-semibold hover:bg-emerald/5 disabled:opacity-50"
+                    className="flex-1 bg-transparent text-[#033A22] border border-[#033A22]/25 rounded-md py-3 font-medium hover:border-[#C4926A]/50 hover:text-[#C4926A] transition-all duration-200 disabled:opacity-50"
                   >
                     ← Back
                   </button>
                   <button
                     onClick={handlePayment}
                     disabled={submitting}
-                    className="flex-1 btn-copper px-6 py-3 text-white rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                    className={`flex-1 rounded-md py-3 font-medium tracking-wide transition-all duration-200 ${
+                      submitting
+                        ? 'bg-[#C4926A]/40 text-white/60 cursor-not-allowed'
+                        : 'bg-[#C4926A] text-white border border-[#C4926A] hover:bg-transparent hover:text-[#C4926A]'
+                    }`}
                   >
                     {submitting ? 'Processing...' : `Pay £${totalPrice} →`}
                   </button>
                 </div>
 
-                <p className="text-xs text-center mt-4" style={{ color: 'rgba(0,0,0,0.5)' }}>
+                <p className="text-[#033A22]/40 text-xs text-center mt-4">
                   Secure payment powered by Stripe
                 </p>
               </section>
@@ -514,9 +537,14 @@ function BookWorkshopContent() {
 export default function BookWorkshop() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
-      </div>
+      <main className="min-h-screen" style={{ backgroundColor: '#0D2418' }}>
+        <Navigation />
+        <div className="pt-24 pb-16 px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <p className="text-white/60">Loading...</p>
+          </div>
+        </div>
+      </main>
     }>
       <BookWorkshopContent />
     </Suspense>

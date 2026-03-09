@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  font-size: 16px;
 }
 
 body.mobile-menu-open {
@@ -41,6 +42,9 @@ body.mobile-menu-open {
   outline-offset: 2px;
 }
 
+
+
+
 @theme extend {
   --color-emerald: #033A22;
   --color-emerald-light: #04482A;
@@ -51,13 +55,27 @@ body.mobile-menu-open {
   --color-eggwhite: #EEF1ED;
   --color-eggwhite-dark: #E5E8E4;
   --color-warmwhite: #FAFAF8;
+  --color-bw-black: #0D0D0D;
+  --color-bw-charcoal: #141414;
+  --color-bw-charcoal-light: #1E1E1E;
   --font-serif: 'Times New Roman', Times, serif;
   --font-sans: 'Atkinson Hyperlegible', sans-serif;
+  --font-bw-serif: 'Times New Roman', Times, serif;
+  --font-bw-sans: 'Atkinson Hyperlegible', sans-serif;
 }
 
 @keyframes shine {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+@keyframes slide-in {
+  0% { opacity: 0; transform: translateX(calc(30px * var(--slide-direction, 1))); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-in {
+  animation-name: slide-in;
 }
 
 .text-metallic {
@@ -132,6 +150,18 @@ body.mobile-menu-open {
   transform: translateY(-1px);
 }
 
+.btn-copper-invert {
+  background-color: #C4926A;
+  color: white;
+  border: 1px solid #C4926A;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.btn-copper-invert:hover {
+  background-color: transparent;
+  color: #C4926A;
+}
+
 .btn-outline-copper {
   border: 1px solid rgba(196, 146, 106, 0.45);
   color: #E8C8A5;
@@ -154,6 +184,29 @@ body.mobile-menu-open {
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(196, 146, 106, 0.4);
+}
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+  color: white;
+  transition: color 0.2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background-color: #C4926A;
+  transition: width 0.3s ease;
+}
+.nav-link:hover {
+  color: #C4926A;
+}
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .footer-link {
@@ -180,6 +233,12 @@ body.mobile-menu-open {
   filter: grayscale(0%) brightness(1);
 }
 
+/* Charitable logos scroll */
+@keyframes logoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* Accreditations marquee animation */
 @keyframes scroll-marquee {
   0% { transform: translateX(0); }
@@ -188,6 +247,10 @@ body.mobile-menu-open {
 
 .animate-marquee {
   animation: scroll-marquee 40s linear infinite;
+}
+
+.animate-marquee-ticker {
+  animation: scroll-marquee 120s linear infinite;
 }
 
 .animate-marquee:hover {

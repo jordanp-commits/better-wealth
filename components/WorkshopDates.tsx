@@ -15,9 +15,11 @@ type WorkshopDate = {
 type WorkshopDatesProps = {
   workshopSlug: string
   bookingPath: string
+  variant?: 'light' | 'dark'
 }
 
-export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDatesProps) {
+export default function WorkshopDates({ workshopSlug, bookingPath, variant = 'light' }: WorkshopDatesProps) {
+  const isDark = variant === 'dark'
   const [dates, setDates] = useState<WorkshopDate[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -62,11 +64,11 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
         {[1, 2, 3].map((i) => (
           <div
             key={i}
-            className="bg-white border-2 rounded-xl p-5 animate-pulse"
-            style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
+            className={`border-2 rounded-xl p-5 animate-pulse ${isDark ? 'bg-white/5' : 'bg-white'}`}
+            style={{ borderColor: isDark ? 'rgba(196,146,106,0.15)' : 'rgba(196, 146, 106, 0.2)' }}
           >
-            <div className="h-5 bg-gray-200 rounded w-1/2 mb-2" />
-            <div className="h-4 bg-gray-200 rounded w-1/3" />
+            <div className={`h-5 rounded w-1/2 mb-2 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
+            <div className={`h-4 rounded w-1/3 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
           </div>
         ))}
       </div>
@@ -74,15 +76,18 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
   }
 
   if (dates.length === 0) {
+    if (isDark) {
+      return (
+        <div className="border border-white/10 rounded-md p-4 text-center bg-white/5">
+          <p className="text-white/40 text-sm italic">No dates currently available</p>
+          <p className="text-white/25 text-xs mt-1">Check back soon</p>
+        </div>
+      )
+    }
     return (
-      <div
-        className="bg-white border-2 rounded-xl p-5 text-center"
-        style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
-      >
-        <p className="text-base" style={{ color: 'rgba(0,0,0,0.5)' }}>
-          No dates currently available. Please check back soon.
-        </p>
-      </div>
+      <p className="text-sm italic" style={{ color: 'rgba(0,0,0,0.5)' }}>
+        No dates currently available. Please check back soon.
+      </p>
     )
   }
 
@@ -104,25 +109,18 @@ export default function WorkshopDates({ workshopSlug, bookingPath }: WorkshopDat
             key={item.id}
           >
             <div
-              className="bg-white border-2 rounded-xl p-5 cursor-pointer transition-all duration-300 hover:border-emerald hover:-translate-y-1 hover:shadow-lg"
-              style={{ borderColor: 'rgba(196, 146, 106, 0.2)' }}
+              className={`border rounded-lg p-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10' : 'bg-white border-2 rounded-xl p-5 hover:border-emerald hover:shadow-lg'}`}
+              style={isDark ? undefined : { borderColor: 'rgba(196, 146, 106, 0.2)' }}
             >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-base font-serif font-bold text-emerald">{formattedDate}</p>
-                  <p className="text-base mt-1" style={{ color: 'rgba(0,0,0,0.5)' }}>{timeDisplay}</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-medium" style={{ color: '#9d6d47' }}>
-                    {item.seats_remaining} {item.seats_remaining === 1 ? 'spot' : 'spots'} left
-                  </span>
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300"
-                    style={{ backgroundColor: 'rgba(196, 146, 106, 0.1)' }}
-                  >
-                    <span style={{ color: '#9d6d47' }} aria-hidden="true">→</span>
-                  </div>
-                </div>
+              <div>
+                <p className={`text-sm font-serif font-bold ${isDark ? 'text-white' : 'text-emerald'}`}>{formattedDate}</p>
+                <p className={`text-sm mt-1 ${isDark ? 'text-white/50' : ''}`} style={isDark ? undefined : { color: 'rgba(0,0,0,0.5)' }}>{timeDisplay}</p>
+              </div>
+              <div className="flex items-center justify-between mt-2">
+                <span className="text-xs font-medium" style={{ color: '#C4926A' }}>
+                  {item.seats_remaining} {item.seats_remaining === 1 ? 'spot' : 'spots'} left
+                </span>
+                <span style={{ color: '#C4926A' }} aria-hidden="true">→</span>
               </div>
             </div>
           </Link>
