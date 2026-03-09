@@ -16,11 +16,11 @@ const siteUrl = 'https://better-wealth.co.uk'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Better Wealth | Marketing Education for Financial Services & Real Estate',
+    default: 'Better Wealth | Private Community for Independent Wealth Builders',
     template: '%s | Better Wealth',
   },
-  description: 'Face-to-face marketing events for mortgage brokers and financial advisors. Practical training with real deliverables. Manchester-based, FCA-compliant strategies.',
-  keywords: ['mortgage broker marketing', 'financial advisor marketing', 'FCA compliant marketing', 'broker events', 'Manchester', 'financial services training', 'real estate marketing'],
+  description: 'A private membership network for founders and operators serious about building long-term wealth. Curated events, expert sessions, and trusted peer connections in Manchester.',
+  keywords: ['private wealth community', 'wealth builders network', 'founders community Manchester', 'curated events', 'expert sessions', 'peer connections', 'independent wealth'],
   authors: [{ name: 'Better Wealth' }],
   creator: 'Better Wealth',
   publisher: 'Better Wealth',
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
     apple: '/Favicon.svg?v=2',
   },
   openGraph: {
-    title: 'Better Wealth | Marketing Education for Financial Services',
-    description: 'Face-to-face marketing events for mortgage brokers and financial advisors. Practical training with real deliverables.',
+    title: 'Better Wealth | Private Community for Independent Wealth Builders',
+    description: 'A private membership network for founders and operators serious about building long-term wealth.',
     url: siteUrl,
     siteName: 'Better Wealth',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://better-wealth.co.uk/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Better Wealth - Marketing Education for Financial Services',
+        alt: 'Better Wealth - Private Community for Independent Wealth Builders',
       },
     ],
     locale: 'en_GB',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Better Wealth | Marketing Education for Financial Services',
-    description: 'Face-to-face marketing events for mortgage brokers and financial advisors.',
-    images: ['/og-image.jpg'],
+    title: 'Better Wealth | Private Community for Independent Wealth Builders',
+    description: 'A private membership network for founders and operators serious about building long-term wealth.',
+    images: ['https://better-wealth.co.uk/og-image.png'],
   },
   robots: {
     index: true,
