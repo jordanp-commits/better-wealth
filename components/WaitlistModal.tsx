@@ -81,7 +81,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       onClick={handleClose}
     >
       <div
-        className="border border-[#C4926A]/20 border-t-4 border-t-[#C4926A] rounded-lg p-8 md:p-10 max-w-md w-full relative max-h-[90vh] overflow-y-auto"
+        className="border border-[#C4926A]/20 border-t-4 border-t-[#C4926A] rounded-lg p-8 md:p-10 max-w-md md:max-w-2xl w-full relative max-h-[90vh] overflow-y-auto"
         style={{ backgroundColor: '#0D2418' }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -109,12 +109,12 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             {/* Header */}
             <div className="w-8 border-t-2 border-[#C4926A] mb-5" />
             <h2 className="font-serif text-white text-2xl md:text-3xl font-bold mb-2">Apply for Membership</h2>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
               Join the waitlist. We review every application personally and will be in touch soon.
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">First Name *</label>
@@ -122,7 +122,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                     required
                   />
                 </div>
@@ -132,42 +132,42 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
                     required
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Email *</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Phone *</label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Company</label>
-                <input
-                  type="text"
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div>
+                  <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Email *</label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Phone *</label>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-white/60 text-xs tracking-wide uppercase mb-1">Company</label>
+                  <input
+                    type="text"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors"
+                  />
+                </div>
               </div>
 
               <div>
@@ -176,8 +176,8 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   value={whyJoin}
                   onChange={(e) => setWhyJoin(e.target.value)}
                   placeholder="Tell us about your goals and what you're looking to achieve..."
-                  rows={3}
-                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-3 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors resize-none"
+                  rows={2}
+                  className="w-full bg-[#0A1F10] border border-white/10 rounded-md px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-[#C4926A]/50 focus:outline-none transition-colors resize-none"
                   required
                 />
               </div>
