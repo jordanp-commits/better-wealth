@@ -31,8 +31,8 @@ export default function EnteringFinancialServicesWorkshop() {
 
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-end">
-        <div className="absolute inset-0" style={{ backgroundImage: "url('/cortland-coworking.png')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.35) saturate(0.7) sepia(0.3)' }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/15" />
+        <div className="absolute inset-0" style={{ backgroundImage: "url('/cortland-coworking.png')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.55) saturate(0.7) sepia(0.3)' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
         <FadeIn>
           <div className="relative z-10 w-full max-w-5xl mx-auto px-8 md:px-16 pb-16">
             <h1 className="font-serif text-white text-4xl md:text-5xl font-bold max-w-xl mb-6">
@@ -42,10 +42,6 @@ export default function EnteringFinancialServicesWorkshop() {
               <span className="flex items-center gap-2 text-white/70 text-sm">
                 <span className="w-1 h-1 rounded-full bg-[#C4926A] inline-block" />
                 Salford, Manchester
-              </span>
-              <span className="flex items-center gap-2 text-white/70 text-sm">
-                <span className="w-1 h-1 rounded-full bg-[#C4926A] inline-block" />
-                Half Day (10am - 1pm)
               </span>
               <span className="font-serif text-[#C4926A] text-2xl font-bold">£125</span>
             </div>

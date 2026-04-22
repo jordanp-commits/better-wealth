@@ -62,8 +62,8 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="py-36 md:py-48 px-6 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.35) saturate(0.7) sepia(0.3)' }} />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.55) saturate(0.7) sepia(0.3)' }} />
+        <div className="absolute inset-0 bg-black/45" />
         <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.04, zIndex: 1 }} aria-hidden="true">
           <rect width="100%" height="100%" filter="url(#grain)" />
         </svg>
