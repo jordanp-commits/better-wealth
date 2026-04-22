@@ -45,7 +45,7 @@ export default function PaidAdvertisingWorkshop() {
               </span>
               <span className="flex items-center gap-2 text-white/70 text-sm">
                 <span className="w-1 h-1 rounded-full bg-[#C4926A] inline-block" />
-                Half Day (9am - 1pm)
+                Half Day (10am - 1pm)
               </span>
               <span className="font-serif text-[#C4926A] text-2xl font-bold">£125</span>
             </div>

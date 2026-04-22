@@ -128,12 +128,12 @@ export default function Home() {
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-5">
                     <div className="text-white rounded-xl p-3 text-center w-16 flex-shrink-0" style={badgeBg}>
-                      <div className="text-base uppercase tracking-wide opacity-50">Feb</div>
-                      <div className="text-xl font-bold">15</div>
+                      <div className="text-base uppercase tracking-wide opacity-50">May</div>
+                      <div className="text-xl font-bold">08</div>
                     </div>
                     <div>
                       <h3 className="text-base font-serif font-bold text-emerald">Paid Advertising Fundamentals for Lead Gen</h3>
-                      <p className="text-base mt-0.5" style={mutedDark}>Manchester • 9am – 1pm • Limited Places</p>
+                      <p className="text-base mt-0.5" style={mutedDark}>Manchester • 10am – 1pm • Limited Places</p>
                     </div>
                   </div>
                   <p className="text-base mt-2 leading-relaxed flex-grow" style={{ color: '#6B7280' }}>Learn paid advertising strategies built specifically for mortgage brokers.</p>
@@ -156,12 +156,12 @@ export default function Home() {
                 <div className="p-6 flex flex-col flex-grow">
                   <div className="flex items-center gap-5">
                     <div className="text-white rounded-xl p-3 text-center w-16 flex-shrink-0" style={badgeBg}>
-                      <div className="text-base uppercase tracking-wide opacity-50">Mar</div>
-                      <div className="text-xl font-bold">01</div>
+                      <div className="text-base uppercase tracking-wide opacity-50">May</div>
+                      <div className="text-xl font-bold">19</div>
                     </div>
                     <div>
                       <h3 className="text-base font-serif font-bold text-emerald">Entering Financial Services</h3>
-                      <p className="text-base mt-0.5" style={mutedDark}>Manchester • 2pm – 6pm • Limited Places</p>
+                      <p className="text-base mt-0.5" style={mutedDark}>Manchester • 10am – 1pm • Limited Places</p>
                     </div>
                   </div>
                   <p className="text-base mt-2 leading-relaxed flex-grow" style={{ color: '#6B7280' }}>Master the compliance and qualification process to become FCA regulated.</p>
