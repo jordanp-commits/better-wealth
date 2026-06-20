@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { csrfHeaders } from '@/lib/csrf'
 
 interface WaitlistModalProps {
@@ -10,7 +9,6 @@ interface WaitlistModalProps {
 }
 
 export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
-  const router = useRouter()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -52,7 +50,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         return
       }
 
-      router.push('/thank-you')
+      window.location.href = '/thank-you'
     } catch (err) {
       setError('Failed to submit. Please try again.')
       setSubmitting(false)
