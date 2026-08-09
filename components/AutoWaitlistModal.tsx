@@ -1,12 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import WaitlistModal from './WaitlistModal'
 
 export default function AutoWaitlistModal() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const hidden = pathname === '/events/register' || pathname === '/events/register/confirmed'
 
   useEffect(() => {
+    if (hidden) return
+
     // Don't show if already applied
     if (typeof window !== 'undefined') {
       if (localStorage.getItem('waitlist_applied') === 'true') {
@@ -55,6 +60,8 @@ export default function AutoWaitlistModal() {
     setIsOpen(false)
     sessionStorage.setItem('waitlist_dismissed', 'true')
   }
+
+  if (hidden) return null
 
   return <WaitlistModal isOpen={isOpen} onClose={handleClose} />
 }
