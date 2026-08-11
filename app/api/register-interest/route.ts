@@ -20,6 +20,7 @@ export async function POST(request: Request) {
     const email = sanitizeInput(body.email || '')
     const phone = sanitizeInput(body.phone || '')
     const reason = sanitizeInput(body.reason || '')
+    const marketing_opt_in = body.marketing_opt_in === true
 
     if (!first_name || !last_name || !event || !email || !reason) {
       return NextResponse.json(
@@ -28,13 +29,24 @@ export async function POST(request: Request) {
       )
     }
 
-    // Basic email validation
+    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Please provide a valid email address.' },
         { status: 400 }
       )
+    }
+
+    // Phone validation (if provided)
+    if (phone) {
+      const digitsOnly = phone.replace(/[\s\-\(\)\.]/g, '')
+      if (!/^\+?\d{7,15}$/.test(digitsOnly)) {
+        return NextResponse.json(
+          { error: 'Please provide a valid phone number.' },
+          { status: 400 }
+        )
+      }
     }
 
     const { error } = await supabaseAdmin
@@ -46,6 +58,7 @@ export async function POST(request: Request) {
         email,
         phone: phone || null,
         reason,
+        marketing_opt_in,
       })
 
     if (error) {
@@ -103,6 +116,14 @@ export async function POST(request: Request) {
               </td>
             </tr>
             ` : ''}
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">
+                <strong>Marketing opt-in:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">
+                ${marketing_opt_in ? '&#9989; Yes' : '&#10060; No'}
+              </td>
+            </tr>
           </table>
 
           <div style="margin-top: 30px;">

@@ -23,6 +23,7 @@ interface FormData {
   phone: string
   reason: string
   company: string
+  marketing_opt_in: boolean
 }
 
 export default function RegisterForm() {
@@ -35,6 +36,7 @@ export default function RegisterForm() {
     phone: '',
     reason: '',
     company: '',
+    marketing_opt_in: false,
   })
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -46,6 +48,23 @@ export default function RegisterForm() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     setError('')
+
+    // Client-side email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(form.email)) {
+      setError('Please enter a valid email address.')
+      return
+    }
+
+    // Client-side phone validation (if provided)
+    if (form.phone) {
+      const digitsOnly = form.phone.replace(/[\s\-\(\)\.]/g, '')
+      if (!/^\+?\d{7,15}$/.test(digitsOnly)) {
+        setError('Please enter a valid phone number.')
+        return
+      }
+    }
+
     setSubmitting(true)
 
     try {
@@ -168,6 +187,7 @@ export default function RegisterForm() {
         <input
           id="phone"
           type="tel"
+          placeholder="e.g. +44 7700 900000"
           className={inputClasses}
           value={form.phone}
           onChange={(e) => update('phone', e.target.value)}
@@ -186,6 +206,19 @@ export default function RegisterForm() {
           value={form.reason}
           onChange={(e) => update('reason', e.target.value)}
         />
+      </div>
+
+      <div className="flex items-start gap-3">
+        <input
+          id="marketing_opt_in"
+          type="checkbox"
+          checked={form.marketing_opt_in}
+          onChange={(e) => setForm((prev) => ({ ...prev, marketing_opt_in: e.target.checked }))}
+          className="mt-0.5 h-4 w-4 border-stone-300 accent-emerald-dark"
+        />
+        <label htmlFor="marketing_opt_in" className="text-xs text-stone-500 leading-relaxed">
+          I&rsquo;d like to receive updates about future events and news from Better Wealth. You can unsubscribe at any time.
+        </label>
       </div>
 
       <div className="pt-2">
