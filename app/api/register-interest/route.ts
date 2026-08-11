@@ -1,6 +1,9 @@
+import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
-import { sanitizeInput } from '@/lib/sanitize'
+import { sanitizeInput, escapeHtml } from '@/lib/sanitize'
 import { supabaseAdmin } from '@/lib/supabase-admin'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
@@ -51,6 +54,73 @@ export async function POST(request: Request) {
         { error: 'Failed to save registration.' },
         { status: 500 }
       )
+    }
+
+    // Send notification email to the team
+    const { error: emailError } = await resend.emails.send({
+      from: 'Better Wealth <onboarding@resend.dev>',
+      to: 'info@better-wealth.co.uk',
+      replyTo: email,
+      subject: `Event Registration — ${escapeHtml(first_name)} ${escapeHtml(last_name)}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #033A22; border-bottom: 2px solid #C4926A; padding-bottom: 10px;">
+            New Event Registration
+          </h2>
+
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666; width: 140px;">
+                <strong>Name:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">
+                ${escapeHtml(first_name)} ${escapeHtml(last_name)}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">
+                <strong>Event:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">
+                ${escapeHtml(event)}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">
+                <strong>Email:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">
+                <a href="mailto:${escapeHtml(email)}" style="color: #033A22;">${escapeHtml(email)}</a>
+              </td>
+            </tr>
+            ${phone ? `
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #666;">
+                <strong>Phone:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #333;">
+                ${escapeHtml(phone)}
+              </td>
+            </tr>
+            ` : ''}
+          </table>
+
+          <div style="margin-top: 30px;">
+            <h3 style="color: #033A22; margin-bottom: 10px;">Reason for wanting to attend:</h3>
+            <div style="background-color: #F4F2EF; padding: 20px; border-radius: 8px; color: #333; line-height: 1.6;">
+              ${escapeHtml(reason).replace(/\n/g, '<br>')}
+            </div>
+          </div>
+
+          <p style="margin-top: 30px; font-size: 12px; color: #999;">
+            This registration was submitted via the Better Wealth events page.
+          </p>
+        </div>
+      `,
+    })
+
+    if (emailError) {
+      console.error('Resend email error:', emailError)
     }
 
     return NextResponse.json({ success: true })
